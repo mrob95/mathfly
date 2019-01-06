@@ -1,0 +1,11 @@
+# Ignore junk
+.idea/
+*.pyc
+*.wav
+*.class
+test.py
+log.txt
+complexity_report*
+*.log
+*.*\#
+*.*~
