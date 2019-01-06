@@ -16,7 +16,7 @@ import os
 
 BASE_PATH = os.path.realpath(__file__).split("\\lib\\")[0].replace("\\", "/")
 
-SETTINGS = utilities.load_toml_file(BASE_PATH + "/bindings/settings.toml")
+SETTINGS = utilities.load_toml_file(BASE_PATH + "/config/settings.toml")
 CCR_PATH = BASE_PATH + "/" + SETTINGS["ccr_path"]
 
 def app_merge(mp):

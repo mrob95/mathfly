@@ -3,12 +3,10 @@ Created on Sep 6, 2015
 
 @author: synkarius
 '''
-from dragonfly.grammar.elements import Dictation
+from dragonfly.grammar.elements import Dictation, IntegerRef
 
-from lib.dfplus.additions import IntegerRefST
 from lib.dfplus.merge.mergepair import MergeInf
 from lib.dfplus.merge.mergerule import MergeRule
-from lib.dfplus.state.actions2 import NullAction
 
 
 class SelfModifyingRule(MergeRule):
@@ -31,7 +29,7 @@ class SelfModifyingRule(MergeRule):
 
     def refresh(self, *args):
         '''Does stuff to get mapping, then calls self.reset()'''
-        self.reset({"default record rule spec": NullAction()})
+        self.reset({})
 
     def set_merger(self, merger):
         '''only set for CCR SelfModifyingRules'''
@@ -45,7 +43,7 @@ class SelfModifyingRule(MergeRule):
             grammar.unload()
             grammar.remove_rule(self)
 
-        extras = self.extras if self.extras else [IntegerRefST("n", 1, 50), Dictation("s")]
+        extras = self.extras if self.extras else [IntegerRef("n", 1, 50), Dictation("s")]
         defaults = self.defaults if self.defaults else { "n": 1 }
         MergeRule.__init__(self, self.name, mapping, extras, defaults, self.exported,
                            self.context)

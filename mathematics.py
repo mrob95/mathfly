@@ -54,11 +54,11 @@ class mathematics(MergeRule):
     extras = [
         IntegerRef("rows", 1, 6),
         IntegerRef("cols", 1, 6),
-        utilities.Choice_from_file("big", ["bindings/core.toml", "capitals"]),
-        utilities.Choice_from_file("greek_letter", ["bindings/scientific_notebook.toml", "greek_letters"]),
-        utilities.Choice_from_file("symbol", ["bindings/scientific_notebook.toml", "tex_symbols"]),
-        utilities.Choice_from_file("misc_sn_keys", ["bindings/scientific_notebook.toml", "misc_sn_keys"]),
-        utilities.Choice_from_file("misc_sn_text", ["bindings/scientific_notebook.toml", "misc_sn_text"]),
+        utilities.Choice_from_file("big", ["config/core.toml", "capitals"]),
+        utilities.Choice_from_file("greek_letter", ["config/scientific_notebook.toml", "greek_letters"]),
+        utilities.Choice_from_file("symbol", ["config/scientific_notebook.toml", "tex_symbols"]),
+        utilities.Choice_from_file("misc_sn_keys", ["config/scientific_notebook.toml", "misc_sn_keys"]),
+        utilities.Choice_from_file("misc_sn_text", ["config/scientific_notebook.toml", "misc_sn_text"]),
         
     ]
 

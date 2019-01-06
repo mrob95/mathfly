@@ -12,7 +12,7 @@ import os
 
 BASE_PATH = os.path.realpath(__file__).split("\\core.py")[0].replace("\\", "/")
 
-SETTINGS = utilities.load_toml_file(BASE_PATH + "/bindings/settings.toml")
+SETTINGS = utilities.load_toml_file(BASE_PATH + "/config/settings.toml")
 
 _LETTERS, _DIRECTIONS = "letters", "directions"
 if SETTINGS["alternative_letters"]:
@@ -42,14 +42,14 @@ class core(MergeRule):
 
     extras = [
     	IntegerRef("n", 1, 10),
-    	utilities.Choice_from_file("big", ["bindings/core.toml", "capitals"]),
-    	utilities.Choice_from_file("letter", ["bindings/core.toml", _LETTERS]),
-    	utilities.Choice_from_file("numbers", ["bindings/core.toml", "numbers"]),
-    	utilities.Choice_from_file("punctuation", ["bindings/core.toml", "punctuation"]),
-    	utilities.Choice_from_file("key", ["bindings/core.toml", "keys"]),
-    	utilities.Choice_from_file("misc_core_keys", ["bindings/core.toml", "misc_core_keys"]),
-    	utilities.Choice_from_file("direction", ["bindings/core.toml", _DIRECTIONS]),
-    	utilities.Choice_from_file("modifier", ["bindings/core.toml", "modifiers"]),
+    	utilities.Choice_from_file("big", ["config/core.toml", "capitals"]),
+    	utilities.Choice_from_file("letter", ["config/core.toml", _LETTERS]),
+    	utilities.Choice_from_file("numbers", ["config/core.toml", "numbers"]),
+    	utilities.Choice_from_file("punctuation", ["config/core.toml", "punctuation"]),
+    	utilities.Choice_from_file("key", ["config/core.toml", "keys"]),
+    	utilities.Choice_from_file("misc_core_keys", ["config/core.toml", "misc_core_keys"]),
+    	utilities.Choice_from_file("direction", ["config/core.toml", _DIRECTIONS]),
+    	utilities.Choice_from_file("modifier", ["config/core.toml", "modifiers"]),
     ]
 
     defaults = {
