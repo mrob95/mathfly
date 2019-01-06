@@ -6,7 +6,6 @@ _NEXUS = control.nexus()
 import mathematics
 import core
 from lib.dfplus.merge.mergerule import MergeRule
-from lib import settings
 
 
 def generate_ccr_choices(nexus):

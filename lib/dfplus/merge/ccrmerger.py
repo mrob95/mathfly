@@ -9,11 +9,15 @@ from dragonfly.grammar.elements import RuleRef, Alternative, Repetition
 from dragonfly.grammar.grammar_base import Grammar
 from dragonfly.grammar.rule_compound import CompoundRule
 
-from lib import utilities, settings
-from lib.dfplus.merge import gfilter
+from lib import utilities
 from lib.dfplus.merge.mergepair import MergePair, MergeInf
 from lib.dfplus.merge.mergerule import MergeRule
+import os
 
+BASE_PATH = os.path.realpath(__file__).split("\\lib\\")[0].replace("\\", "/")
+
+SETTINGS = utilities.load_toml_file(BASE_PATH + "/bindings/settings.toml")
+CCR_PATH = BASE_PATH + "/" + SETTINGS["ccr_path"]
 
 def app_merge(mp):
     '''forces app rules to define which parts of the base rule they will accept'''
@@ -60,20 +64,16 @@ class CCRMerger(object):
         self.load_config()
         self.update_config()  # this call prepares the config to receive new modules
         self.add_filter(app_merge)
-        if gfilter.DEFS is not None:
-            self.add_filter(gfilter.spec_override_from_config)
 
     '''config file stuff'''
 
     def save_config(self):
         if self.use_real_config:
-            utilities.save_toml_file(self._config,
-                                     settings.SETTINGS["paths"]["CCR_CONFIG_PATH"])
+            utilities.save_toml_file(self._config, CCR_PATH)
 
     def load_config(self):
         if self.use_real_config:
-            self._config = utilities.load_toml_file(
-                settings.SETTINGS["paths"]["CCR_CONFIG_PATH"])
+            self._config = utilities.load_toml_file(CCR_PATH)
         else:
             self._config = {}
 
@@ -237,22 +237,6 @@ class CCRMerger(object):
             if self._config[CCRMerger._GLOBAL].get(r)][-100:]
         self._config[CCRMerger._ORDER] = OrderedDict(izip_longest(enabled, [])).keys()
 
-    # def _apply_format(self, name):
-    #     if name in settings.SETTINGS["formats"]:
-    #         if 'text_format' in settings.SETTINGS["formats"][name]:
-    #             cap, spacing = settings.SETTINGS["formats"][name]['text_format']
-    #             textformat.format.set_text_format(cap, spacing)
-    #         else:
-    #             textformat.format.clear_text_format()
-    #         if 'secondary_format' in settings.SETTINGS["formats"][name]:
-    #             cap, spacing = settings.SETTINGS["formats"][name]['secondary_format']
-    #             textformat.secondary_format.set_text_format(cap, spacing)
-    #         else:
-    #             textformat.secondary_format.clear_text_format()
-    #     else:
-    #         textformat.format.clear_text_format()
-    #         textformat.secondary_format.clear_text_format()
-
     def merge(self, time, name=None, enable=True, save=False):
         '''combines MergeRules, SelfModifyingRules;
         handles CCR for apps;
@@ -397,7 +381,7 @@ class CCRMerger(object):
         ORIGINAL, SEQ, TERMINAL = "original", "caster_base_sequence", "terminal"
         alts = [RuleRef(rule=rule)]  #+[RuleRef(rule=sm) for sm in selfmod]
         single_action = Alternative(alts)
-        max = settings.SETTINGS["miscellaneous"]["max_ccr_repetitions"]
+        max = SETTINGS["max_ccr_repetitions"]
         sequence = Repetition(single_action, min=1, max=max, name=SEQ)
         original = Alternative(alts, name=ORIGINAL)
         terminal = Alternative(alts, name=TERMINAL)

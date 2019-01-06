@@ -1,0 +1,9 @@
+enabling_order = [ "Scientific notebook maths", "core",]
+
+[app]
+
+[global]
+core = true
+"Scientific notebook maths" = true
+
+[selfmod]

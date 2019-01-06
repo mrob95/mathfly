@@ -21,12 +21,10 @@ from dragonfly.windows.window import Window
 from dragonfly import Choice
 
 
-try:  # Style C -- may be imported into Caster, or externally
-    BASE_PATH = os.path.realpath(__file__).split("\\lib\\")[0].replace("\\", "/")
-    if BASE_PATH not in sys.path:
-        sys.path.append(BASE_PATH)
-finally:
-    from lib import settings
+
+BASE_PATH = os.path.realpath(__file__).split("\\lib\\")[0].replace("\\", "/")
+if BASE_PATH not in sys.path:
+    sys.path.append(BASE_PATH)
 
 # filename_pattern was used to determine when to update the list in the element window,
 # checked to see when a new file name had appeared
@@ -115,16 +113,6 @@ def list_to_string(l):
     return u"\n".join([unicode(x) for x in l])
 
 
-# def simple_log(to_file=False):
-#     msg = list_to_string(sys.exc_info())
-#     print(msg)
-#     for tb in traceback.format_tb(sys.exc_info()[2]):
-#         print(tb)
-#     if to_file:
-#         with io.open(settings.SETTINGS["paths"]["LOG_PATH"], 'at', encoding="utf-8") as f:
-#             f.write(msg + "\n")
-
-
 def availability_message(feature, dependency):
     print(feature + " feature not available without " + dependency)
 
@@ -139,19 +127,6 @@ def remote_debug(who_called_it=None):
         print("ERROR: " + who_called_it +
               " called utilities.remote_debug() but the debug server wasn't running.")
 
-
-def reboot(wsr=False):
-    popen_parameters = []
-    if wsr:
-        popen_parameters.append(settings.SETTINGS["paths"]["REBOOT_PATH_WSR"])
-        popen_parameters.append(settings.SETTINGS["paths"]["WSR_PATH"])
-        # caster path inserted too if there's a way to wake up WSR
-    else:
-        popen_parameters.append(settings.SETTINGS["paths"]["REBOOT_PATH"])
-        popen_parameters.append(settings.SETTINGS["paths"]["ENGINE_PATH"])
-
-    print(popen_parameters)
-    Popen(popen_parameters)
 
 def default_browser_command():
     '''

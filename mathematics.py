@@ -51,7 +51,7 @@ class mathematics(MergeRule):
 
     }
 
-   extras = [
+    extras = [
         IntegerRef("rows", 1, 6),
         IntegerRef("cols", 1, 6),
         utilities.Choice_from_file("big", ["bindings/core.toml", "capitals"]),

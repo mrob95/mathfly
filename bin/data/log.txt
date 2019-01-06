@@ -1,6 +1,0 @@
-<type 'exceptions.IOError'>
-[Errno 13] Permission denied: 'symbols.toml'
-<traceback object at 0x1BF80648>
-<type 'exceptions.IOError'>
-[Errno 13] Permission denied: 'symbols.toml'
-<traceback object at 0x1BEFC5D0>
