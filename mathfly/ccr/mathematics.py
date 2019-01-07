@@ -5,9 +5,8 @@ Created on Sep 4, 2018
 '''
 from dragonfly import Function, Choice, Key, Text, Mouse, IntegerRef
 
-from lib import control, utilities
-
-from lib.dfplus.merge.mergerule import MergeRule
+from mathfly.lib import control, utilities
+from mathfly.lib.dfplus.merge.mergerule import MergeRule
 
 def texchar(symbol):
     keychain = "ctrl:down, "

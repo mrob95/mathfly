@@ -9,9 +9,9 @@ from dragonfly.grammar.elements import RuleRef, Alternative, Repetition
 from dragonfly.grammar.grammar_base import Grammar
 from dragonfly.grammar.rule_compound import CompoundRule
 
-from lib import utilities
-from lib.dfplus.merge.mergepair import MergePair, MergeInf
-from lib.dfplus.merge.mergerule import MergeRule
+from mathfly.lib import utilities
+from mathfly.lib.dfplus.merge.mergepair import MergePair, MergeInf
+from mathfly.lib.dfplus.merge.mergerule import MergeRule
 import os
 
 BASE_PATH = os.path.realpath(__file__).split("\\lib\\")[0].replace("\\", "/")

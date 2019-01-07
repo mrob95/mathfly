@@ -1,4 +1,4 @@
-ccr_path = "bin/ccr.toml"
+ccr_path = "config/bin/ccr.toml"
 max_ccr_repetitions = 16
 alternative_letters = true
 alternative_directions = true

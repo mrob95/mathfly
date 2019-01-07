@@ -69,7 +69,9 @@
 "prime" = "apostrophe"
 "(parens | prekris)" = "c-0"
 "(squares | brax)" = "c-6"
-
+#
+"label above" = "f10, i, down:11, enter/25, a, enter"
+"label below" = "f10, i, down:11, enter/25, b, enter"
 
 [misc_sn_text]
 "limit" = "lim"

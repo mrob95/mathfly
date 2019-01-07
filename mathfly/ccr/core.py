@@ -5,12 +5,12 @@ Created on Sep 4, 2018
 '''
 from dragonfly import Function, Choice, Key, Text, Mouse, IntegerRef
 
-from lib import control, utilities
+from mathfly.lib import control, utilities
 
-from lib.dfplus.merge.mergerule import MergeRule
+from mathfly.lib.dfplus.merge.mergerule import MergeRule
 import os
 
-BASE_PATH = os.path.realpath(__file__).split("\\core.py")[0].replace("\\", "/")
+BASE_PATH = os.path.realpath(__file__).split("\\ccr\\")[0].replace("\\", "/")
 
 SETTINGS = utilities.load_toml_file(BASE_PATH + "/config/settings.toml")
 

@@ -1,12 +1,16 @@
 from dragonfly import (Function, Grammar, Text, Dictation, Choice, Pause)
 
-from lib import control
+from mathfly.lib import control
 _NEXUS = control.nexus()
 
-import mathematics
-import core
-from lib.dfplus.merge.mergerule import MergeRule
+from mathfly.lib.dfplus.merge.mergerule import MergeRule
+import os, sys
 
+BASE_PATH = os.path.realpath(__file__).split("\\_mathfly_main.py")[0].replace("\\", "/")
+if BASE_PATH not in sys.path:
+    sys.path.append(BASE_PATH)
+
+from ccr import core, mathematics
 
 def generate_ccr_choices(nexus):
     choices = {}
