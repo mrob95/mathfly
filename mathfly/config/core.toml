@@ -83,7 +83,7 @@
 "(dot | point)" = "dot"
 "quote" = "dquote"
 "equals" = "equal"
-"escape" = "escape"
+"(escape | eskimo)" = "escape"
 "exclamation" = "exclamation"
 "hashtag" = "hash"
 "hyphen" = "hyphen"
@@ -125,9 +125,13 @@
 
 [directions_alt]
 "lease" = "left"
+"lease wally" = "home"
 "ross" = "right"
+"ross wally" = "end"
 "sauce" = "up"
+"sauce wally" = "c-home"
 "dunce" = "down"
+"dunce wally" = "c-end"
 
 [modifiers]
 "queue" = "cs-"

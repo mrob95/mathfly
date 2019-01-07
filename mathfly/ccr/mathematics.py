@@ -8,6 +8,8 @@ from dragonfly import Function, Choice, Key, Text, Mouse, IntegerRef
 from mathfly.lib import control, utilities
 from mathfly.lib.dfplus.merge.mergerule import MergeRule
 
+BINDINGS = utilities.load_toml_relative("config/scientific_notebook.toml")
+
 def texchar(symbol):
     keychain = "ctrl:down, "
     for character in symbol:
@@ -28,10 +30,10 @@ class mathematics(MergeRule):
     pronunciation = "Scientific notebook maths"
 
     mapping = {
-        "<symbol>":
+        BINDINGS["symbol_prefix"] + "<symbol>":
             Function(texchar),
         #
-        "[greek] [<big>] <greek_letter>":
+        BINDINGS["greek_prefix"] + " [<big>] <greek_letter>":
             Function(greek),
 
         "<misc_sn_keys>":

@@ -48,6 +48,10 @@ def Choice_from_file(name, *args):
         phrases.update(load_toml_file(path)[arg[1]])
     return Choice(name, phrases)
 
+def load_toml_relative(path):
+    path = BASE_PATH + "/" + path
+    return load_toml_file(path)
+
 def window_exists(classname, windowname):
     try:
         win32ui.FindWindow(classname, windowname)

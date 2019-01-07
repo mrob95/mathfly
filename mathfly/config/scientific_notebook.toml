@@ -1,3 +1,6 @@
+"greek_prefix" = ""
+"symbol_prefix" = ""
+
 [greek_letters]
 "alpha" = "a"
 "beater" = "b"
@@ -24,6 +27,7 @@
 "omega" = "w"
 
 [tex_symbols]
+"plus or minus" = "pm"
 "times" = "times"
 "divide" = "div"
 "intersection" = "cap"
@@ -47,6 +51,9 @@
 
 
 [misc_sn_keys]
+"toggle math" = "c-m"
+"toggle text" = "c-t"
+#
 "accent hat" = "c-caret"
 "accent tilde" = "c-tilde"
 "accent dot" = "c-dot"
@@ -57,8 +64,6 @@
 "absolute" = "bar, bar, left"
 "inverse" = "c-h, minus, 1, right"
 "chi squared" = "c-g, q, c-h, 2, right"
-"toggle math" = "c-m"
-"toggle text" = "c-t"
 "fraction" = "c-f"
 "(radical | root)" = "c-r"
 "super [script]" = "c-h"
@@ -74,4 +79,12 @@
 "label below" = "f10, i, down:11, enter/25, b, enter"
 
 [misc_sn_text]
+"(log natural | natural log)" = "ln"
+"logarithm" = "log"
 "limit" = "lim"
+"sine" = "sin"
+"cosine" = "cos"
+"tangent" = "tan"
+"secant" = "sec"
+"cosecant" = "csc"
+"cotangent" = "cot"
