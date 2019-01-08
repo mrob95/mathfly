@@ -26,11 +26,11 @@ def matrix(rows, cols):
     Key("f10/5, i/5, down:8, enter/50").execute()
     Key(str(rows) + "/50, tab, " + str(cols) + "/50, enter").execute()
 
-class mathematics(MergeRule):
+class sn_mathematics(MergeRule):
     pronunciation = "Scientific notebook maths"
 
     mapping = {
-        BINDINGS["symbol_prefix"] + "<symbol>":
+        BINDINGS["symbol_prefix"] + " <symbol>":
             Function(texchar),
         #
         BINDINGS["greek_prefix"] + " [<big>] <greek_letter>":
@@ -67,4 +67,4 @@ class mathematics(MergeRule):
         "big": False,
     }
 
-control.nexus().merger.add_global_rule(mathematics())
+control.nexus().merger.add_global_rule(sn_mathematics())

@@ -1,9 +1,10 @@
-enabling_order = [ "Scientific notebook maths", "core",]
+enabling_order = [ "core", "licks maths",]
 
 [app]
 
 [global]
 core = true
-"Scientific notebook maths" = true
+"licks maths" = true
+"Scientific notebook maths" = false
 
 [selfmod]

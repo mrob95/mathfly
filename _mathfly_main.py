@@ -1,16 +1,15 @@
 from dragonfly import (Function, Grammar, Text, Dictation, Choice, Pause)
 
-from mathfly.lib import control
-_NEXUS = control.nexus()
-
-from mathfly.lib.dfplus.merge.mergerule import MergeRule
 import os, sys
+from mathfly.lib import control, utilities
+from mathfly.lib.dfplus.merge.mergerule import MergeRule
+_NEXUS = control.nexus()
 
 BASE_PATH = os.path.realpath(__file__).split("\\_mathfly_main.py")[0].replace("\\", "/")
 if BASE_PATH not in sys.path:
     sys.path.append(BASE_PATH)
 
-from ccr import core, mathematics
+from mathfly.ccr import core, sn_mathematics, lyx_mathematics
 
 def generate_ccr_choices(nexus):
     choices = {}
@@ -24,7 +23,7 @@ class MainRule(MergeRule):
 	    "<enable> <name>":
 	    	Function(_NEXUS.merger.global_rule_changer(), save=True),
 
-        "hello world": Text("hello <?> world"),
+        "reboot dragon":Function(utilities.reboot),
 	}
 	extras=[
 		generate_ccr_choices(_NEXUS),
@@ -37,7 +36,6 @@ class MainRule(MergeRule):
 grammar = Grammar('general')
 main_rule = MainRule()
 grammar.add_rule(main_rule)
-
 grammar.load()
 
 print("*- Starting mathfly -*")

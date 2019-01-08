@@ -2,10 +2,10 @@
 "big" = true
 
 [letters]
-"Arch" = "a"
+"alpha" = "a"
 "bravo" = "b"
 "charlie" = "c"
-"Dither" = "d"
+"delta" = "d"
 "echo" = "e"
 "foxtrot" = "f"
 "golf" = "g"

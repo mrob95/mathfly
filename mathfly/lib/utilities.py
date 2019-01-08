@@ -61,6 +61,14 @@ def window_exists(classname, windowname):
         return True
 
 
+def reboot():
+    popen_parameters = []
+    popen_parameters.append(BASE_PATH + "/config/bin/reboot.bat")
+    popen_parameters.append("C:/Program Files (x86)/Nuance/NaturallySpeaking15/Program/natspeak.exe")
+
+    print(popen_parameters)
+    Popen(popen_parameters)
+
 def get_active_window_title(pid=None):
     _pid = win32gui.GetForegroundWindow() if pid is None else pid
     return unicode(win32gui.GetWindowText(_pid), errors='ignore')
