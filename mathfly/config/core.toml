@@ -11,7 +11,7 @@
 "golf" = "g"
 "hotel" = "h"
 "india" = "i"
-"juliett" = "j"
+"juliet" = "j"
 "kilo" = "k"
 "lima" = "l"
 "mike" = "m"
@@ -73,7 +73,6 @@
 "(dot | point)" = "dot"
 "(quote | quotes)" = "dquote"
 "equals" = "equal"
-"(escape | eskimo)" = "escape"
 "exclamation" = "exclamation"
 "hashtag" = "hash"
 "hyphen" = "hyphen"
@@ -95,6 +94,8 @@
 "(enter | shock)" = "enter"
 "(backspace | clear)" = "backspace"
 "(delete | deli)" = "del"
+"(escape | eskimo)" = "escape"
+
 
 [misc_core_keys]
 "shackle" = "home, s-end"
@@ -115,7 +116,6 @@
 "up wally" = "c-home"
 "down" = "down"
 "down wally" = "c-end"
-
 
 [directions_alt]
 "lease" = "left"
