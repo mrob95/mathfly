@@ -3,7 +3,8 @@
 "symbol2_prefix" = "symbol"
 "text_prefix" = "text"
 "number_prefix" = ""
-
+"accent_prefix" = "accent"
+"matrix_style" = "bmatrix"
 
 [greek_letters]
 "alpha" = "alpha"
@@ -80,12 +81,15 @@
 "[is] greater [than] [or] equal [to]" = "geq"
 "[is] less [than] [or] equal [to]" = "leq"
 "[is] approximately [equal] [to]" = "approx"
+"proportional [to]" = "propto"
 #
 "left arrow" = "leftarrow"
 "right arrow" = "rightarrow"
 "up arrow" = "uparrow"
 "down arrow" = "downarrow"
 "left right arrow" = "leftrightarrow"
+"oh plus" = "oplus"
+"oh times" = "otimes"
 
 
 [tex_symbols2]
@@ -97,7 +101,6 @@
 "infimum" = "inf"
 "kernel" = "ker"
 "limit infimum" = "liminf"
-"(direct sum | oh plus)" = "oplus"
 "(large direct sum | large oh plus)" = "bigoplus"
 "beemod" = "bmod"  ## i'm not familiar with this one
 "unit" = "unitone"
@@ -119,14 +122,11 @@
 "preck equals" = "preceq"
 "suck" = "succ"
 "suck equals" = "succeq"
-"proportional" = "propto"
 # logic
 "(land|logic and)" = "land"
 "logic or" = "lor"
 "primer" = "prime"
 "logic not" = "lnot"
-
-
 
 [text_modes]
 "roman" = "mathrm"
@@ -136,7 +136,7 @@
 "typewriter" = "mathtt"
 # math fonts
 # "normal" = "textrm"
-# "(beebee|blackboard bold | blackboard)" = "mathbb"
+"(beebee|blackboard bold | blackboard)" = "mathbb"
 # "bold symbol" = "boldsymbol"
 # "fraktur" = "mathfrak"
 # "calligraphic" = "mathcal"
@@ -157,12 +157,7 @@
 "curly [brackets]" = "a-m, lbrace"
 "absolute" = "a-m, bar"
 "prime" = "apostrophe"
-#
-"accent hat" = "a-m, h"
-"accent tilde" = "a-m, ampersand"
-"accent dot" = "a-m, dot"
-"accent double dot" = "a-m, dquote"
-"accent bar" = "a-m, minus"
+
 
 # Alternates between executing as text and executing as keys
 [misc_lyx_commands]
@@ -178,6 +173,12 @@
 "label above" = "\\overset "
 "label below" = "\\underset "
 
+[accents]
+"hat" = "h"
+"tilde" = "ampersand"
+"dot" = "dot"
+"double dot" = "dquote"
+"bar" = "minus"
 
 [denominators]
 "(half | halves)" = 2
