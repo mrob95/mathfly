@@ -9,6 +9,7 @@ from mathfly.lib import control, utilities
 from mathfly.lib.dfplus.merge.mergerule import MergeRule
 
 BINDINGS = utilities.load_toml_relative("config/scientific_notebook.toml")
+CORE = utilities.load_toml_relative("config/core.toml")
 
 def texchar(symbol):
     keychain = "ctrl:down, "
@@ -45,9 +46,6 @@ class sn_mathematics(MergeRule):
         "matrix <rows> by <cols>":
             Function(matrix),
 
-        # "limit": Key("l, l, i, m, left, down"),
-        
-
         "mathematics test": Text("test successful"),
 
     }
@@ -55,16 +53,15 @@ class sn_mathematics(MergeRule):
     extras = [
         IntegerRef("rows", 1, 6),
         IntegerRef("cols", 1, 6),
-        utilities.Choice_from_file("big", ["config/core.toml", "capitals"]),
-        utilities.Choice_from_file("greek_letter", ["config/scientific_notebook.toml", "greek_letters"]),
-        utilities.Choice_from_file("symbol", ["config/scientific_notebook.toml", "tex_symbols"]),
-        utilities.Choice_from_file("misc_sn_keys", ["config/scientific_notebook.toml", "misc_sn_keys"]),
-        utilities.Choice_from_file("misc_sn_text", ["config/scientific_notebook.toml", "misc_sn_text"]),
-        
+        Choice("big", {CORE["capitals_prefix"]: True}),
+        Choice("greek_letter", BINDINGS["greek_letters"]),
+        Choice("symbol", BINDINGS["tex_symbols"]),
+        Choice("misc_sn_keys", BINDINGS["misc_sn_keys"]),
+        Choice("misc_sn_text", BINDINGS["misc_sn_text"]),
     ]
 
     defaults = {
-        "big": False,
+        CORE["capitals_prefix"]: False,
     }
 
 control.nexus().merger.add_global_rule(sn_mathematics())

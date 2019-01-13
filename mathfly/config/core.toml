@@ -1,5 +1,5 @@
-[capitals]
-"big" = true
+"numbers_max" = 500
+"capitals_prefix" = "big"
 
 [letters]
 "alpha" = "a"
@@ -57,21 +57,11 @@
 "yes" =  "y"
 "zulu" = "z"
 
-[numbers]
-"one" = "1"
-"two" = "2"
-"three" = "3"
-"four" = "4"
-"five" = "5"
-"six" = "6"
-"seven" = "7"
-"eight" = "8"
-"nine" = "9"
 
 [punctuation]
 "ampersand" = "ampersand"
 "apostrophe" = "apostrophe"
-"asterisk" = "asterisk"
+"(asterisk | starling)" = "asterisk"
 "at sign" = "at"
 "backslash" = "backslash"
 "backtick" = "backtick"
@@ -81,7 +71,7 @@
 "comma" = "comma"
 "dollar" = "dollar"
 "(dot | point)" = "dot"
-"quote" = "dquote"
+"(quote | quotes)" = "dquote"
 "equals" = "equal"
 "(escape | eskimo)" = "escape"
 "exclamation" = "exclamation"
@@ -114,14 +104,18 @@
 "(duple | duplicate)" = "home, s-end, c-c, right, enter, c-v"
 "home" = "home"
 "end" = "end"
-"splat" = "c-backspace"
 "save" = "c-s"
 
 [directions]
 "left" = "left"
+"left wally" = "home"
 "right" = "right"
+"right wally" = "end"
 "up" = "up"
+"up wally" = "c-home"
 "down" = "down"
+"down wally" = "c-end"
+
 
 [directions_alt]
 "lease" = "left"

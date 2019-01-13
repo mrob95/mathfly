@@ -6,13 +6,10 @@ Created on Sep 4, 2018
 from dragonfly import Function, Choice, Key, Text, Mouse, IntegerRef
 
 from mathfly.lib import control, utilities
-
 from mathfly.lib.dfplus.merge.mergerule import MergeRule
-import os
 
-BASE_PATH = os.path.realpath(__file__).split("\\ccr\\")[0].replace("\\", "/")
-
-SETTINGS = utilities.load_toml_file(BASE_PATH + "/config/settings.toml")
+SETTINGS = utilities.load_toml_relative("config/settings.toml")
+CORE = utilities.load_toml_relative("config/core.toml")
 
 _LETTERS, _DIRECTIONS = "letters", "directions"
 if SETTINGS["alternative_letters"]:
@@ -36,26 +33,26 @@ class core(MergeRule):
     	"[<modifier>] <direction> [<n>]": Key("%(modifier)s" + "%(direction)s:%(n)s"),
     	"<key> [<n>]": Key("%(key)s:%(n)s"),
     	"<misc_core_keys>": Key("%(misc_core_keys)s"),
-
+        "splat [<n>]": Key("c-backspace:%(n)s")
     	"core test": Text("test successful"),
     	}
 
     extras = [
     	IntegerRef("n", 1, 10),
-    	utilities.Choice_from_file("big", ["config/core.toml", "capitals"]),
-    	utilities.Choice_from_file("letter", ["config/core.toml", _LETTERS]),
-    	utilities.Choice_from_file("numbers", ["config/core.toml", "numbers"]),
-    	utilities.Choice_from_file("punctuation", ["config/core.toml", "punctuation"]),
-    	utilities.Choice_from_file("key", ["config/core.toml", "keys"]),
-    	utilities.Choice_from_file("misc_core_keys", ["config/core.toml", "misc_core_keys"]),
-    	utilities.Choice_from_file("direction", ["config/core.toml", _DIRECTIONS]),
-    	utilities.Choice_from_file("modifier", ["config/core.toml", "modifiers"]),
+        IntegerRef("numbers", 0, CORE["numbers_max"]),
+        Choice("big", {CORE["capitals_prefix"]: True}),
+    	Choice("letter", CORE[_LETTERS]),
+    	Choice("punctuation", CORE["punctuation"]),
+    	Choice("key", CORE["keys"]),
+    	Choice("misc_core_keys", CORE["misc_core_keys"]),
+    	Choice("direction", CORE[_DIRECTIONS]),
+    	Choice("modifier", CORE["modifiers"]),
     ]
 
     defaults = {
+        CORE["capitals_prefix"]: False,
     	"n": "1",
     	"modifier": "",
-    	"big": False,
     }
 
 
