@@ -1,5 +1,6 @@
 "greek_prefix" = "greek"
 "symbol_prefix" = ""
+"accent_prefix" = "accent"
 
 [greek_letters]
 "alpha" = "a"
@@ -34,8 +35,6 @@
 "union" = "cup"
 "stop" = "cdot"
 "approximate" = "approx"
-"proportional" = "propto"
-"not equal" = "neq"
 "member" = "in"
 "for all" = "forall"
 "partial" = "partial"
@@ -46,6 +45,8 @@
 "up arrow" = "uparrow"
 "down arrow" = "downarrow"
 #
+"proportional [to]" = "propto"
+"not equal [to]" = "neq"
 "greater [than] [or] equal [to]" = "geq"
 "less [than] [or] equal [to]" = "leq"
 
@@ -53,24 +54,19 @@
 [misc_sn_keys]
 "toggle math" = "c-m"
 "toggle text" = "c-t"
-#
-"accent hat" = "c-caret"
-"accent tilde" = "c-tilde"
-"accent dot" = "c-dot"
-"accent double dot" = "c-dquote"
-"accent bar" = "c-underscore"
-#
 "probability" = "P, c-0"
 "absolute" = "bar, bar, left"
-"inverse" = "c-h, minus, 1, right"
 "chi squared" = "c-g, q, c-h, 2, right"
 "fraction" = "c-f"
+"over" = "cs-left, c-f"
 "(radical | root)" = "c-r"
 "super [script]" = "c-h"
 "sub [script]" = "c-l"
 "integral" = "c-i"
 "summation" = "c-7"
+"inverse" = "c-h, minus, 1, right"
 "squared" = "c-h, 2, right"
+"cubed" = "c-h, 3, right"
 "prime" = "apostrophe"
 "(parens | prekris)" = "c-0"
 "(squares | brax)" = "c-6"
@@ -88,3 +84,21 @@
 "secant" = "sec"
 "cosecant" = "csc"
 "cotangent" = "cot"
+
+[accents]
+"hat" = "c-caret"
+"tilde" = "c-tilde"
+"dot" = "c-dot"
+"double dot" = "c-dquote"
+"bar" = "c-underscore"
+
+[denominators]
+"(half | halves)" = 2
+"(third | thirds)" = 3
+"(quarter | quarters | fourth | fourths)" = 4
+"(fifth | fifths)" = 5
+"(sixth | sixths)" = 6
+"(seventh | sevenths)" = 7
+"(eighth | eighths)" = 8
+"(ninth | ninths)" = 9
+"(tenth | tenths)" = 10

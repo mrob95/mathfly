@@ -36,6 +36,8 @@ class sn_mathematics(MergeRule):
         #
         BINDINGS["greek_prefix"] + " [<big>] <greek_letter>":
             Function(greek),
+        BINDINGS["accent_prefix"] + " <accent>":
+            Key("%(accent)s"),
 
         "<misc_sn_keys>":
             Key("%(misc_sn_keys)s"),
@@ -46,6 +48,9 @@ class sn_mathematics(MergeRule):
         "matrix <rows> by <cols>":
             Function(matrix),
 
+        "<numbers> <denominator>":
+            Key("c-f, %(numbers)s, down, %(denominator)s, right"),
+
         "mathematics test": Text("test successful"),
 
     }
@@ -53,11 +58,13 @@ class sn_mathematics(MergeRule):
     extras = [
         IntegerRef("rows", 1, 6),
         IntegerRef("cols", 1, 6),
+        IntegerRef("numbers", 0, CORE["numbers_max"]),
         Choice("big", {CORE["capitals_prefix"]: True}),
         Choice("greek_letter", BINDINGS["greek_letters"]),
         Choice("symbol", BINDINGS["tex_symbols"]),
         Choice("misc_sn_keys", BINDINGS["misc_sn_keys"]),
         Choice("misc_sn_text", BINDINGS["misc_sn_text"]),
+        Choice("denominator", BINDINGS["denominators"]),
     ]
 
     defaults = {

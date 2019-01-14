@@ -67,7 +67,7 @@ class lyx_mathematics(MergeRule):
     extras = [
         IntegerRef("rows", 1, 10),
         IntegerRef("cols", 1, 10),
-        IntegerRef("numbers", 0, 500),
+        IntegerRef("numbers", 0, CORE["numbers_max"]),
         Choice("big", {CORE["capitals_prefix"]: True}),
         Choice("greek_letter", BINDINGS["greek_letters"]),
         Choice("symbol1", BINDINGS["tex_symbols1"]),
@@ -76,7 +76,7 @@ class lyx_mathematics(MergeRule):
         Choice("text_modes", BINDINGS["text_modes"]),
         Choice("misc_lyx_keys", BINDINGS["misc_lyx_keys"]),
         Choice("misc_lyx_commands", BINDINGS["misc_lyx_commands"]),
-        Choice("denominator", BINDINGS["denominators"]),        
+        Choice("denominator", BINDINGS["denominators"]),
     ]
 
     defaults = {
