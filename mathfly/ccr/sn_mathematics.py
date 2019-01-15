@@ -4,6 +4,7 @@ Created on Sep 4, 2018
 @author: Mike Roberts
 '''
 from dragonfly import Function, Choice, Key, Text, Mouse, IntegerRef
+from dragonfly import AppContext, Grammar, Repeat
 
 from mathfly.lib import control, utilities
 from mathfly.lib.dfplus.merge.mergerule import MergeRule
@@ -62,6 +63,7 @@ class sn_mathematics(MergeRule):
         Choice("big", {CORE["capitals_prefix"]: True}),
         Choice("greek_letter", BINDINGS["greek_letters"]),
         Choice("symbol", BINDINGS["tex_symbols"]),
+        Choice("accent", BINDINGS["accents"]),
         Choice("misc_sn_keys", BINDINGS["misc_sn_keys"]),
         Choice("misc_sn_text", BINDINGS["misc_sn_text"]),
         Choice("denominator", BINDINGS["denominators"]),
@@ -72,3 +74,45 @@ class sn_mathematics(MergeRule):
     }
 
 control.nexus().merger.add_global_rule(sn_mathematics())
+
+
+class SNRule(MergeRule):
+    pronunciation = "scientific notebook"
+
+    mapping = {
+        "new file": Key("c-n"),
+        "open file": Key("c-o"),
+        "save as": Key("cs-s"),
+
+        "toggle math": Key("c-m"),
+        "toggle text": Key("c-t"),
+
+        "undo [<n>]": Key("c-z")*Repeat(extra="n"),
+        "redo [<n>]": Key("c-y")*Repeat(extra="n"),
+        # "next tab [<n>]": Key("c-pgdown")*Repeat(extra="n"),
+        # "prior tab [<n>]": Key("c-pgup")*Repeat(extra="n"),
+        # "close tab [<n>]": Key("c-w/20")*Repeat(extra="n"),
+
+        # "view PDF": Key("c-r"),
+        # "update PDF": Key("cs-r"),
+
+        # "move line up [<n>]": Key("a-up")*Repeat(extra="n"),
+        # "move line down [<n>]": Key("a-down")*Repeat(extra="n"),
+
+        # "insert <environment>": Key("a-i, h, %(environment)s"),
+        # "insert <mode>": Key("a-p, %(mode)s"),
+
+        }
+    extras = [
+        IntegerRef("n", 1, 10),
+        
+    ]
+    defaults = {
+        "n": 1,
+    }
+
+context = AppContext(executable="scientific notebook")
+grammar = Grammar("scientific notebook", context=context)
+rule = SNRule(name="scientific notebook")
+grammar.add_rule(rule)
+grammar.load()

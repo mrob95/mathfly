@@ -33,7 +33,6 @@ class core(MergeRule):
     	"[<modifier>] <direction> [<n>]": Key("%(modifier)s" + "%(direction)s:%(n)s"),
     	"<key> [<n>]": Key("%(key)s:%(n)s"),
     	"<misc_core_keys>": Key("%(misc_core_keys)s"),
-        "splat [<n>]": Key("c-backspace:%(n)s")
     	"core test": Text("test successful"),
     	}
 

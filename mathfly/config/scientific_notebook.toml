@@ -52,8 +52,6 @@
 
 
 [misc_sn_keys]
-"toggle math" = "c-m"
-"toggle text" = "c-t"
 "probability" = "P, c-0"
 "absolute" = "bar, bar, left"
 "chi squared" = "c-g, q, c-h, 2, right"

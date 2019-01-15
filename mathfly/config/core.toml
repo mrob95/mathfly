@@ -69,6 +69,7 @@
 "caret" = "caret"
 "colon" = "colon"
 "comma" = "comma"
+"boom" = "comma, space"
 "dollar" = "dollar"
 "(dot | point)" = "dot"
 "(quote | quotes)" = "dquote"
@@ -93,6 +94,7 @@
 "(tab | tabby)" = "tab"
 "(enter | shock)" = "enter"
 "(backspace | clear)" = "backspace"
+"splat" = "c-backspace"
 "(delete | deli)" = "del"
 "(escape | eskimo)" = "escape"
 

@@ -10,6 +10,7 @@ if BASE_PATH not in sys.path:
     sys.path.append(BASE_PATH)
 
 from mathfly.ccr import core, sn_mathematics, lyx_mathematics
+from mathfly.ccr import latex
 
 def generate_ccr_choices(nexus):
     choices = {}

@@ -110,6 +110,8 @@ class LyxRule(MergeRule):
         "move line down [<n>]": Key("a-down")*Repeat(extra="n"),
 
         "insert <environment>": Key("a-i, h, %(environment)s"),
+        "insert <mode>": Key("a-p, %(mode)s"),
+
         }
     extras = [
         IntegerRef("n", 1, 10),
@@ -132,6 +134,29 @@ class LyxRule(MergeRule):
             "matrix": "x",
             "macro": "o",
             }),  
+        Choice("mode", {
+            "standard": "s",
+            "(itemize | bullets)": "b",
+            "(enumerate | numbering)": "e",
+            "description": "d",
+            
+            "part": "0",
+            "section": "2",
+            "subsection": "3",
+            "subsubsection": "4",
+            "paragraph": "5",
+            "subparagraph": "6",
+            "title": "t",
+            "author": "s-a",
+            "date": "s-d",
+            "abstract": "a",
+            "address": "a-a",
+            "(bibliography | biblio)": "s-b",
+            "quotation": "a-q",
+            # i'm not sure what the differences between quotation and quote
+            "quote": "q",
+            "verse": "v",            
+        }),
     ]
     defaults = {
         "n": 1,

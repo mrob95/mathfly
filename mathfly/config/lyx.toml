@@ -82,6 +82,17 @@
 "[is] less [than] [or] equal [to]" = "leq"
 "[is] approximately [equal] [to]" = "approx"
 "proportional [to]" = "propto"
+"preference less [than]" = "prec"
+"preference less equals" = "preceq"
+"preference greater [than]" = "succ"
+"preference greater equals" = "succeq"
+# sets
+"subset" = "subset"
+"superset" = "supset"
+"strict subset" = "subsetneq"
+"strict superset" = "supsetneq"
+"intersection" = "cap"
+"union" = "cup"
 #
 "left arrow" = "leftarrow"
 "right arrow" = "rightarrow"
@@ -93,8 +104,6 @@
 
 
 [tex_symbols2]
-"intersection" = "cap"
-"union" = "cup"
 "stop" = "cdot"
 "GCD" = "gcd"
 "cat hom" = "hom"
@@ -113,15 +122,6 @@
 "continued fraction (right)" = "cfracright"
 "text binomial" = "tbinom"
 "display binomial" = "dbinom"
-# relations
-"subset" = "subset"
-"superset" = "supset"
-"strict subset" = "subsetneq"
-"strict superset" = "supsetneq"
-"preck" = "prec"
-"preck equals" = "preceq"
-"suck" = "succ"
-"suck equals" = "succeq"
 # logic
 "(land|logic and)" = "land"
 "logic or" = "lor"
@@ -172,6 +172,12 @@
 "blank limit" = "\\lim "
 "label above" = "\\overset "
 "label below" = "\\underset "
+#
+"real numbers" = ["\\mathbb R", "right"]
+"complex numbers" = ["\\mathbb C", "right"]
+"integer numbers" = ["\\mathbb Z", "right"]
+"rational numbers" = ["\\mathbb Q", "right"]
+"natural numbers" = ["\\mathbb N", "right"]
 
 [accents]
 "hat" = "h"
