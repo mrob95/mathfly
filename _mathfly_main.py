@@ -10,20 +10,16 @@ BASE_PATH = os.path.realpath(__file__).split("\\_mathfly_main.py")[0].replace("\
 if BASE_PATH not in sys.path:
     sys.path.append(BASE_PATH)
 
-def build():
-    _NEXUS.merger._global_rules = {}
-    for module in ("core", "sn_mathematics", "lyx_mathematics", "latex"):
-        if module in sys.modules.keys():
-            del sys.modules[module]
-    from mathfly.ccr import core, sn_mathematics, lyx_mathematics, latex
-    _NEXUS.merger.merge(MergeInf.BOOT)
-    print("*- Starting mathfly -*")
-    print("modules available:")
-    for ccr_choice in _NEXUS.merger.global_rule_names():
-        print(ccr_choice)
+# def build():
+# build()
 
-build()
+from mathfly.ccr import core, sn_mathematics, lyx_mathematics, latex
+_NEXUS.merger.merge(MergeInf.BOOT)
 _NEXUS.merger.update_config()
+print("*- Starting mathfly -*")
+print("modules available:")
+for ccr_choice in _NEXUS.merger.global_rule_names():
+    print(ccr_choice)
 
 def generate_ccr_choices(nexus):
     choices = {}
@@ -53,5 +49,3 @@ grammar = Grammar('general')
 main_rule = MainRule()
 grammar.add_rule(main_rule)
 grammar.load()
-
-
