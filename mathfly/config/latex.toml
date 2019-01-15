@@ -1,4 +1,11 @@
 "bibliography_path" = ""
+"class_prefix" = "document class"
+"environment_prefix" = "begin"
+"package_prefix" = "[use] package"
+"symbol_prefix" = "symbol"
+"greek_prefix" = "greek"
+"command_prefix" = "insert"
+
 
 [packages]
 "bib latex" = ["[style=authoryear]", "biblatex"]

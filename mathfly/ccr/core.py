@@ -3,7 +3,7 @@ Created on Sep 4, 2018
 
 @author: Mike Roberts
 '''
-from dragonfly import Function, Choice, Key, Text, Mouse, IntegerRef
+from dragonfly import Function, Choice, Key, Text, Mouse, IntegerRef, Dictation
 
 from mathfly.lib import control, utilities
 from mathfly.lib.dfplus.merge.mergerule import MergeRule
@@ -34,9 +34,12 @@ class core(MergeRule):
     	"<key> [<n>]": Key("%(key)s:%(n)s"),
     	"<misc_core_keys>": Key("%(misc_core_keys)s"),
     	"core test": Text("test successful"),
+
+        "say <text>": Text("%(text)s"),
     	}
 
     extras = [
+        Dictation("text"),
     	IntegerRef("n", 1, 10),
         IntegerRef("numbers", 0, CORE["numbers_max"]),
         Choice("big", {CORE["capitals_prefix"]: True}),

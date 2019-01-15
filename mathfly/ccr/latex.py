@@ -55,27 +55,27 @@ class LaTeX(MergeRule):
     mapping = {
         "insert comment":  Text("% "),
 
-        "document class [<class>]":  back_curl("documentclass", "%(class)s"),
+        BINDINGS["class_prefix"] + " [<class>]":  back_curl("documentclass", "%(class)s"),
 
-        "begin <environment>":  Function(begin_end),
+        BINDINGS["environment_prefix"] + " <environment>":  Function(begin_end),
         #
-        "[use] package [<packopts>]":  Function(packages),
+        BINDINGS["package_prefix"] + " [<packopts>]":  Function(packages),
         #
-        "symbol <symbol>":  Function(symbol),
-        "symbol degrees": Text("^{\\circ}"),
-        "greek [<big>] <greek_letter>":  Function(greek_letters),
+        BINDINGS["symbol_prefix"] + " <symbol>":  Function(symbol),
+        BINDINGS["symbol_prefix"] + " degrees": Text("^{\\circ}"),
+        BINDINGS["greek_prefix"] + " [<big>] <greek_letter>":  Function(greek_letters),
         #
-        "insert <command>":  back_curl("%(command)s", ""),
-        "insert <commandnoarg>":  Text("\\%(commandnoarg)s "),
+        BINDINGS["command_prefix"] + " <command>":  back_curl("%(command)s", ""),
+        BINDINGS["command_prefix"] + " <commandnoarg>":  Text("\\%(commandnoarg)s "),
 
-        "insert my bib resource":  back_curl("addbibresource", BINDINGS["bibliography_path"]),
+        BINDINGS["command_prefix"] + " my bib resource":  back_curl("addbibresource", BINDINGS["bibliography_path"]),
 
-        "insert quote":  Text("``\'\'") + Key("left:2"),
+        BINDINGS["command_prefix"] + " quote":  Text("``\'\'") + Key("left:2"),
         #
         "superscript":  Text("^") + Key("lbrace, rbrace, left"),
         "subscript":  Text("_") + Key("lbrace, rbrace, left"),
 
-        "insert standard header":  Text("\\documentclass[12pt, a4paper]{article}\n\n\\usepackage{graphicx}\n\n\\usepackage[english]{babel}\n\n" +
+        BINDINGS["command_prefix"] + " standard header":  Text("\\documentclass[12pt, a4paper]{article}\n\n\\usepackage{graphicx}\n\n\\usepackage[english]{babel}\n\n" +
             "\\usepackage[utf8]{inputenc}\n\n\\usepackage[style=authoryear]{biblatex}\n" +
             "\\addbibresource{" + BINDINGS["bibliography_path"] + "}\n\n\\setlength{\\parskip}{1em}\n\\renewcommand{\\baselinestretch}{1.3}"),
 
