@@ -3,7 +3,6 @@ Free, open source utility for dictating mathematical notation quickly and easily
 
 * Contact: mr1128@york.ac.uk
 * [Installation instructions](mathfly/docs/installation.md)
-* For complete lists of the commands which Mathfly provides, read the [Core](mathfly/docs/Core.pdf) and [LyX](mathfly/docs/LyX.pdf) documentation.
 
 ## Quick
 Mathfly interprets dictated commands on-the-fly quickly and continuously, making it far faster than other systems. As fast as you can speak, Mathfly can interpret.
