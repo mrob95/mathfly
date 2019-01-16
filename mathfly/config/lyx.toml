@@ -4,7 +4,7 @@
 "text_prefix" = "text"
 "number_prefix" = ""
 "accent_prefix" = "accent"
-"matrix_style" = "bmatrix"
+"matrix_style" = "matrix"
 
 [greek_letters]
 "alpha" = "alpha"
@@ -41,20 +41,29 @@
 "triple integral" = "iiint"
 "times" = "times"
 "divide" = "div"
+"stop" = "cdot"
 "plus or minus" = "pm"
 "partial" = "partial"
+"infinity" = "infty"
 # fractions and related things in the lyx fractions menu
 "(nice frack | nice fraction)" = "nicefrac"
 "binomial" = "binom"
-# functions
-"arc cosine" = "arccos"
-"arc sine" = "arcsin"
-"arc tan" = "arctan"
-"argument" = "arg"
+# trig
+"sine" = "sin"
 "cosine" = "cos"
+"tangent" = "tan"
+"secant" = "sec"
+"cosecant" = "csc"
+"cotangent" = "cot"
+"arc sine" = "arcsin"
+"arc cosine" = "arccos"
+"arc tan" = "arctan"
+"hyperbolic sine" = "sinh"
 "hyperbolic cosine" = "cosh"
 "hyperbolic cotangent" = "coth"
-"cosecant" = "csc"
+"hyperbolic tangent" = "tanh"
+# functions
+"argument" = "arg"
 "degree" = "deg"
 "determinant" = "det"
 "dimension" = "dim"
@@ -63,18 +72,12 @@
 "logarithm" = "log"
 "maximum" = "max"
 "minimum" = "min"
-"secant" = "sec"
-"sine" = "sin"
-"hyperbolic sine" = "sinh"
+"(modulo | modulus)" = "bmod"
+"infimum" = "inf"
 "supremum" = "sup"
-"tangent" = "tan"
-"cotangent" = "cot"
-"hyperbolic tangent" = "tanh"
 "probability" = "Pr"
-# misc
+# relations
 "there exists" = "exists"
-"infinity" = "infty"
-"dot dot dot" = "dots"
 "member" = "in"
 "for all" = "forall"
 "[is] not equal [to]" = "neq"
@@ -93,25 +96,31 @@
 "strict superset" = "supsetneq"
 "intersection" = "cap"
 "union" = "cup"
+# logic
+"logic and" = "land"
+"logic or" = "lor"
+"logic not" = "lnot"
 #
+"dot dot dot" = "dots"
 "left arrow" = "leftarrow"
 "right arrow" = "rightarrow"
 "up arrow" = "uparrow"
 "down arrow" = "downarrow"
 "left right arrow" = "leftrightarrow"
+"maps to" = "mapsto"
 "oh plus" = "oplus"
 "oh times" = "otimes"
-
+"big oh plus" = "bigoplus"
+"big oh times" = "bigotimes"
+#
+"diagonal dots" = "ddots"
+"horizontal dots" = "cdots"
+"vertical dots" = "vdots"
 
 [tex_symbols2]
-"stop" = "cdot"
 "GCD" = "gcd"
 "cat hom" = "hom"
-"infimum" = "inf"
 "kernel" = "ker"
-"limit infimum" = "liminf"
-"(large direct sum | large oh plus)" = "bigoplus"
-"beemod" = "bmod"  ## i'm not familiar with this one
 "unit" = "unitone"
 "unit two" = "unittwo"
 "unit fraction " = "unitfrac"
@@ -122,11 +131,6 @@
 "continued fraction (right)" = "cfracright"
 "text binomial" = "tbinom"
 "display binomial" = "dbinom"
-# logic
-"(land|logic and)" = "land"
-"logic or" = "lor"
-"primer" = "prime"
-"logic not" = "lnot"
 
 [text_modes]
 "roman" = "mathrm"
@@ -157,6 +161,10 @@
 "curly [brackets]" = "a-m, lbrace"
 "absolute" = "a-m, bar"
 "prime" = "apostrophe"
+"add matrix row" = "a-m, w, i"
+"(delete | remove) matrix row" = "a-m, w, d"
+"add matrix column" = "a-m, c, i"
+"(delete | remove) matrix column" = "a-m, c, d"
 
 
 # Alternates between executing as text and executing as keys

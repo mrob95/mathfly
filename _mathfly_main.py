@@ -7,8 +7,7 @@ from mathfly.lib.dfplus.merge.mergepair import MergeInf
 _NEXUS = control.nexus()
 
 BASE_PATH = os.path.realpath(__file__).split("\\_mathfly_main.py")[0].replace("\\", "/")
-if BASE_PATH not in sys.path:
-    sys.path.append(BASE_PATH)
+sys.path.append(BASE_PATH)
 
 # def build():
 # build()
@@ -35,7 +34,7 @@ class MainRule(MergeRule):
 
         "reboot dragon":Function(utilities.reboot),
 
-        "rebuild math fly": Function(build),
+        # "rebuild math fly": Function(build),
 	}
 	extras=[
 		generate_ccr_choices(_NEXUS),
