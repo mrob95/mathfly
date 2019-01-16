@@ -13,8 +13,8 @@ sys.path.append(BASE_PATH)
 # build()
 
 from mathfly.ccr import core, sn_mathematics, lyx_mathematics, latex
-_NEXUS.merger.merge(MergeInf.BOOT)
 _NEXUS.merger.update_config()
+_NEXUS.merger.merge(MergeInf.BOOT)
 print("*- Starting mathfly -*")
 print("modules available:")
 for ccr_choice in _NEXUS.merger.global_rule_names():

@@ -1,8 +1,13 @@
 # Ignore junk
+ccr.toml
 .idea/
 *.pyc
 *.wav
 *.class
+*.aux
+*.tex
+*.toc
+*.synctex.gz
 test.py
 log.txt
 complexity_report*

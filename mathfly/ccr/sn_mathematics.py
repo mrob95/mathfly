@@ -89,18 +89,6 @@ class SNRule(MergeRule):
 
         "undo [<n>]": Key("c-z")*Repeat(extra="n"),
         "redo [<n>]": Key("c-y")*Repeat(extra="n"),
-        # "next tab [<n>]": Key("c-pgdown")*Repeat(extra="n"),
-        # "prior tab [<n>]": Key("c-pgup")*Repeat(extra="n"),
-        # "close tab [<n>]": Key("c-w/20")*Repeat(extra="n"),
-
-        # "view PDF": Key("c-r"),
-        # "update PDF": Key("cs-r"),
-
-        # "move line up [<n>]": Key("a-up")*Repeat(extra="n"),
-        # "move line down [<n>]": Key("a-down")*Repeat(extra="n"),
-
-        # "insert <environment>": Key("a-i, h, %(environment)s"),
-        # "insert <mode>": Key("a-p, %(mode)s"),
 
         }
     extras = [

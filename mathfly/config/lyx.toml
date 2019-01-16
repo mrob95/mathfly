@@ -6,6 +6,49 @@
 "accent_prefix" = "accent"
 "matrix_style" = "matrix"
 
+
+[misc_lyx_keys]
+"math mode" = "c-m"
+"new line" = "escape:10, end, enter, c-m"
+"fraction" = "a-m, f"
+"over" = "cs-left, a-m, f, down"
+"(super [script] | to the power)" = "caret"
+"sub [script]" = "underscore"
+"squared" = "caret, 2, right"
+"cubed" = "caret, 3, right"
+"inverse" = "caret, minus, 1, right"
+"(prekris | parens | brackets)" = "a-m, lparen"
+"(brax | square brackets)" = "a-m, lbracket"
+"curly [brackets]" = "a-m, lbrace"
+"absolute" = "a-m, bar"
+"prime" = "apostrophe"
+"add matrix row" = "a-m, w, i"
+"(delete | remove) matrix row" = "a-m, w, d"
+"add matrix column" = "a-m, c, i"
+"(delete | remove) matrix column" = "a-m, c, d"
+
+
+# Alternates between executing as text and executing as keys
+[misc_lyx_commands]
+"degrees" = ["^\\circ ", "right"]
+"summation" = ["\\underset \\overset \\sum ", "down"]
+"blank summation" = "\\sum "
+"(summation | sum) to N" = ["\\underset \\overset \\sum ", "up, n, down:2"]
+"product" = ["\\underset \\overset \\prod ", "down"]
+"blank product" = "\\prod "
+"product to N" = ["\\underset \\overset \\prod ", "up, n, down:2"]
+"limit" = ["\\underset \\lim ", "down"]
+"blank limit" = "\\lim "
+"label above" = "\\overset "
+"label below" = "\\underset "
+#
+"real numbers" = ["\\mathbb R", "right"]
+"complex numbers" = ["\\mathbb C", "right"]
+"integer numbers" = ["\\mathbb Z", "right"]
+"rational numbers" = ["\\mathbb Q", "right"]
+"natural numbers" = ["\\mathbb N", "right"]
+
+
 [greek_letters]
 "alpha" = "alpha"
 "beater" = "beta"
@@ -87,7 +130,7 @@
 "preference less [than]" = "prec"
 "preference less equals" = "preceq"
 "preference greater [than]" = "succ"
-"preference greater equals" = "succeq"
+"preference greater equal" = "succeq"
 # sets
 "subset" = "subset"
 "superset" = "supset"
@@ -144,47 +187,6 @@
 # "fraktur" = "mathfrak"
 # "calligraphic" = "mathcal"
 # "formal script" = "mathscr"
-
-[misc_lyx_keys]
-"math mode" = "c-m"
-"new line" = "escape:10, end, enter, c-m"
-"fraction" = "a-m, f"
-"over" = "cs-left, a-m, f, down"
-"(super [script] | to the power)" = "caret"
-"sub [script]" = "underscore"
-"squared" = "caret, 2, right"
-"cubed" = "caret, 3, right"
-"inverse" = "caret, minus, 1, right"
-"(prekris | parens)" = "a-m, lparen"
-"(brax | square brackets)" = "a-m, lbracket"
-"curly [brackets]" = "a-m, lbrace"
-"absolute" = "a-m, bar"
-"prime" = "apostrophe"
-"add matrix row" = "a-m, w, i"
-"(delete | remove) matrix row" = "a-m, w, d"
-"add matrix column" = "a-m, c, i"
-"(delete | remove) matrix column" = "a-m, c, d"
-
-
-# Alternates between executing as text and executing as keys
-[misc_lyx_commands]
-"degrees" = ["^\\circ ", "right"]
-"summation" = ["\\underset \\overset \\sum ", "down"]
-"blank summation" = "\\sum "
-"(summation | sum) to N" = ["\\underset \\overset \\sum ", "up, n, down:2"]
-"product" = ["\\underset \\overset \\prod ", "down"]
-"blank product" = "\\prod "
-"product to N" = ["\\underset \\overset \\prod ", "up, n, down:2"]
-"limit" = ["\\underset \\lim ", "down"]
-"blank limit" = "\\lim "
-"label above" = "\\overset "
-"label below" = "\\underset "
-#
-"real numbers" = ["\\mathbb R", "right"]
-"complex numbers" = ["\\mathbb C", "right"]
-"integer numbers" = ["\\mathbb Z", "right"]
-"rational numbers" = ["\\mathbb Q", "right"]
-"natural numbers" = ["\\mathbb N", "right"]
 
 [accents]
 "hat" = "h"
