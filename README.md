@@ -12,3 +12,5 @@ Mathfly interprets dictated commands on-the-fly quickly and continuously, making
 
 ## Infinitely modifiable
 The vast majority of Mathfly's commands are contained in plaintext config files in `mathfly/config/`, designed to be easy to edit and extend. If you need a new command, it's as simple as adding one line of plaintext. If you keep getting a command wrong, you can change it. If there are commands you don't need, you can delete them.
+
+![Modification](mathfly/docs/modification.jpg)
