@@ -90,6 +90,8 @@ class SNRule(MergeRule):
         "undo [<n>]": Key("c-z")*Repeat(extra="n"),
         "redo [<n>]": Key("c-y")*Repeat(extra="n"),
 
+        "evaluate": Key("c-e"),
+
         }
     extras = [
         IntegerRef("n", 1, 10),
