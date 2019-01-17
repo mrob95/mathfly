@@ -52,6 +52,9 @@ def load_toml_relative(path):
     path = BASE_PATH + "/" + path
     return load_toml_file(path)
 
+def get_full_path(path):
+    return BASE_PATH + "/" + path
+
 def window_exists(classname, windowname):
     try:
         win32ui.FindWindow(classname, windowname)

@@ -21,6 +21,7 @@
 "beamer" = "beamer"
 
 [environments]
+"abstract" = "abstract"
 "add margin" = "addmargin"
 "center" = "center"
 "columns" = "columns"

@@ -4,12 +4,27 @@ Created on Sep 4, 2018
 @author: Mike Roberts
 '''
 from dragonfly import Function, Choice, Key, Text, Mouse, Repeat
+import re
 
 from mathfly.lib import control, utilities
 from mathfly.lib.dfplus.merge.mergerule import MergeRule
 
 BINDINGS = utilities.load_toml_relative("config/latex.toml")
 CORE = utilities.load_toml_relative("config/core.toml")
+
+with open(utilities.get_full_path("config/latex_templates.txt"), "r+") as f:
+    query = re.compile(r"^\+\+\+(.*)\+\+\+")
+    current = ""
+    templates = {}
+    for line in f.readlines():
+        match = query.search(line)
+        if match:
+            current = match.group(1)
+            templates[current] = ""
+        else:
+            if current:
+                templates[current] += line
+
 
 # Return \first{second}, if second is empty then end inside the brackets for user input
 def back_curl(first, second):
@@ -75,10 +90,7 @@ class LaTeX(MergeRule):
         "superscript":  Text("^") + Key("lbrace, rbrace, left"),
         "subscript":  Text("_") + Key("lbrace, rbrace, left"),
 
-        BINDINGS["command_prefix"] + " standard header":  Text("\\documentclass[12pt, a4paper]{article}\n\n\\usepackage{graphicx}\n\n\\usepackage[english]{babel}\n\n" +
-            "\\usepackage[utf8]{inputenc}\n\n\\usepackage[style=authoryear]{biblatex}\n" +
-            "\\addbibresource{" + BINDINGS["bibliography_path"] + "}\n\n\\setlength{\\parskip}{1em}\n\\renewcommand{\\baselinestretch}{1.3}"),
-
+        BINDINGS["command_prefix"] + " <template>": Text("%(template)s"),
 
     }
 
@@ -91,6 +103,7 @@ class LaTeX(MergeRule):
         Choice("commandnoarg", BINDINGS["commandnoarg"]),
         Choice("command", BINDINGS["command"]),
         Choice("environment", BINDINGS["environments"]),
+        Choice("template", templates),
         ]
     defaults = {
         CORE["capitals_prefix"]: False,
