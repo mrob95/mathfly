@@ -42,14 +42,6 @@ def save_toml_relative(data, path):
 def get_full_path(path):
     return BASE_PATH + "/" + path
 
-def window_exists(classname, windowname):
-    try:
-        win32ui.FindWindow(classname, windowname)
-    except win32ui.error:
-        return False
-    else:
-        return True
-
 
 def read_selected_without_altering_clipboard():
     time.sleep(0.05)
@@ -87,33 +79,26 @@ def reboot():
     print(popen_parameters)
     Popen(popen_parameters)
 
-def get_active_window_title(pid=None):
-    _pid = win32gui.GetForegroundWindow() if pid is None else pid
-    return unicode(win32gui.GetWindowText(_pid), errors='ignore')
-
-
-def get_active_window_path():
-    return Window.get_foreground().executable
-
-
-def get_window_by_title(title):
-    # returns 0 if nothing found
-    hwnd = win32gui.FindWindowEx(0, 0, 0, title)
-    return hwnd
-
-
-def get_window_title_info():
-    '''get name of active file and folders in path;
-    will be needed to look up collection of symbols
-    in scanner data'''
-    global FILENAME_PATTERN
-    title = get_active_window_title().replace("\\", "/")
-    match_object = FILENAME_PATTERN.findall(title)
-    filename = None
-    if len(match_object) > 0:
-        filename = match_object[0]
-    path_folders = title.split("/")[:-1]
-    return [filename, path_folders, title]
+def load_templates(path):
+    with open(path, "r+") as f:
+        titleq = re.compile(r"^\+\+\+(.*)\+\+\+")
+        commentq = re.compile(r"^#.*")
+        current = ""
+        templates = {}
+        for line in f.readlines():
+            commentmatch = commentq.search(line)
+            titlematch = titleq.search(line)
+            if commentmatch:
+                pass
+            elif titlematch:
+                if current and templates[current][-2:] == "\n":
+                    templates[current] = templates[current][:-2]
+                current = titlematch.group(1)
+                templates[current] = ""
+            else:
+                if current:
+                    templates[current] += line
+    return templates
 
 
 def save_toml_file(data, path):

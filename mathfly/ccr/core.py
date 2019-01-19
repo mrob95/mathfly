@@ -36,6 +36,9 @@ class core(MergeRule):
     	"core test": Text("test successful"),
 
         "say <text>": Text("%(text)s"),
+
+        "shift click": Key("shift:down") + Mouse("left") + Key("shift:up"),
+
     	}
 
     extras = [

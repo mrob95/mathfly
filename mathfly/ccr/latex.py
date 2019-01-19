@@ -4,27 +4,13 @@ Created on Sep 4, 2018
 @author: Mike Roberts
 '''
 from dragonfly import Function, Choice, Key, Text, Mouse, Repeat
-import re
 
 from mathfly.lib import control, utilities
 from mathfly.lib.dfplus.merge.mergerule import MergeRule
 
 BINDINGS = utilities.load_toml_relative("config/latex.toml")
 CORE = utilities.load_toml_relative("config/core.toml")
-
-with open(utilities.get_full_path("config/latex_templates.txt"), "r+") as f:
-    query = re.compile(r"^\+\+\+(.*)\+\+\+")
-    current = ""
-    templates = {}
-    for line in f.readlines():
-        match = query.search(line)
-        if match:
-            current = match.group(1)
-            templates[current] = ""
-        else:
-            if current:
-                templates[current] += line
-
+TEMPLATES = utilities.load_templates(utilities.get_full_path("config/latex_templates.txt"))
 
 # Return \first{second}, if second is empty then end inside the brackets for user input
 def back_curl(first, second):
@@ -44,8 +30,8 @@ def symbol(symbol):
         Text("\\" + symbol).execute()
     else:
         Text("\\" + str(symbol[0])).execute()
-        for _ in range(int(symbol[1])):
-            Text("{}").execute()
+        # for _ in range(int(symbol[1])):
+        Text("{}"*int(symbol[1])).execute()
         Key("left:" + str(2*int(symbol[1])-1)).execute()
 
 def packages(packopts):
@@ -103,7 +89,7 @@ class LaTeX(MergeRule):
         Choice("commandnoarg", BINDINGS["commandnoarg"]),
         Choice("command", BINDINGS["command"]),
         Choice("environment", BINDINGS["environments"]),
-        Choice("template", templates),
+        Choice("template", TEMPLATES),
         ]
     defaults = {
         "big": False,
