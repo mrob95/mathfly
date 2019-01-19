@@ -43,7 +43,7 @@ def get_full_path(path):
     return BASE_PATH + "/" + path
 
 
-def read_selected_without_altering_clipboard():
+def read_selected():
     time.sleep(0.05)
     cb = Clipboard(from_system=True)
     temporary = None
@@ -59,13 +59,13 @@ def read_selected_without_altering_clipboard():
         return None
     return temporary
 
-def paste_string_without_altering_clipboard(content):
-    time.sleep(0.05)  # time for previous keypress to execute
+def paste_string(content):
+    time.sleep(0.05)
     cb = Clipboard(from_system=True)
     try:
         Clipboard.set_system_text(str(content))
         Key("c-v").execute()
-        time.sleep(0.05)  # time for keypress to execute
+        time.sleep(0.05)
         cb.copy_to_system()
     except Exception:
         return False
