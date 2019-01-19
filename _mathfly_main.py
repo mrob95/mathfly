@@ -20,7 +20,6 @@ print("modules available:")
 for ccr_choice in _NEXUS.merger.global_rule_names():
     print(ccr_choice)
 
-
 def rebuild():
     _NEXUS.merger.wipe()
     _NEXUS.merger._global_rules = {}
@@ -28,11 +27,7 @@ def rebuild():
         reload(module)
     _NEXUS.merger.update_config()
     _NEXUS.merger.merge(MergeInf.BOOT)
-    print("*- Starting mathfly -*")
-    print("modules available:")
-    for ccr_choice in _NEXUS.merger.global_rule_names():
-        print(ccr_choice)
-
+    print("*- Rebuilt mathfly -*")
 
 def generate_ccr_choices(nexus):
     choices = {}
