@@ -36,8 +36,8 @@ def back_curl(first, second):
 
 def greek_letters(big, greek_letter):
     if big == "big":
-        symbol = symbol.title()
-    Text("\\" + str(symbol) + " ").execute()
+        greek_letter = greek_letter.title()
+    Text("\\" + str(greek_letter) + " ").execute()
 
 def symbol(symbol):
     if type(symbol) in [str, unicode, int]:
@@ -106,7 +106,7 @@ class LaTeX(MergeRule):
         Choice("template", templates),
         ]
     defaults = {
-        CORE["capitals_prefix"]: False,
+        "big": False,
         "packopts": "",
         "class": "",
     }

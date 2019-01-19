@@ -166,7 +166,6 @@ class CCRMerger(object):
         def _(name, enable, save):
             self._config[CCRMerger._GLOBAL][name] = enable
             self.merge(MergeInf.RUN, name, enable, save)
-
         return _
 
     def selfmod_rule_changer(self):

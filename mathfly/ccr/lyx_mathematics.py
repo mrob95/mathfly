@@ -80,7 +80,7 @@ class lyx_mathematics(MergeRule):
     ]
 
     defaults = {
-        CORE["capitals_prefix"]: False,
+        "big": False,
     }
 
 control.nexus().merger.add_global_rule(lyx_mathematics())

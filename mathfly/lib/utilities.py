@@ -6,7 +6,7 @@ import io
 import toml
 import os
 import re
-import sys
+import sys, time
 import traceback
 from __builtin__ import True
 from subprocess import Popen
@@ -18,7 +18,7 @@ from _winreg import (CloseKey, ConnectRegistry, HKEY_CLASSES_ROOT,
     HKEY_CURRENT_USER, OpenKey, QueryValueEx)
 
 from dragonfly.windows.window import Window
-from dragonfly import Choice
+from dragonfly import Choice, Clipboard, Key
 
 
 
@@ -30,27 +30,14 @@ if BASE_PATH not in sys.path:
 # checked to see when a new file name had appeared
 FILENAME_PATTERN = re.compile(r"[/\\]([\w_ ]+\.[\w]+)")
 
-'''
-Takes a choice name and an arbitrary number of toml path/label
-pair lists. For example:
-mapping["<alphanumeric>"] = Text("%(alphanumeric)s")
-extras = [
-    utilities.Choice_from_file("alphanumeric",
-     ["caster/.../alphabet.toml", "letters"], 
-     ["caster/.../alphabet.toml", "numbers"]
-     )
-]
-'''
-def Choice_from_file(name, *args):
-    phrases = {}
-    for arg in args:
-        path = BASE_PATH + "/" + arg[0]
-        phrases.update(load_toml_file(path)[arg[1]])
-    return Choice(name, phrases)
 
 def load_toml_relative(path):
     path = BASE_PATH + "/" + path
     return load_toml_file(path)
+
+def save_toml_relative(data, path):
+    path = BASE_PATH + "/" + path
+    return save_toml_file(data, path)
 
 def get_full_path(path):
     return BASE_PATH + "/" + path
@@ -63,6 +50,34 @@ def window_exists(classname, windowname):
     else:
         return True
 
+
+def read_selected_without_altering_clipboard():
+    time.sleep(0.05)
+    cb = Clipboard(from_system=True)
+    temporary = None
+    prior_content = None
+    try:
+        prior_content = Clipboard.get_system_text()
+        Key("c-c").execute()
+        time.sleep(0.05)
+        temporary = Clipboard.get_system_text()
+        cb.copy_to_system()
+    except Exception as e:
+        print(e)
+        return None
+    return temporary
+
+def paste_string_without_altering_clipboard(content):
+    time.sleep(0.05)  # time for previous keypress to execute
+    cb = Clipboard(from_system=True)
+    try:
+        Clipboard.set_system_text(str(content))
+        Key("c-v").execute()
+        time.sleep(0.05)  # time for keypress to execute
+        cb.copy_to_system()
+    except Exception:
+        return False
+    return True
 
 def reboot():
     popen_parameters = []

@@ -3,7 +3,7 @@ Created on Sep 6, 2015
 
 @author: synkarius
 '''
-from dragonfly.grammar.elements import Dictation, IntegerRef
+from dragonfly import Dictation, IntegerRef
 
 from mathfly.lib.dfplus.merge.mergepair import MergeInf
 from mathfly.lib.dfplus.merge.mergerule import MergeRule

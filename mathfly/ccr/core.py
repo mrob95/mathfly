@@ -52,7 +52,7 @@ class core(MergeRule):
     ]
 
     defaults = {
-        CORE["capitals_prefix"]: False,
+        "big": False,
     	"n": "1",
     	"modifier": "",
     }
