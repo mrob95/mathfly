@@ -40,7 +40,6 @@ def rule_changer(enable, name):
     if name == "core":
         _NEXUS.merger.selfmod_rule_changer(name2="alias", enable=enable, save=True)
 
-
 class MainRule(MergeRule):
     
 	mapping = {
