@@ -5,8 +5,8 @@ import logging
 logging.basicConfig()
 
 from mathfly.lib import control, utilities
-from mathfly.lib.dfplus.merge.mergerule import MergeRule
-from mathfly.lib.dfplus.merge.mergepair import MergeInf
+from mathfly.lib.merge.mergerule import MergeRule
+from mathfly.lib.merge.mergepair import MergeInf
 _NEXUS = control.nexus()
 
 BASE_PATH = os.path.realpath(__file__).split("\\_mathfly_main.py")[0].replace("\\", "/")

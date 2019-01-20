@@ -7,7 +7,7 @@ from dragonfly import Function, Choice, Mouse, IntegerRef, Key, Text
 from dragonfly import AppContext, Grammar, Repeat
 
 from mathfly.lib import control, utilities
-from mathfly.lib.dfplus.merge.mergerule import MergeRule
+from mathfly.lib.merge.mergerule import MergeRule
 
 BINDINGS = utilities.load_toml_relative("config/lyx.toml")
 CORE = utilities.load_toml_relative("config/core.toml")

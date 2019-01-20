@@ -1,7 +1,7 @@
 from dragonfly.grammar.grammar_base import Grammar
 from dragonfly.grammar.recobs import RecognitionHistory
 
-from mathfly.lib.dfplus.merge.ccrmerger import CCRMerger
+from mathfly.lib.merge.ccrmerger import CCRMerger
 
 
 class Nexus:

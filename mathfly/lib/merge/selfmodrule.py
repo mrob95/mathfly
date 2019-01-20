@@ -5,8 +5,8 @@ Created on Sep 6, 2015
 '''
 from dragonfly import Dictation, IntegerRef
 
-from mathfly.lib.dfplus.merge.mergepair import MergeInf
-from mathfly.lib.dfplus.merge.mergerule import MergeRule
+from mathfly.lib.merge.mergepair import MergeInf
+from mathfly.lib.merge.mergerule import MergeRule
 
 
 class SelfModifyingRule(MergeRule):

@@ -1,7 +1,7 @@
 from dragonfly import Dictation, Choice, Text, Function, IntegerRef
 
 from mathfly.lib import utilities, control
-from mathfly.lib.dfplus.merge.selfmodrule import SelfModifyingRule
+from mathfly.lib.merge.selfmodrule import SelfModifyingRule
 
 _NEXUS = control.nexus()
 

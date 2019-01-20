@@ -6,7 +6,7 @@ Created on Sep 4, 2018
 from dragonfly import Function, Choice, Key, Text, Mouse, Repeat
 
 from mathfly.lib import control, utilities
-from mathfly.lib.dfplus.merge.mergerule import MergeRule
+from mathfly.lib.merge.mergerule import MergeRule
 
 BINDINGS = utilities.load_toml_relative("config/latex.toml")
 CORE = utilities.load_toml_relative("config/core.toml")
