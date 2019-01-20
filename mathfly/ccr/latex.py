@@ -30,9 +30,16 @@ def symbol(symbol):
         Text("\\" + symbol).execute()
     else:
         Text("\\" + str(symbol[0])).execute()
-        # for _ in range(int(symbol[1])):
         Text("{}"*int(symbol[1])).execute()
         Key("left:" + str(2*int(symbol[1])-1)).execute()
+
+def quote():
+    e, text = utilities.read_selected(False)
+    if text:
+        Text("``" + text + "\'\'").execute()
+    else:
+        Text("``\'\'").execute()
+        Key("left:2").execute()
 
 def packages(packopts):
     if type(packopts) in [str, unicode]:
@@ -71,7 +78,7 @@ class LaTeX(MergeRule):
 
         BINDINGS["command_prefix"] + " my bib resource":  back_curl("addbibresource", BINDINGS["bibliography_path"]),
 
-        BINDINGS["command_prefix"] + " quote":  Text("``\'\'") + Key("left:2"),
+        BINDINGS["command_prefix"] + " quote":  Function(quote),
         #
         "superscript":  Text("^") + Key("lbrace, rbrace, left"),
         "subscript":  Text("_") + Key("lbrace, rbrace, left"),

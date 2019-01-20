@@ -43,21 +43,28 @@ def get_full_path(path):
     return BASE_PATH + "/" + path
 
 
-def read_selected():
+def read_selected(same_is_okay=False):
+    '''Returns a tuple:
+    (0, "text from system") - indicates success
+    (1, None) - indicates no change
+    (2, None) - indicates clipboard error
+    '''
     time.sleep(0.05)
     cb = Clipboard(from_system=True)
     temporary = None
     prior_content = None
     try:
         prior_content = Clipboard.get_system_text()
+        Clipboard.set_system_text("")
         Key("c-c").execute()
         time.sleep(0.05)
         temporary = Clipboard.get_system_text()
         cb.copy_to_system()
-    except Exception as e:
-        print(e)
-        return None
-    return temporary
+    except Exception:
+        return 2, None
+    if prior_content == temporary and not same_is_okay:
+        return 1, None
+    return 0, temporary
 
 def paste_string(content):
     time.sleep(0.05)

@@ -119,11 +119,12 @@
 
 [symbols]
 # operators
-"[square] root" = ["sqrt", "1"]
-"generic root" = ["sqrt[]", "1"]
+"square root" = ["sqrt", "1"]
+"[generic] root" = ["sqrt[]", "1"]
 "integ" = "int"
 "double integ" = "iint"
 "triple integ" = "iiint"
+"infinity" = "infty"
 "times" = "times"
 "divide" = "div"
 "intersection" = "cap"
@@ -134,10 +135,9 @@
 "(direct sum | oh plus)" = "oplus"
 "(large direct sum | large oh plus)" = "bigoplus"
 "plus or minus" = "pm"
-"partial" = "partial"             
-# fractions and related things in the lyx fractions menu
+"partial" = "partial"
+#
 "fraction" = ["frac", "2"]
-"(nice frack | nice fraction)" = "nicefrac"
 "unit" = "unitone"
 "unit two" = "unittwo"
 "unit fraction " = "unitfrac"
@@ -149,37 +149,38 @@
 "binomial" = "binom"
 "text binomial" = "tbinom"
 "display binomial" = "dbinom"
-# functions
-"arccoase" = "arccos"
-"arcsine" = "arcsin"
-"arctan" = "arctan"
-"arg" = "arg"
-"beemod" = "bmod"
-"coase" = "cos"
-"kosh" = "cosh"
-"hyperbolic tangent" = "cot"
-"hyperbolic cotangent" = "coth"
+# trig
+"sine" = "sin"
+"cosine" = "cos"
+"tangent" = "tan"
+"secant" = "sec"
 "cosecant" = "csc"
+"cotangent" = "cot"
+"arc sine" = "arcsin"
+"arc cosine" = "arccos"
+"arc tan" = "arctan"
+"hyperbolic sine" = "sinh"
+"hyperbolic cosine" = "cosh"
+"hyperbolic cotangent" = "coth"
+"hyperbolic tangent" = "tanh"
+# functions
+"argument" = "arg"
+"(modulo | modulus)" = "bmod"
 "degree" = "deg"
 "determinant" = "det"
 "dimension" = "dim"
 "exp" = "exp"
 "GCD" = "gcd"
 "cat hom" = "hom"
-"infimum" = "inf"
 "kernel" = "ker"
+"infimum" = "inf"
+"supremum" = "sup"
 "limit" = "lim"
 "liminf" = "liminf"
 "(natural (log | logarithm) | log natural)" = "ln"
 "logarithm" = "log"
 "max" = "max"
 "min" = "min"
-"secant" = "sec"
-"sine" = "sin"
-"sinch" = "sinh"
-"supremum" = "sup"
-"tangent" = "tan"
-"tanch" = "tanh"
 "probabilityc" = "Pr"
 # relations
 "[is] not equal [to]" = "neq"
@@ -196,10 +197,7 @@
 "superset" = "supset"
 "strict subset" = "subsetneq"
 "strict superset" = "supsetneq"
-"member" = "in"               
-# misc
-"infinity" = "infty"
-"dots" = "dots"               
+"member" = "in"
 # logic
 "(land|logic and)" = "land"
 "logic or" = "lor"
@@ -235,4 +233,9 @@
 #
 "left" = "left("
 "right" = "right)"
-
+"parens" = "left(  right)"
+#
+"dot dot dot" = "dots"
+"diagonal dots" = "ddots"
+"horizontal dots" = "cdots"
+"vertical dots" = "vdots"

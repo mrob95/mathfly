@@ -16,7 +16,7 @@ class Alias(SelfModifyingRule):
 
     def alias(self, spec):
         spec = str(spec)
-        text = utilities.read_selected()
+        e, text = utilities.read_selected(True)
         if spec and text:
             self.refresh(spec, str(text))
 

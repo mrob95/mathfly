@@ -161,20 +161,14 @@ class CCRMerger(object):
         return self._self_modifying_rules.keys()
 
     '''rule change functions'''
+    def global_rule_changer(self, name, enable, save):
+        self._config[CCRMerger._GLOBAL][name] = enable
+        self.merge(MergeInf.RUN, name, enable, save)
 
-    def global_rule_changer(self):
-        def _(name, enable, save):
-            self._config[CCRMerger._GLOBAL][name] = enable
-            self.merge(MergeInf.RUN, name, enable, save)
-        return _
-
-    def selfmod_rule_changer(self):
-        def _(name2, enable, save):
-            self._config[CCRMerger._SELFMOD][name2] = enable
-            self.merge(MergeInf.SELFMOD, name2, enable, save)
-
-        return _
-
+    def selfmod_rule_changer(self, name2, enable, save):
+        self._config[CCRMerger._SELFMOD][name2] = enable
+        self.merge(MergeInf.SELFMOD, name2, enable, save)
+        
     '''merging'''
 
     def _get_rules_by_composite(self, composite, original=False):

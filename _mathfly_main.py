@@ -35,13 +35,20 @@ def generate_ccr_choices(nexus):
         choices[ccr_choice] = ccr_choice
     return Choice("name", choices)
 
+def rule_changer(enable, name):
+    _NEXUS.merger.global_rule_changer(name=name, enable=enable, save=True)
+    if name == "core":
+        _NEXUS.merger.selfmod_rule_changer(name2="alias", enable=enable, save=True)
+
+
 class MainRule(MergeRule):
     
 	mapping = {
-	    "<enable> <name>":
-	    	Function(_NEXUS.merger.global_rule_changer(), save=True),
+	    # "<enable> <name>":
+        #   Function(_NEXUS.merger.global_rule_changer(), save=True),
+        "<enable> <name>": Function(rule_changer),
 
-        "reboot dragon":Function(utilities.reboot),
+        "reboot dragon": Function(utilities.reboot),
 
         "rebuild math fly": Function(rebuild),
 	}

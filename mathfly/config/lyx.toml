@@ -143,7 +143,6 @@
 "logic or" = "lor"
 "logic not" = "lnot"
 #
-"dot dot dot" = "dots"
 "left arrow" = "leftarrow"
 "right arrow" = "rightarrow"
 "up arrow" = "uparrow"
@@ -155,6 +154,7 @@
 "big oh plus" = "bigoplus"
 "big oh times" = "bigotimes"
 #
+"dot dot dot" = "dots"
 "diagonal dots" = "ddots"
 "horizontal dots" = "cdots"
 "vertical dots" = "vdots"
