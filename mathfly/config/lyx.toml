@@ -30,12 +30,15 @@
 
 # Alternates between executing as text and executing as keys
 [misc_lyx_commands]
-"summation" = ["\\underset \\overset \\sum ", "down"]
+# "summation" = ["\\underset \\overset \\sum ", "down"]
 "blank summation" = "\\sum "
-"(summation | sum) to N" = ["\\underset \\overset \\sum ", "up, n, down:2"]
-"product" = ["\\underset \\overset \\prod ", "down"]
+"summation" = ["\\stackrelthree ", "down", "\\sum ", "down"]
+"(summation | sum) to N" = ["\\stackrelthree ", "n, down", "\\sum ", "down"]
+# "product" = ["\\underset \\overset \\prod ", "down"]
 "blank product" = "\\prod "
-"product to N" = ["\\underset \\overset \\prod ", "up, n, down:2"]
+"product" = ["\\stackrelthree ", "down", "\\prod ", "down"]
+# "product to N" = ["\\underset \\overset \\prod ", "up, n, down:2"]
+"product to N" = ["\\stackrelthree ", "n, down", "\\prod ", "down"]
 "limit" = ["\\underset \\lim ", "down"]
 "blank limit" = "\\lim "
 "label above" = "\\overset "
@@ -196,6 +199,7 @@
 "dot" = "dot"
 "double dot" = "dquote"
 "bar" = "minus"
+"vector" = "v"
 
 [denominators]
 "(half | halves)" = 2

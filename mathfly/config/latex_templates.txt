@@ -1,4 +1,4 @@
-+++Standard header+++
+[header]
 \documentclass[12pt, a4paper]{article}
 
 \usepackage{graphicx}
@@ -10,7 +10,7 @@
 \setlength{\parskip}{1em}
 \renewcommand{\baselinestretch}{1.3}
 
-+++standard beamer+++
+[beamer]
 \documentclass{beamer}
 \usetheme{metropolis}
 \usepackage{graphicx}
@@ -24,7 +24,7 @@
 \end{frame}
 \end{document}
 
-+++standard graphic+++
+[graphic]
 \begin{figure}[h!]
 \centering
 \label{}
@@ -32,7 +32,7 @@
 \caption{}
 \end{figure}
 
-+++standard table+++
+[table]
 \begin{table}[h!]
 \centering
 \label{}

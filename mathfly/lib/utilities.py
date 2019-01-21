@@ -81,7 +81,7 @@ def reboot():
 
 def load_templates(path):
     with open(path, "r+") as f:
-        titleq = re.compile(r"^\+\+\+(.*)\+\+\+")
+        titleq = re.compile(r"^\[(.*)\]$")
         commentq = re.compile(r"^#.*")
         current = ""
         templates = {}
@@ -91,8 +91,8 @@ def load_templates(path):
             if commentmatch:
                 pass
             elif titlematch:
-                if current and templates[current][-2:] == "\n":
-                    templates[current] = templates[current][:-2]
+                if current:
+                    templates[current] = templates[current].strip()
                 current = titlematch.group(1)
                 templates[current] = ""
             else:

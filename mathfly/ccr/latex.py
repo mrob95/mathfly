@@ -83,7 +83,7 @@ class LaTeX(MergeRule):
         "superscript":  Text("^") + Key("lbrace, rbrace, left"),
         "subscript":  Text("_") + Key("lbrace, rbrace, left"),
 
-        BINDINGS["command_prefix"] + " <template>": Text("%(template)s"),
+        BINDINGS["template_prefix"] + " <template>": Text("%(template)s"),
 
     }
 

@@ -5,7 +5,7 @@
 "symbol_prefix" = "symbol"
 "greek_prefix" = "greek"
 "command_prefix" = "insert"
-
+"template_prefix" = "template"
 
 [packages]
 "bib latex" = ["[style=authoryear]", "biblatex"]
