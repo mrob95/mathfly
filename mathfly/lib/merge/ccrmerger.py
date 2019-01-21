@@ -160,6 +160,13 @@ class CCRMerger(object):
     def selfmod_rule_names(self):
         return self._self_modifying_rules.keys()
 
+    def display_rules(self):
+        for rule, on in self._config[CCRMerger._GLOBAL].items():
+            if on:
+                print("*" + rule)
+            else:
+                print(rule)
+
     '''rule change functions'''
     def global_rule_changer(self, name, enable, save):
         self._config[CCRMerger._GLOBAL][name] = enable
