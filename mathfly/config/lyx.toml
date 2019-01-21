@@ -30,7 +30,6 @@
 
 # Alternates between executing as text and executing as keys
 [misc_lyx_commands]
-"degrees" = ["^\\circ ", "right"]
 "summation" = ["\\underset \\overset \\sum ", "down"]
 "blank summation" = "\\sum "
 "(summation | sum) to N" = ["\\underset \\overset \\sum ", "up, n, down:2"]
@@ -82,6 +81,7 @@
 "integral" = "int"
 "double integral" = "iint"
 "triple integral" = "iiint"
+"degrees" = "textdegree"
 "times" = "times"
 "divide" = "div"
 "stop" = "cdot"
@@ -90,6 +90,7 @@
 "infinity" = "infty"
 "(nice frack | nice fraction)" = "nicefrac"
 "binomial" = "binom"
+"vector nabla" = "nabla"
 # trig
 "sine" = "sin"
 "cosine" = "cos"
@@ -132,6 +133,7 @@
 "preference greater [than]" = "succ"
 "preference greater equal" = "succeq"
 # sets
+"empty set" = "emptyset"
 "subset" = "subset"
 "superset" = "supset"
 "strict subset" = "subsetneq"
