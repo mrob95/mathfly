@@ -5,7 +5,7 @@
 "number_prefix" = ""
 "accent_prefix" = "accent"
 "matrix_style" = "matrix"
-
+"max_matrix_size" = 10
 
 [misc_lyx_keys]
 "math mode" = "c-m"

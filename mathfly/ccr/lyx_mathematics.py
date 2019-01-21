@@ -1,7 +1,7 @@
 '''
 Created Jan 2019
 
-@author: Alex Boche, Mike Roberts
+@author: Mike Roberts, Alex Boche
 '''
 from dragonfly import Function, Choice, Mouse, IntegerRef, Key, Text
 from dragonfly import AppContext, Grammar, Repeat
@@ -19,10 +19,7 @@ def greek(big, greek_letter):
 
 def matrix(rows, cols):
     Text("\\" + BINDINGS["matrix_style"] + " ").execute()
-    for _ in range(0, rows-1):
-        Key("a-m, w, i").execute()
-    for _ in range(0, cols-1):
-        Key("a-m, c, i").execute()
+    Key("a-m, w, i, "*(rows-1) + "a-m, c, i, "*(cols-1)).execute()
 
 # Alternate between executing as text and executing as keys
 def misc(misc_lyx_commands):
@@ -41,10 +38,13 @@ class lyx_mathematics(MergeRule):
     mapping = {
         BINDINGS["symbol1_prefix"] + " <symbol1>":
             Text("\\%(symbol1)s "),
+
         BINDINGS["symbol2_prefix"] + " <symbol2>":
             Text("\\%(symbol2)s "),
+
         BINDINGS["accent_prefix"] + " <accent>":
             Key("a-m, %(accent)s"),
+
         BINDINGS["text_prefix"] + " <text_modes>":
             Text("\\%(text_modes)s "),
 
@@ -65,8 +65,8 @@ class lyx_mathematics(MergeRule):
     }
 
     extras = [
-        IntegerRef("rows", 1, 10),
-        IntegerRef("cols", 1, 10),
+        IntegerRef("rows", 1, BINDINGS["max_matrix_size"]),
+        IntegerRef("cols", 1, BINDINGS["max_matrix_size"]),
         IntegerRef("numbers", 0, CORE["numbers_max"]),
         Choice("big", {CORE["capitals_prefix"]: True}),
         Choice("greek_letter", BINDINGS["greek_letters"]),
