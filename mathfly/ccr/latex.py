@@ -3,10 +3,11 @@ Created on Sep 4, 2018
 
 @author: Mike Roberts
 '''
-from dragonfly import Function, Choice, Key, Text, Mouse, Repeat
+from dragonfly import Function, Choice, Key, Text, Mouse, Repeat, Clipboard
 
 from mathfly.lib import control, utilities
 from mathfly.lib.merge.mergerule import MergeRule
+from mathfly.lib.bibtex import bibtexer, book_citation_generator
 
 BINDINGS = utilities.load_toml_relative("config/latex.toml")
 CORE = utilities.load_toml_relative("config/core.toml")
@@ -57,6 +58,18 @@ def begin_end(environment):
     back_curl("end", env).execute()
     Key("up").execute()
 
+def selection_to_bib(ref_type):
+    Key("c-c/20").execute()
+    cb = Clipboard.get_system_text()
+    if ref_type == "book":
+        ref = book_citation_generator.citation_from_name(cb)
+    elif ref_type == "paper":
+        ref = bibtexer.bib_from_title(cb)
+    with open(BINDINGS["bibliography_path"], "a") as f:
+        f.write(ref)
+        print("Reference added:\n" + ref)
+        Clipboard.set_system_text(bibtexer.get_tag(ref))
+
 class LaTeX(MergeRule):
     pronunciation = "latex"
 
@@ -85,6 +98,8 @@ class LaTeX(MergeRule):
 
         BINDINGS["template_prefix"] + " <template>": Text("%(template)s"),
 
+        "add <ref_type> to bibliography": Function(selection_to_bib),
+
     }
 
     extras = [
@@ -97,6 +112,10 @@ class LaTeX(MergeRule):
         Choice("command", BINDINGS["command"]),
         Choice("environment", BINDINGS["environments"]),
         Choice("template", TEMPLATES),
+        Choice("ref_type", {
+            "book": "book",
+            "paper": "paper",
+            }),
         ]
     defaults = {
         "big": False,

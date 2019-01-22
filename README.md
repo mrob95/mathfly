@@ -8,6 +8,8 @@ Free, open source utility for dictating mathematical notation quickly and easily
 ## Quick
 Mathfly interprets dictated commands on-the-fly quickly and continuously, making it far faster than other systems. As fast as you can speak, Mathfly can interpret.
 
+While I have no data comparing dictation speed with normal writing speed, I will say that I have been using versions of this software to do exams throughout my economics undergraduate degree, and have never needed extra time or struggled to finish.
+
 [![Brief demonstration](http://img.youtube.com/vi/7eZ6fMztvwA/0.jpg)](https://www.youtube.com/watch?v=7eZ6fMztvwA)
 
 ## Infinitely modifiable
