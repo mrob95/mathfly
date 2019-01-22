@@ -2,7 +2,6 @@
 \documentclass[12pt, a4paper]{article}
 
 \usepackage{graphicx}
-\usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[style=authoryear]{biblatex}
 \addbibresource{}
