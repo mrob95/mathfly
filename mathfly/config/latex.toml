@@ -1,24 +1,31 @@
 "bibliography_path" = ""
 "class_prefix" = "document class"
 "environment_prefix" = "begin"
-"package_prefix" = "[use] package"
+"package_prefix" = "use package"
 "symbol_prefix" = "symbol"
 "greek_prefix" = "greek"
 "command_prefix" = "insert"
 "template_prefix" = "template"
 
-[packages]
-"bib latex" = ["[style=authoryear]", "biblatex"]
-"colour" = "color"
-"math tools" =  "mathtools"
-"multi col" = "multicol"
-"geometry" = "geometry"
-"graphic ex" =  "graphicx"
-"wrap figure" =  "wrapfig"
-
 [document_classes]
 "article" = "article"
 "beamer" = "beamer"
+"book" = "book"
+"letter" = "letter"
+"proceedings" = "proc"
+"report" = "report"
+
+[packages]
+"AMS math" = "amsmath"
+"bib latex" = ["[style=authoryear]", "biblatex"]
+"colour" = "color"
+"geometry" = "geometry"
+"hyper ref" = "hyperref"
+"graphic X" =  "graphicx"
+"math tools" =  "mathtools"
+"multi col" = "multicol"
+"X color" = "xcolor"
+"wrap figure" =  "wrapfig"
 
 [environments]
 "abstract" = "abstract"
@@ -39,7 +46,7 @@
 "quotation" = "quotation"
 "quote" = "quote"
 "table" = ["table", "[h!]\n\\centering"]
-"long table" = "longtable"
+"long table" = ["longtable", "{lll}"]
 "tabular" = ["tabular", "{llll}"]
 "title page" = "titlepage"
 "verbatim" = "verbatim"
@@ -88,6 +95,7 @@
 "page break" = "pagebreak"
 "print bibliography" = "printbibliography"
 "table of contents" = "tableofcontents"
+"text backslash" = "textbackslash"
 "text width" = "textwidth"
 "vertical line" = "vline"
 
@@ -121,9 +129,9 @@
 # operators
 "square root" = ["sqrt", "1"]
 "[generic] root" = ["sqrt[]", "1"]
-"integ" = "int"
-"double integ" = "iint"
-"triple integ" = "iiint"
+"integral" = "int"
+"double integral" = "iint"
+"triple integral" = "iiint"
 "infinity" = "infty"
 "times" = "times"
 "divide" = "div"
@@ -146,9 +154,9 @@
 "continued fraction" = "cfrac"
 "continued fraction (left)" = "cfracleft"
 "continued fraction (right)" = "cfracright"
-"binomial" = "binom"
-"text binomial" = "tbinom"
-"display binomial" = "dbinom"
+"binomial" = "choose"
+# "text binomial" = "tbinom"
+# "display binomial" = "dbinom"
 # trig
 "sine" = "sin"
 "cosine" = "cos"
@@ -165,7 +173,7 @@
 "hyperbolic tangent" = "tanh"
 # functions
 "argument" = "arg"
-"(modulo | modulus)" = "bmod"
+"modulus" = "bmod"
 "degree" = "deg"
 "determinant" = "det"
 "dimension" = "dim"
@@ -181,7 +189,7 @@
 "logarithm" = "log"
 "max" = "max"
 "min" = "min"
-"probabilityc" = "Pr"
+"probability" = "Pr"
 # relations
 "[is] not equal [to]" = "neq"
 "[is] greater [than] [or] equal [to]" = "geq"
