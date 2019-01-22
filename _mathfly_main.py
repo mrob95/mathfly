@@ -43,8 +43,6 @@ def rule_changer(enable, name):
 class MainRule(MergeRule):
     
 	mapping = {
-	    # "<enable> <name>":
-        #   Function(_NEXUS.merger.global_rule_changer(), save=True),
         "<enable> <name>": Function(rule_changer),
 
         "reboot dragon": Function(utilities.reboot),
@@ -58,8 +56,8 @@ class MainRule(MergeRule):
         Choice("config_name", {
             "core": "core",
             "latex": "latex",
-            "licks": "lyx",
-            "scientific notebook": "scientific_notebook",
+            "licks maths": "lyx",
+            "scientific notebook maths": "scientific_notebook",
             }),  
         Choice("enable", {
             "enable": True,
