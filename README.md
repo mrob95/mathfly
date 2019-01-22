@@ -22,6 +22,6 @@ For an even easier way of adding new commands, "alias" turns highlighted text in
 [![alias demonstration](http://img.youtube.com/vi/mZ-Y8O5RrUY/0.jpg)](https://www.youtube.com/watch?v=mZ-Y8O5RrUY)
 
 ## LaTeX
-Mathfly also contains a module for dictating into LaTeX documents, with commands for inserting objects, beginning and ending environments, reproducing premade templates, and crawling the web for references, all with simple voice commands.
+Mathfly also contains a module for dictating into LaTeX documents, with commands for inserting objects, beginning and ending environments, reproducing premade templates, and crawling the web for references, all with simple voice commands. For a full list of commands, read the [LaTeX](mathfly/docs/LaTeX.pdf) documentation.
 
 [![LaTeX demonstration](http://img.youtube.com/vi/N9OzgJFP8tM/0.jpg)](https://youtu.be/N9OzgJFP8tM)
