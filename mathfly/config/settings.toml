@@ -3,5 +3,5 @@ dragon_path = "C:/Program Files (x86)/Nuance/NaturallySpeaking15/Program/natspea
 editor_path = "C:/Windows/notepad.exe"
 # editor_path = "C:/Program Files/Sublime Text 3/sublime_text.exe"
 max_ccr_repetitions = 16
-alternative_letters = true
-alternative_directions = true
+alternative_letters = false
+alternative_directions = false

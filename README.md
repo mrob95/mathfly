@@ -15,4 +15,8 @@ While I have no data comparing dictation speed with normal writing speed, I will
 ## Infinitely modifiable
 The vast majority of Mathfly's commands are contained in plaintext config files in `mathfly/config/`, designed to be easy to edit and extend. If you need a new command, it's as simple as adding one line of plaintext. If you keep getting a command wrong, you can change it. If there are commands you don't need, you can delete them.
 
-![Modification](mathfly/docs/modification.JPG)
+[![modification demonstration](http://img.youtube.com/vi/vLwu9SWK030/0.jpg)](https://youtu.be/vLwu9SWK030)
+
+For an even easier way of adding new commands, "alias" turns highlighted text into a new command.
+
+[![alias demonstration](http://img.youtube.com/vi/mZ-Y8O5RrUY/0.jpg)](https://www.youtube.com/watch?v=mZ-Y8O5RrUY)

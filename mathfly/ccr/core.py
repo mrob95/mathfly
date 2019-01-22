@@ -27,7 +27,7 @@ class core(MergeRule):
 
     mapping = {
     	"[<big>] <letter>": Function(alphabet),
-    	"[numb] <numbers>": Key("%(numbers)s"),
+    	"[numb] <numbers>": Text("%(numbers)s"),
     	"<punctuation>": Key("%(punctuation)s"),
 
     	"[<modifier>] <direction> [<n>]": Key("%(modifier)s" + "%(direction)s:%(n)s"),
