@@ -16,7 +16,8 @@ from mathfly.ccr import core, sn_mathematics, lyx_mathematics, latex, alias
 _NEXUS.merger.update_config()
 _NEXUS.merger.merge(MergeInf.BOOT)
 print("*- Starting mathfly -*")
-print("modules available:")
+print("Say \"enable <module name>\" to begin, or \"configure <module name>\" to make changes.")
+print("Modules available:")
 _NEXUS.merger.display_rules()
 
 def rebuild():
@@ -49,9 +50,17 @@ class MainRule(MergeRule):
         "reboot dragon": Function(utilities.reboot),
 
         "rebuild math fly": Function(rebuild),
+
+        "configure <config_name>": Function(utilities.load_config),
 	}
 	extras=[
 		generate_ccr_choices(_NEXUS),
+        Choice("config_name", {
+            "core": "core",
+            "latex": "latex",
+            "licks": "lyx",
+            "scientific notebook": "scientific_notebook",
+            }),  
         Choice("enable", {
             "enable": True,
             "disable": False

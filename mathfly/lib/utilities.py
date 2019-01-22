@@ -8,6 +8,7 @@ BASE_PATH = os.path.realpath(__file__).split("\\lib\\")[0].replace("\\", "/")
 if BASE_PATH not in sys.path:
     sys.path.append(BASE_PATH)
 
+
 def save_toml_file(data, path):
     try:
         formatted_data = unicode(toml.dumps(data))
@@ -99,3 +100,10 @@ def load_templates(path):
                 if current:
                     templates[current] += line
     return templates
+
+def load_config(config_name):
+    parameters = []
+    parameters.append(SETTINGS["editor_path"])
+    parameters.append(get_full_path("config/" + config_name + ".toml"))
+    Popen(parameters)
+    
