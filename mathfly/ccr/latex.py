@@ -11,7 +11,6 @@ from mathfly.lib.bibtex import bibtexer, book_citation_generator
 
 BINDINGS = utilities.load_toml_relative("config/latex.toml")
 CORE = utilities.load_toml_relative("config/core.toml")
-TEMPLATES = utilities.load_templates(utilities.get_full_path("config/latex_templates.txt"))
 
 # Return \first{second}, if second is empty then end inside the brackets for user input
 def back_curl(first, second):
@@ -112,7 +111,7 @@ class LaTeX(MergeRule):
         Choice("commandnoarg", BINDINGS["commandnoarg"]),
         Choice("command", BINDINGS["command"]),
         Choice("environment", BINDINGS["environments"]),
-        Choice("template", TEMPLATES),
+        Choice("template", BINDINGS["templates"]),
         Choice("ref_type", {
             "book": "book",
             "paper": "paper",

@@ -80,27 +80,6 @@ SETTINGS = load_toml_relative("config/settings.toml")
 def reboot():
     Popen([BASE_PATH + "/config/bin/reboot.bat", SETTINGS["dragon_path"]])
 
-def load_templates(path):
-    with open(path, "r+") as f:
-        titleq = re.compile(r"^\[(.*)\]$")
-        commentq = re.compile(r"^#.*")
-        current = ""
-        templates = {}
-        for line in f.readlines():
-            commentmatch = commentq.search(line)
-            titlematch = titleq.search(line)
-            if commentmatch:
-                pass
-            elif titlematch:
-                if current:
-                    templates[current] = templates[current].strip()
-                current = titlematch.group(1)
-                templates[current] = ""
-            else:
-                if current:
-                    templates[current] += line
-    return templates
-
 def load_config(config_name):
     parameters = []
     parameters.append(SETTINGS["editor_path"])

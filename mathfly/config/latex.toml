@@ -250,3 +250,63 @@
 "diagonal dots" = "ddots"
 "horizontal dots" = "cdots"
 "vertical dots" = "vdots"
+
+[templates]
+"header" = '''
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[style=authoryear]{biblatex}
+\addbibresource{}
+
+\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.3}
+'''
+# ------------------------------------------------
+"beamer" = '''
+\documentclass{beamer}
+\usetheme{metropolis}
+\usepackage{graphicx}
+\usepackage[style=authoryear]{biblatex}
+\addbibresource{}
+
+\begin{document}
+\begin{frame}
+\frametitle{}
+
+\end{frame}
+\end{document}
+'''
+# ------------------------------------------------
+"(graphic | figure)" = '''
+\begin{figure}[h!]
+\centering
+\label{}
+\includegraphics[width=1\textwidth]{}
+\caption{}
+\end{figure}
+'''
+# ------------------------------------------------
+"wrap (graphic | figure)" = '''
+\begin{wrapfigure}{l}{0.5\textwidth}
+\centering
+\label{}
+\includegraphics[width=0.4\textwidth]{}
+\caption{}
+\end{wrapfigure}
+'''
+# ------------------------------------------------
+"table" = '''
+\begin{table}[h!]
+\centering
+\label{}
+\begin{tabular}{ccccc}
+&  &  &  & \\
+\hline
+&  &  &  &  \\
+\end{tabular}
+\caption{}
+\end{table}
+'''
+# ------------------------------------------------

@@ -12,7 +12,7 @@
 
 [misc_lyx_keys]
 "math mode" = "c-m"
-"new line" = "escape:10, end, enter, c-m"
+"check" = "escape:10, end, enter, c-m"
 "fraction" = "a-m, f"
 "over" = "cs-left, a-m, f, down"
 "(super [script] | to the power)" = "caret"
