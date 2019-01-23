@@ -33,7 +33,7 @@ def misc(misc_lyx_commands):
                 Key(misc_lyx_commands[i]).execute()
 
 class lyx_mathematics(MergeRule):
-    pronunciation = "licks maths"
+    pronunciation = BINDINGS["pronunciation"]
 
     mapping = {
         BINDINGS["symbol1_prefix"] + " <symbol1>":
@@ -62,6 +62,9 @@ class lyx_mathematics(MergeRule):
 
         "<numbers> <denominator>":
             Key("a-m, f, %(numbers)s, down, %(denominator)s, right"),
+
+        "configure " + BINDINGS["pronunciation"]: 
+            Function(utilities.load_config, config_name="lyx.toml"),
     }
 
     extras = [

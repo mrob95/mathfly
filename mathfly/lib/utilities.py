@@ -104,6 +104,6 @@ def load_templates(path):
 def load_config(config_name):
     parameters = []
     parameters.append(SETTINGS["editor_path"])
-    parameters.append(get_full_path("config/" + config_name + ".toml"))
+    parameters.append(get_full_path("config/" + config_name))
     Popen(parameters)
     

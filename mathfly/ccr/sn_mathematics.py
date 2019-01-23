@@ -29,7 +29,7 @@ def matrix(rows, cols):
     Key(str(rows) + "/50, tab, " + str(cols) + "/50, enter").execute()
 
 class sn_mathematics(MergeRule):
-    pronunciation = "Scientific notebook maths"
+    pronunciation = BINDINGS["pronunciation"]
 
     mapping = {
         BINDINGS["symbol_prefix"] + " <symbol>":
@@ -52,7 +52,8 @@ class sn_mathematics(MergeRule):
         "<numbers> <denominator>":
             Key("c-f, %(numbers)s, down, %(denominator)s, right"),
 
-        "mathematics test": Text("test successful"),
+        "configure " + BINDINGS["pronunciation"]: Function(utilities.load_config, config_name="scientific_notebook.toml"),
+
 
     }
 

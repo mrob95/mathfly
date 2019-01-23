@@ -1,3 +1,6 @@
+# Once you have finished making changes, use the "rebuild mathfly" 
+# command to enact them.
+"pronunciation" = "LaTeX"
 "bibliography_path" = ""
 "class_prefix" = "document class"
 "environment_prefix" = "begin"

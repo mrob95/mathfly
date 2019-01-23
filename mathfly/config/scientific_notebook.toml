@@ -1,3 +1,6 @@
+# Once you have finished making changes, use the "rebuild mathfly" 
+# command to enact them.
+"pronunciation" = "Scientific notebook maths"
 "greek_prefix" = "greek"
 "symbol_prefix" = ""
 "accent_prefix" = "accent"

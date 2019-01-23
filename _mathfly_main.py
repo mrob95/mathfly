@@ -12,6 +12,8 @@ _NEXUS = control.nexus()
 BASE_PATH = os.path.realpath(__file__).split("\\_mathfly_main.py")[0].replace("\\", "/")
 sys.path.append(BASE_PATH)
 
+CORE = utilities.load_toml_relative("config/core.toml")
+
 from mathfly.ccr import core, sn_mathematics, lyx_mathematics, latex, alias
 from mathfly.apps import sublime
 _NEXUS.merger.update_config()
@@ -38,7 +40,7 @@ def generate_ccr_choices(nexus):
 
 def rule_changer(enable, name):
     _NEXUS.merger.global_rule_changer(name=name, enable=enable, save=True)
-    if name == "core":
+    if name == CORE["pronunciation"]:
         _NEXUS.merger.selfmod_rule_changer(name2="alias", enable=enable, save=True)
 
 class MainRule(MergeRule):
@@ -50,16 +52,9 @@ class MainRule(MergeRule):
 
         "rebuild math fly": Function(rebuild),
 
-        "configure <config_name>": Function(utilities.load_config),
 	}
 	extras=[
 		generate_ccr_choices(_NEXUS),
-        Choice("config_name", {
-            "core": "core",
-            "latex": "latex",
-            "licks maths": "lyx",
-            "scientific notebook maths": "scientific_notebook",
-            }),  
         Choice("enable", {
             "enable": True,
             "disable": False

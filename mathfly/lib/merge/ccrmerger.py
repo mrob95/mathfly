@@ -161,8 +161,8 @@ class CCRMerger(object):
         return self._self_modifying_rules.keys()
 
     def display_rules(self):
-        for rule, on in self._config[CCRMerger._GLOBAL].items():
-            if on:
+        for rule in self.global_rule_names():
+            if self._config[CCRMerger._GLOBAL][rule]:
                 print("*" + rule)
             else:
                 print(rule)

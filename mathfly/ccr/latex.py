@@ -71,7 +71,7 @@ def selection_to_bib(ref_type):
         Clipboard.set_system_text(bibtexer.get_tag(ref))
 
 class LaTeX(MergeRule):
-    pronunciation = "latex"
+    pronunciation = BINDINGS["pronunciation"]
 
     mapping = {
         "insert comment":  Text("% "),
@@ -100,6 +100,7 @@ class LaTeX(MergeRule):
 
         "add <ref_type> to bibliography": Function(selection_to_bib),
 
+        "configure " + BINDINGS["pronunciation"]: Function(utilities.load_config, config_name="latex.toml"),
     }
 
     extras = [

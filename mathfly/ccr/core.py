@@ -23,7 +23,7 @@ def alphabet(big, letter):
 	Key(letter).execute()
 
 class core(MergeRule):
-    pronunciation = "core"
+    pronunciation = CORE["pronunciation"]
 
     mapping = {
     	"[<big>] <letter>": Function(alphabet),
@@ -38,6 +38,8 @@ class core(MergeRule):
         "say <text>": Text("%(text)s"),
 
         "shift click": Key("shift:down") + Mouse("left") + Key("shift:up"),
+
+        "configure " + CORE["pronunciation"]: Function(utilities.load_config, config_name="core.toml"),
 
     	}
 

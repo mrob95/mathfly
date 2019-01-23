@@ -1,4 +1,7 @@
+# Once you have finished making changes, use the "rebuild mathfly" 
+# command to enact them.
 "numbers_max" = 500
+"pronunciation" = "Core"
 "capitals_prefix" = "big"
 
 [letters]
