@@ -3,6 +3,8 @@
 "numbers_max" = 500
 "pronunciation" = "Core"
 "capitals_prefix" = "big"
+"numbers_prefix" = "[numb]"
+"dictation_prefix" = "say"
 
 [letters]
 "alpha" = "a"

@@ -27,15 +27,14 @@ class core(MergeRule):
 
     mapping = {
     	"[<big>] <letter>": Function(alphabet),
-    	"[numb] <numbers>": Text("%(numbers)s"),
+    	CORE["numbers_prefix"] + " <numbers>": Text("%(numbers)s"),
     	"<punctuation>": Key("%(punctuation)s"),
 
     	"[<modifier>] <direction> [<n>]": Key("%(modifier)s" + "%(direction)s:%(n)s"),
     	"<key> [<n>]": Key("%(key)s")*Repeat(extra="n"),
     	"<misc_core_keys>": Key("%(misc_core_keys)s"),
-    	"core test": Text("test successful"),
 
-        "say <text>": Text("%(text)s"),
+        CORE["dictation_prefix"] + " <text>": Text("%(text)s"),
 
         "shift click": Key("shift:down") + Mouse("left") + Key("shift:up"),
 
