@@ -13,11 +13,16 @@ BASE_PATH = os.path.realpath(__file__).split("\\_mathfly_main.py")[0].replace("\
 sys.path.append(BASE_PATH)
 
 CORE = utilities.load_toml_relative("config/core.toml")
-SETTINGS = utilities.load_toml_relative("config/settings.toml")
-from mathfly.apps import sublime
 
 # Seems ugly but works
-def build():
+def build(startup=False):
+    SETTINGS = utilities.load_toml_relative("config/settings.toml")
+    for module_name in SETTINGS["app_modules"]:
+        try:
+            lib = __import__("mathfly.apps." + module_name)
+        except Exception as e:
+            print("Ignoring rule '{}'. Failed to load with: ".format(module_name))
+            print(e)
     _NEXUS.merger.wipe()
     _NEXUS.merger._global_rules = {}
     _NEXUS.merger._self_modifying_rules = {}
@@ -43,7 +48,7 @@ def build():
     print("Modules available:")
     _NEXUS.merger.display_rules()
 
-build()
+build(True)
 
 def generate_ccr_choices(nexus):
     choices = {}

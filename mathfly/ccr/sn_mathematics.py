@@ -75,35 +75,3 @@ class sn_mathematics(MergeRule):
     }
 
 control.nexus().merger.add_global_rule(sn_mathematics())
-
-
-class SNRule(MergeRule):
-    pronunciation = "scientific notebook"
-
-    mapping = {
-        "new file": Key("c-n"),
-        "open file": Key("c-o"),
-        "save as": Key("cs-s"),
-
-        "toggle math": Key("c-m"),
-        "toggle text": Key("c-t"),
-
-        "undo [<n>]": Key("c-z")*Repeat(extra="n"),
-        "redo [<n>]": Key("c-y")*Repeat(extra="n"),
-
-        "evaluate": Key("c-e"),
-
-        }
-    extras = [
-        IntegerRef("n", 1, 10),
-        
-    ]
-    defaults = {
-        "n": 1,
-    }
-
-context = AppContext(executable="scientific notebook")
-grammar = Grammar("scientific notebook", context=context)
-rule = SNRule(name="scientific notebook")
-grammar.add_rule(rule)
-grammar.load()
