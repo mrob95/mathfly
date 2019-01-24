@@ -27,6 +27,8 @@
 "graphic X" =  "graphicx"
 "math tools" =  "mathtools"
 "multi col" = "multicol"
+"long table" = "longtable"
+"tabular X" = "tabularx"
 "X color" = "xcolor"
 "wrap figure" =  "wrapfig"
 
@@ -51,6 +53,7 @@
 "table" = ["table", "[h!]\n\\centering"]
 "long table" = ["longtable", "{lll}"]
 "tabular" = ["tabular", "{llll}"]
+"tabular X" = ["tabular X", "{l X}"]
 "title page" = "titlepage"
 "verbatim" = "verbatim"
 "verse" = "verse"

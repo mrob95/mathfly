@@ -88,7 +88,7 @@ class LaTeX(MergeRule):
         BINDINGS["command_prefix"] + " <command>":  back_curl("%(command)s", ""),
         BINDINGS["command_prefix"] + " <commandnoarg>":  Text("\\%(commandnoarg)s "),
 
-        BINDINGS["command_prefix"] + " my bib resource":  back_curl("addbibresource", BINDINGS["bibliography_path"]),
+        BINDINGS["command_prefix"] + " my (bib resource | bibliography)":  back_curl("addbibresource", BINDINGS["bibliography_path"]),
 
         BINDINGS["command_prefix"] + " quote":  Function(quote),
         #
