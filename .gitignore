@@ -1,5 +1,6 @@
 # Ignore junk
 ccr.toml
+mathfly/docs/generator/
 .idea/
 *.pyc
 *.wav
