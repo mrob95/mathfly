@@ -40,7 +40,7 @@ def app_merge(mp):
 
 
 class CCRMerger(object):
-    CORE = ["core"]
+    CORE = []
     _GLOBAL = "global"
     _APP = "app"
     _SELFMOD = "selfmod"

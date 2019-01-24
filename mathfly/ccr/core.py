@@ -3,7 +3,7 @@ Created on Sep 4, 2018
 
 @author: Mike Roberts
 '''
-from dragonfly import Function, Choice, Key, Text, Mouse, IntegerRef, Dictation
+from dragonfly import Function, Choice, Key, Text, Mouse, IntegerRef, Dictation, Repeat
 
 from mathfly.lib import control, utilities
 from mathfly.lib.merge.mergerule import MergeRule
@@ -31,7 +31,7 @@ class core(MergeRule):
     	"<punctuation>": Key("%(punctuation)s"),
 
     	"[<modifier>] <direction> [<n>]": Key("%(modifier)s" + "%(direction)s:%(n)s"),
-    	"<key> [<n>]": Key("%(key)s:%(n)s"),
+    	"<key> [<n>]": Key("%(key)s")*Repeat(extra="n"),
     	"<misc_core_keys>": Key("%(misc_core_keys)s"),
     	"core test": Text("test successful"),
 

@@ -100,14 +100,15 @@
 "splat" = "c-backspace"
 "(delete | deli)" = "del"
 "(escape | eskimo)" = "escape"
-
+"undo" = "c-z"
+"redo" = "c-y"
+"(duple | duplicate)" = "home, s-end, c-c, right, enter, c-v"
 
 [misc_core_keys]
 "shackle" = "home, s-end"
 "(copy | stoosh)" = "c-c"
 "(paste | spark)" = "c-v"
 "cut" = "c-x"
-"(duple | duplicate)" = "home, s-end, c-c, right, enter, c-v"
 "home" = "home"
 "end" = "end"
 "save" = "c-s"
