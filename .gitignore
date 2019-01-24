@@ -1,5 +1,6 @@
 # Ignore junk
-ccr.toml
+**/ccr.toml
+**/aliases.toml
 mathfly/docs/generator/
 .idea/
 *.pyc
