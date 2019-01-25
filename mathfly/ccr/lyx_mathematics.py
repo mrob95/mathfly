@@ -6,7 +6,7 @@ Created Jan 2019
 from dragonfly import Function, Choice, Mouse, IntegerRef, Key, Text
 from dragonfly import AppContext, Grammar, Repeat
 
-from mathfly.lib import control, utilities
+from mathfly.lib import control, utilities, execution
 from mathfly.lib.merge.mergerule import MergeRule
 
 BINDINGS = utilities.load_toml_relative("config/lyx.toml")
@@ -20,17 +20,6 @@ def greek(big, greek_letter):
 def matrix(rows, cols):
     Text("\\" + BINDINGS["matrix_style"] + " ").execute()
     Key("a-m, w, i, "*(rows-1) + "a-m, c, i, "*(cols-1)).execute()
-
-# Alternate between executing as text and executing as keys
-def misc(misc_lyx_commands):
-    if type(misc_lyx_commands) in [str, int]:
-        Text(misc_lyx_commands).execute()
-    elif type(misc_lyx_commands) in [list, tuple]:
-        for i in range(len(misc_lyx_commands)):
-            if i%2==0:
-                Text(misc_lyx_commands[i]).execute()
-            else:
-                Key(misc_lyx_commands[i]).execute()
 
 class lyx_mathematics(MergeRule):
     pronunciation = BINDINGS["pronunciation"]
@@ -54,8 +43,8 @@ class lyx_mathematics(MergeRule):
         "<misc_lyx_keys>":
             Key("%(misc_lyx_keys)s"),
             
-        "<misc_lyx_commands>":
-            Function(misc),
+        "<command>":
+            Function(execution.alternating_command),
 
         "matrix <rows> by <cols>":
             Function(matrix),
@@ -78,7 +67,7 @@ class lyx_mathematics(MergeRule):
         Choice("accent", BINDINGS["accents"]),
         Choice("text_modes", BINDINGS["text_modes"]),
         Choice("misc_lyx_keys", BINDINGS["misc_lyx_keys"]),
-        Choice("misc_lyx_commands", BINDINGS["misc_lyx_commands"]),
+        Choice("command", BINDINGS["misc_lyx_commands"]),
         Choice("denominator", BINDINGS["denominators"]),
     ]
 

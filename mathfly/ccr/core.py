@@ -57,7 +57,7 @@ class core(MergeRule):
 
     defaults = {
         "big": False,
-    	"n": "1",
+    	"n": 1,
     	"modifier": "",
     }
 

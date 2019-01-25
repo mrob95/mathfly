@@ -5,7 +5,7 @@ Created on Sep 4, 2018
 '''
 from dragonfly import Function, Choice, Key, Text, Mouse, Repeat, Clipboard
 
-from mathfly.lib import control, utilities
+from mathfly.lib import control, utilities, execution
 from mathfly.lib.merge.mergerule import MergeRule
 from mathfly.lib.bibtex import bibtexer, book_citation_generator
 
@@ -95,7 +95,7 @@ class LaTeX(MergeRule):
         "superscript":  Text("^") + Key("lbrace, rbrace, left"),
         "subscript":  Text("_") + Key("lbrace, rbrace, left"),
 
-        BINDINGS["template_prefix"] + " <template>": Text("%(template)s"),
+        BINDINGS["template_prefix"] + " <template>": Function(execution.template),
 
         "add <ref_type> to bibliography": Function(selection_to_bib),
 

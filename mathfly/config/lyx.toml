@@ -33,14 +33,11 @@
 
 # Alternates between executing as text and executing as keys
 [misc_lyx_commands]
-# "summation" = ["\\underset \\overset \\sum ", "down"]
 "blank summation" = "\\sum "
 "summation" = ["\\stackrelthree ", "down", "\\sum ", "down"]
 "(summation | sum) to N" = ["\\stackrelthree ", "n, down", "\\sum ", "down"]
-# "product" = ["\\underset \\overset \\prod ", "down"]
 "blank product" = "\\prod "
 "product" = ["\\stackrelthree ", "down", "\\prod ", "down"]
-# "product to N" = ["\\underset \\overset \\prod ", "up, n, down:2"]
 "product to N" = ["\\stackrelthree ", "n, down", "\\prod ", "down"]
 "limit" = ["\\underset \\lim ", "down"]
 "blank limit" = "\\lim "

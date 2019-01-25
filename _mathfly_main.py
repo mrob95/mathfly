@@ -17,30 +17,42 @@ CORE = utilities.load_toml_relative("config/core.toml")
 # Seems ugly but works
 def build(startup=False):
     SETTINGS = utilities.load_toml_relative("config/settings.toml")
-    for module_name in SETTINGS["app_modules"]:
-        try:
-            lib = __import__("mathfly.apps." + module_name)
-        except Exception as e:
-            print("Ignoring rule '{}'. Failed to load with: ".format(module_name))
-            print(e)
+    if startup:
+        apploaded = []
+        for module_name in SETTINGS["app_modules"]:
+            try:
+                lib = __import__("mathfly.apps." + module_name)
+                apploaded.append(module_name)
+            except Exception as e:
+                print("Ignoring rule '{}'. Failed to load with: ".format(module_name))
+                print(e)
+        if apploaded:
+            print("App modules loaded: " + ", ".join(apploaded))
     _NEXUS.merger.wipe()
     _NEXUS.merger._global_rules = {}
     _NEXUS.merger._self_modifying_rules = {}
+    ccrloaded = []
+    ccrrebuilt = []
     for module_name in SETTINGS["ccr_modules"]:
         if "mathfly.ccr." + module_name in sys.modules:
             try:
                 want_reload_module = sys.modules["mathfly.ccr." + module_name]
                 reload(want_reload_module)
-                print(module_name  + " rebuilt")
+                ccrrebuilt.append(module_name)
             except Exception as e:
+                print("Ignoring rule '{}'. Failed to load with: ".format(module_name))
                 print(e)
         else:
             try:
                 lib = __import__("mathfly.ccr." + module_name)
-                print(module_name  + " loaded")
+                ccrloaded.append(module_name)
             except Exception as e:
                 print("Ignoring rule '{}'. Failed to load with: ".format(module_name))
                 print(e)
+    if ccrloaded:
+        print("CCR modules loaded: " + ", ".join(ccrloaded))
+    if ccrrebuilt:
+        print("CCR modules rebuilt: " + ", ".join(ccrrebuilt))
     _NEXUS.merger.update_config()
     _NEXUS.merger.merge(MergeInf.BOOT)
     print("*- Starting mathfly -*")
