@@ -64,6 +64,8 @@ def selection_to_bib(ref_type):
         ref = book_citation_generator.citation_from_name(cb)
     elif ref_type == "paper":
         ref = bibtexer.bib_from_title(cb)
+    elif ref_type == "link":
+        ref = bibtexer.bibtex_from_link(cb)
     with open(BINDINGS["bibliography_path"], "a") as f:
         f.write(ref)
         print("Reference added:\n" + ref)
@@ -82,6 +84,7 @@ class LaTeXNon(MergeRule):
     extras = [
         Choice("ref_type", {
                 "book": "book",
+                "link": "link",
                 "paper": "paper",
                 }),
     ]
