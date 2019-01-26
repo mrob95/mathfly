@@ -94,7 +94,7 @@
 "greater than" = "rangle"
 "less than" = "langle"
 
-[keys]
+[repeatable_keys]
 "(space | ace)" = "space"
 "(tab | tabby)" = "tab"
 "(enter | shock)" = "enter"
@@ -102,11 +102,9 @@
 "splat" = "c-backspace"
 "(delete | deli)" = "del"
 "(escape | eskimo)" = "escape"
-"undo" = "c-z"
-"redo" = "c-y"
 "(duple | duplicate)" = "home, s-end, c-c, right, enter, c-v"
 
-[misc_core_keys]
+[non_repeatable_keys]
 "shackle" = "home, s-end"
 "(copy | stoosh)" = "c-c"
 "(paste | spark)" = "c-v"
@@ -114,6 +112,14 @@
 "home" = "home"
 "end" = "end"
 "save" = "c-s"
+
+# these require a pause before activation, in order to reduce
+# unwanted recognition of destructive commands
+[noCCR_repeatable_keys]
+"undo" = "c-z"
+"redo" = "c-y"
+
+[noCCR_non_repeatable_keys]
 
 [directions]
 "left" = "left"

@@ -86,3 +86,8 @@ def load_config(config_name):
     parameters.append(get_full_path("config/" + config_name))
     Popen(parameters)
     
+def load_text_file(path):
+    parameters = []
+    parameters.append(SETTINGS["editor_path"])
+    parameters.append(path)
+    Popen(parameters)

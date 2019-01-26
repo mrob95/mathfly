@@ -28,7 +28,15 @@ def matrix(rows, cols):
     Key("f10/5, i/5, down:8, enter/50").execute()
     Key(str(rows) + "/50, tab, " + str(cols) + "/50, enter").execute()
 
+class sn_mathematicsNon(MergeRule):
+    mapping = {
+        "configure " + BINDINGS["pronunciation"]: 
+            Function(utilities.load_config, config_name="scientific_notebook.toml"),
+    }
+
 class sn_mathematics(MergeRule):
+    non = sn_mathematicsNon
+
     pronunciation = BINDINGS["pronunciation"]
 
     mapping = {
@@ -51,10 +59,6 @@ class sn_mathematics(MergeRule):
 
         "<numbers> <denominator>":
             Key("c-f, %(numbers)s, down, %(denominator)s, right"),
-
-        "configure " + BINDINGS["pronunciation"]: Function(utilities.load_config, config_name="scientific_notebook.toml"),
-
-
     }
 
     extras = [

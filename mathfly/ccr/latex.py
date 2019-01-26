@@ -69,7 +69,26 @@ def selection_to_bib(ref_type):
         print("Reference added:\n" + ref)
         Clipboard.set_system_text(bibtexer.get_tag(ref))
 
+class LaTeXNon(MergeRule):
+    mapping = {
+        "configure " + BINDINGS["pronunciation"]: 
+            Function(utilities.load_config, config_name="latex.toml"),
+
+        "add <ref_type> to bibliography": Function(selection_to_bib),
+
+        "(open | edit) bibliography": 
+            Function(utilities.load_text_file, path=BINDINGS["bibliography_path"]),
+    }
+    extras = [
+        Choice("ref_type", {
+                "book": "book",
+                "paper": "paper",
+                }),
+    ]
+
 class LaTeX(MergeRule):
+    non = LaTeXNon
+
     pronunciation = BINDINGS["pronunciation"]
 
     mapping = {
@@ -96,10 +115,6 @@ class LaTeX(MergeRule):
         "subscript":  Text("_") + Key("lbrace, rbrace, left"),
 
         BINDINGS["template_prefix"] + " <template>": Function(execution.template),
-
-        "add <ref_type> to bibliography": Function(selection_to_bib),
-
-        "configure " + BINDINGS["pronunciation"]: Function(utilities.load_config, config_name="latex.toml"),
     }
 
     extras = [
@@ -112,10 +127,6 @@ class LaTeX(MergeRule):
         Choice("command", BINDINGS["command"]),
         Choice("environment", BINDINGS["environments"]),
         Choice("template", BINDINGS["templates"]),
-        Choice("ref_type", {
-            "book": "book",
-            "paper": "paper",
-            }),
         ]
     defaults = {
         "big": False,

@@ -21,7 +21,15 @@ def matrix(rows, cols):
     Text("\\" + BINDINGS["matrix_style"] + " ").execute()
     Key("a-m, w, i, "*(rows-1) + "a-m, c, i, "*(cols-1)).execute()
 
+class lyx_mathematicsNon(MergeRule):
+    mapping = {
+        "configure " + BINDINGS["pronunciation"]: 
+            Function(utilities.load_config, config_name="lyx.toml"),
+    }
+
 class lyx_mathematics(MergeRule):
+    non = lyx_mathematicsNon
+
     pronunciation = BINDINGS["pronunciation"]
 
     mapping = {
@@ -52,8 +60,6 @@ class lyx_mathematics(MergeRule):
         "<numbers> <denominator>":
             Key("a-m, f, %(numbers)s, down, %(denominator)s, right"),
 
-        "configure " + BINDINGS["pronunciation"]: 
-            Function(utilities.load_config, config_name="lyx.toml"),
     }
 
     extras = [
