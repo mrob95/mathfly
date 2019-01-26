@@ -10,6 +10,8 @@
 "matrix_style" = "matrix"
 "max_matrix_size" = 10
 
+# For a full list of the available key formatting options,
+# see https://pythonhosted.org/dragonfly/actions.html
 [misc_lyx_keys]
 "math mode" = "c-m"
 "check" = "escape:10, end, enter, c-m"
@@ -164,6 +166,8 @@
 "horizontal dots" = "cdots"
 "vertical dots" = "vdots"
 
+# Require a prefix, as these (I think) are fairly uncommon
+# feel free to move this stuff around.
 [tex_symbols2]
 "GCD" = "gcd"
 "cat hom" = "hom"

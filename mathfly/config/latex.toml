@@ -1,6 +1,8 @@
 # Once you have finished making changes, use the "rebuild mathfly" 
 # command to enact them.
 "pronunciation" = "LaTeX"
+# Insert your own .bib file here, e.g.
+# "C:/Users/Mike/Documents/bibliography.bib"
 "bibliography_path" = ""
 "class_prefix" = "document class"
 "environment_prefix" = "begin"
@@ -32,6 +34,11 @@
 "X color" = "xcolor"
 "wrap figure" =  "wrapfig"
 
+# These commands produce begin and end tags, and end inside.
+# if included, the second element in lists come after the first begin
+# tag. For example, "begin figure" produces
+# \begin{figure}[h!]
+# \end{figure}
 [environments]
 "abstract" = "abstract"
 "add margin" = "addmargin"
@@ -131,8 +138,11 @@
 "sigh" = "psi"
 "omega" = "omega"
 
+
+# if included, a number as the second element in a list
+# puts that number of curly braces after the command, e.g.
+# "symbol fraction" produces "\frac{}{}"
 [symbols]
-# operators
 "square root" = ["sqrt", "1"]
 "[generic] root" = ["sqrt[]", "1"]
 "integral" = "int"
@@ -254,6 +264,8 @@
 "horizontal dots" = "cdots"
 "vertical dots" = "vdots"
 
+# These are longer and are pasted in rather than being executed
+# as keystrokes. Add as many as you like.
 [templates]
 "header" = '''
 \documentclass[12pt, a4paper]{article}
