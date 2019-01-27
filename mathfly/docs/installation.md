@@ -17,7 +17,7 @@ Make sure to select `Add python to path`. This can be done manually by searching
     * This can be done manually by pip installing dragonfly2, toml
 
 ## 4. Setup and launch
-1. Open the start menu and search for "natlink", click the file called "Configure NatLink via GUI" and run it using python 2.7.
+1. Open the start menu and search for "natlink", click the file called "Configure NatLink via GUI" and run it using python 2.7 (`C:/python27/python.exe`).
 2. Ensure that the details of your DNS setup are correct in the "info" tab.
 3. In the "configure" tab, under "NatLink" and "UserDirectory" click enable. When you are prompted for a folder, give it the location of your mathfly folder from step three (`user\Documents\NatLink\mathfly-master`).
 4. Reboot Dragon. NatLink should load at the same time, with mathfly commands available. To test this:
