@@ -1,4 +1,4 @@
-# Once you have finished making changes, use the "rebuild mathfly" 
+# Once you have finished making changes, use the "rebuild mathfly"
 # command to enact them.
 "pronunciation" = "LyX maths"
 "greek_prefix" = "greek"
@@ -22,9 +22,9 @@
 "squared" = "caret, 2, right"
 "cubed" = "caret, 3, right"
 "inverse" = "caret, minus, 1, right"
-"(prekris | parens | brackets)" = "a-m, lparen"
-"(brax | square brackets)" = "a-m, lbracket"
-"curly [brackets]" = "a-m, lbrace"
+"(parens | parentheses)" = "a-m, lparen"
+"square brackets" = "a-m, lbracket"
+"curly brackets" = "a-m, lbrace"
 "absolute" = "a-m, bar"
 "prime" = "apostrophe"
 "add matrix row" = "a-m, w, i"
@@ -81,8 +81,8 @@
 
 [tex_symbols1]
 # operators
-"[square] root" = "sqrt"
-"generic root" = "root"
+"square root" = "sqrt"
+"[generic] root" = "root"
 "integral" = "int"
 "double integral" = "iint"
 "triple integral" = "iiint"

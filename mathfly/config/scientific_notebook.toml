@@ -1,4 +1,4 @@
-# Once you have finished making changes, use the "rebuild mathfly" 
+# Once you have finished making changes, use the "rebuild mathfly"
 # command to enact them.
 "pronunciation" = "Scientific notebook maths"
 "greek_prefix" = "greek"
@@ -38,11 +38,12 @@
 "squared" = "c-h, 2, right"
 "cubed" = "c-h, 3, right"
 "inverse" = "c-h, minus, 1, right"
-"(parens | prekris)" = "c-0"
-"(squares | brax)" = "c-6"
+"(parens | parentheses)" = "c-0"
+"square brackets" = "c-6"
+"curly brackets" = "c-lbrace"
 "absolute" = "bar, bar, left"
 "chi squared" = "c-g, q, c-h, 2, right"
-"(radical | root | square root)" = "c-r"
+"(root | square root)" = "c-r"
 "summation" = "c-7"
 "prime" = "apostrophe"
 #

@@ -9,6 +9,8 @@ from mathfly.lib import control, utilities, execution
 from mathfly.lib.merge.mergerule import MergeRule
 from mathfly.lib.bibtex import bibtexer, book_citation_generator
 
+import codecs
+
 BINDINGS = utilities.load_toml_relative("config/latex.toml")
 CORE = utilities.load_toml_relative("config/core.toml")
 
@@ -66,19 +68,19 @@ def selection_to_bib(ref_type):
         ref = bibtexer.bib_from_title(cb)
     elif ref_type == "link":
         ref = bibtexer.bibtex_from_link(cb)
-    with open(BINDINGS["bibliography_path"], "a") as f:
-        f.write(ref)
-        print("Reference added:\n" + ref)
-        Clipboard.set_system_text(bibtexer.get_tag(ref))
+    f = codecs.open(BINDINGS["bibliography_path"], encoding="utf-8", mode="a")
+    f.write(ref)
+    print("Reference added:\n" + ref)
+    Clipboard.set_system_text(bibtexer.get_tag(ref))
 
 class LaTeXNon(MergeRule):
     mapping = {
-        "configure " + BINDINGS["pronunciation"]: 
+        "configure " + BINDINGS["pronunciation"]:
             Function(utilities.load_config, config_name="latex.toml"),
 
         "add <ref_type> to bibliography": Function(selection_to_bib),
 
-        "(open | edit) bibliography": 
+        "(open | edit) bibliography":
             Function(utilities.load_text_file, path=BINDINGS["bibliography_path"]),
     }
     extras = [
