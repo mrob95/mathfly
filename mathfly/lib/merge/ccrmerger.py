@@ -171,11 +171,12 @@ class CCRMerger(object):
     def global_rule_changer(self, name, enable, save):
         self._config[CCRMerger._GLOBAL][name] = enable
         self.merge(MergeInf.RUN, name, enable, save)
+        print(name + " enabled" if enable else name + " disabled")
 
     def selfmod_rule_changer(self, name2, enable, save):
         self._config[CCRMerger._SELFMOD][name2] = enable
         self.merge(MergeInf.SELFMOD, name2, enable, save)
-        
+
     '''merging'''
 
     def _get_rules_by_composite(self, composite, original=False):
@@ -233,7 +234,7 @@ class CCRMerger(object):
         if CCRMerger._ORDER not in self._config:
             self._config[CCRMerger._ORDER] = []
         enabled = [
-            r for r in self._config[CCRMerger._ORDER] 
+            r for r in self._config[CCRMerger._ORDER]
             if self._config[CCRMerger._GLOBAL].get(r)][-100:]
         self._config[CCRMerger._ORDER] = OrderedDict(izip_longest(enabled, [])).keys()
 
@@ -243,7 +244,7 @@ class CCRMerger(object):
         instantiates affiliated rules;
         adds everything to its grammar
         ;
-        assumptions made: 
+        assumptions made:
         * SelfModifyingRules have already made changes to themselves
         * the appropriate activation boolean(s) in the appropriate map has already been set'''
         current_rule = None
@@ -253,7 +254,7 @@ class CCRMerger(object):
         '''get base CCR rule'''
         if time == MergeInf.BOOT:  # rebuild via config
             for name, rule in self._global_rules.iteritems():
-                '''we want to be able to make permanent changes at boot time, not just 
+                '''we want to be able to make permanent changes at boot time, not just
                 to activated rules, but to everything -- but we dont' want it to interfere
                 with normal merge logic-- hence the introduction of the BOOT_NO_MERGE time'''
                 mp = MergePair(
@@ -296,7 +297,7 @@ class CCRMerger(object):
         for name2, rule in self._self_modifying_rules.iteritems():
             '''no need to make copies of selfmod rules because even if
             filter functions trash their mapping, they'll just regenerate
-            it next time they modify themselves; 
+            it next time they modify themselves;
             furthermore, they need to preserve state'''
             if self._config[CCRMerger._SELFMOD][name2]:
                 mp = MergePair(time, MergeInf.SELFMOD, base, rule, False)
