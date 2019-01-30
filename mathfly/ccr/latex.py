@@ -29,7 +29,7 @@ def greek_letters(big, greek_letter):
 
 def symbol(symbol):
     if type(symbol) in [str, unicode, int]:
-        Text("\\" + symbol).execute()
+        Text("\\" + symbol + " ").execute()
     else:
         Text("\\" + str(symbol[0])).execute()
         Text("{}"*int(symbol[1])).execute()
@@ -106,7 +106,9 @@ class LaTeX(MergeRule):
         BINDINGS["package_prefix"] + " [<packopts>]":  Function(packages),
         #
         BINDINGS["symbol_prefix"] + " <symbol>":  Function(symbol),
-        BINDINGS["symbol_prefix"] + " degrees": Text("^{\\circ}"),
+        BINDINGS["symbol_prefix"] + " <misc_symbol>":
+            Function(lambda misc_symbol: execution.alternating_command(misc_symbol)),
+
         BINDINGS["greek_prefix"] + " [<big>] <greek_letter>":  Function(greek_letters),
         #
         BINDINGS["command_prefix"] + " <command>":  back_curl("%(command)s", ""),
@@ -116,8 +118,6 @@ class LaTeX(MergeRule):
 
         BINDINGS["command_prefix"] + " quote":  Function(quote),
         #
-        "superscript":  Text("^") + Key("lbrace, rbrace, left"),
-        "subscript":  Text("_") + Key("lbrace, rbrace, left"),
 
         BINDINGS["template_prefix"] + " <template>": Function(execution.template),
     }
@@ -128,6 +128,7 @@ class LaTeX(MergeRule):
         Choice("class", BINDINGS["document_classes"]),
         Choice("greek_letter", BINDINGS["greek_letters"]),
         Choice("symbol", BINDINGS["symbols"]),
+        Choice("misc_symbol", BINDINGS["misc_symbols"]),
         Choice("commandnoarg", BINDINGS["commandnoarg"]),
         Choice("command", BINDINGS["command"]),
         Choice("environment", BINDINGS["environments"]),

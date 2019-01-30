@@ -1,8 +1,8 @@
-# Once you have finished making changes, use the "rebuild mathfly" 
+# Once you have finished making changes, use the "rebuild mathfly"
 # command to enact them.
 "pronunciation" = "LaTeX"
 # Insert your own .bib file here, e.g.
-# "C:/Users/Mike/Documents/bibliography.bib"
+# "bibliography_path" = "C:/Users/Mike/Documents/bibliography.bib"
 "bibliography_path" = ""
 "class_prefix" = "document class"
 "environment_prefix" = "begin"
@@ -139,6 +139,15 @@
 "omega" = "omega"
 
 
+[misc_symbols]
+"super [script]" = ["^{}", "left"]
+"sub [script]" = ["_{}", "left"]
+"squared" = "^{2} "
+"cubed" = "_{3} "
+"degrees" = "^{\\circ}"
+"(parens | parentheses)" = ["\\left(  \\right) ", "left:9"]
+"square brackets" = ["\\left[  \\right] ", "left:9"]
+
 # if included, a number as the second element in a list
 # puts that number of curly braces after the command, e.g.
 # "symbol fraction" produces "\frac{}{}"
@@ -153,11 +162,13 @@
 "divide" = "div"
 "intersection" = "cap"
 "union" = "cup"
-"stop" = "cdot"
-"sum" = "sum"
+"C dot" = "cdot"
+"summation" = "sum"
 "product" = "prod"
 "(direct sum | oh plus)" = "oplus"
-"(large direct sum | large oh plus)" = "bigoplus"
+"(big direct sum | big oh plus)" = "bigoplus"
+"(direct product | oh times)" = "otimes"
+"(big direct product | big oh times)" = "bigotimes"
 "plus or minus" = "pm"
 "partial" = "partial"
 #
@@ -228,7 +239,7 @@
 "primer" = "prime"
 "logic not" = "lnot"
 "for all" = "forall"
-"there exists" = "exists" 
+"there exists" = "exists"
 # math fonts
 "(beebee|blackboard bold)" = "mathbb"
 "roman" = "mathrm"
@@ -254,10 +265,6 @@
 "up arrow" = "uparrow"
 "down arrow" = "downarrow"
 "left right arrow" = "leftrightarrow"
-#
-"left" = "left("
-"right" = "right)"
-"parens" = "left(  right)"
 #
 "dot dot dot" = "dots"
 "diagonal dots" = "ddots"

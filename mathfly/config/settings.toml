@@ -6,6 +6,7 @@ ccr_modules = ["core",
 				"sn_mathematics",
 				"lyx_mathematics",
 				"latex",
+				"latex_maths",
 				"alias"
 				]
 app_modules = ["sublime",
