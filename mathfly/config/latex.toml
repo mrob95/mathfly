@@ -44,6 +44,7 @@
 "add margin" = "addmargin"
 "center" = "center"
 "columns" = "columns"
+"column" = ["column", "{0.5\\textwidth}"]
 "description" = "description"
 "document" = "document"
 "(enumerate | numbered list)" = "enumerate"
@@ -100,6 +101,7 @@
 "column" = "column{0.5\\textwidth}"
 "footnote mark" = "footnotemark[]"
 "horizontal line" = "hline"
+"(lah | lay) tech" = "LaTeX~ "
 "line break" = "linebreak"
 "[list] item" = "item"
 "make title" = "maketitle"
@@ -108,7 +110,9 @@
 "page break" = "pagebreak"
 "print bibliography" = "printbibliography"
 "table of contents" = "tableofcontents"
+"tech" = "TeX~ "
 "text backslash" = "textbackslash"
+"text height" = "textheight"
 "text width" = "textwidth"
 "vertical line" = "vline"
 
@@ -143,10 +147,12 @@
 "super [script]" = ["^{}", "left"]
 "sub [script]" = ["_{}", "left"]
 "squared" = "^{2} "
-"cubed" = "_{3} "
+"cubed" = "^{3} "
+"inverse" = "^{-1} "
 "degrees" = "^{\\circ}"
 "(parens | parentheses)" = ["\\left(  \\right) ", "left:9"]
 "square brackets" = ["\\left[  \\right] ", "left:9"]
+"(curly brackets | braces)" = ["\\{  \\} ", "left:4"]
 
 # if included, a number as the second element in a list
 # puts that number of curly braces after the command, e.g.

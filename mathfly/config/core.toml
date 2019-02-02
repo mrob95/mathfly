@@ -1,9 +1,9 @@
-# Once you have finished making changes, use the "rebuild mathfly" 
+# Once you have finished making changes, use the "rebuild mathfly"
 # command to enact them.
 "numbers_max" = 500
 "pronunciation" = "Core"
 "capitals_prefix" = "big"
-# Square brackets mean that a word is optional: 
+# Square brackets mean that a word is optional:
 # the command will work with or without it
 # for example, "numb ten" and "ten" both do the same thing.
 "numbers_prefix" = "[numb]"
@@ -39,7 +39,7 @@
 "zulu" = "z"
 
 # My own phonetic alphabet, based on that of Talon.
-# Single syllables speed things up a bit, potentially 
+# Single syllables speed things up a bit, potentially
 # at the cost of accuracy, enable "alternative_letters"
 # in settings.toml to use these instead of NATO
 [letters_alt]
@@ -102,6 +102,9 @@
 "underscore" = "underscore"
 "greater than" = "rangle"
 "less than" = "langle"
+"brax" = "lbracket, rbracket, left"
+"prekris" = "lparen, rparen, left"
+"curly" = "lbrace, rbrace, left"
 
 # These can be followed by a number to execute multiple times
 [repeatable_keys]

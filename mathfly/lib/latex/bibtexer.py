@@ -88,5 +88,5 @@ def bibtex_from_link(url):
         year = ""
 
     date = datetime.datetime.today().strftime('%Y-%m-%d')
-    ref = "@online{" + tag + ",\n title = {" + str(title) + "},\n author = {" + author + "},\n year = {" + year + "},\n url = {" + url + "},\n urldate = {" + date + "}\n}\n"
+    ref = "@online{" + tag + ",\n title = {" + title + "},\n author = {" + author + "},\n year = {" + year + "},\n url = {" + url + "},\n urldate = {" + date + "}\n}\n"
     return ref
