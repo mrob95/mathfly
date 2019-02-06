@@ -1,6 +1,7 @@
 # Mathfly
 Free, open source utility for dictating mathematical notation quickly and easily using [Dragon Professional Individual](https://www.nuance.com/en-gb/dragon/business-solutions/dragon-professional-individual.html). Currently supports the free, open source LyX document processor and Scientific Notebook. Based on Natlink, dragonfly and Caster. With thanks to Alex Boche and David Conway.
 
+* [Gitter channel](https://gitter.im/mathfly-dictation/community)
 * Contact: mr1128@york.ac.uk
 * [Installation instructions](mathfly/docs/installation.md)
 * For complete lists of the commands which Mathfly provides, read the [Core](mathfly/docs/Core.pdf), [LyX](mathfly/docs/LyX.pdf) and [Scientific Notebook](mathfly/docs/Scientific_Notebook.pdf) documentation.
