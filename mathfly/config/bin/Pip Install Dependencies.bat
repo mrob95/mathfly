@@ -2,6 +2,8 @@
 echo Installing: dragonfly2, wxPython, pillow
 
 cd c:\python27\scripts
+pip install wxpython
+pip install pywin32
 pip install setuptools
 pip install future
 pip install dragonfly2

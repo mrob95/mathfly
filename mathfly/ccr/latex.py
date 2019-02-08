@@ -67,7 +67,6 @@ class LaTeX(MergeRule):
         BINDINGS["command_prefix"] + " quote":
             Function(tex_funcs.quote),
         #
-
         BINDINGS["template_prefix"] + " <template>":
             Function(execution.template),
     }
