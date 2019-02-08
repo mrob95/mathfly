@@ -26,7 +26,6 @@
 "square brackets" = "a-m, lbracket"
 "curly brackets" = "a-m, lbrace"
 "absolute" = "a-m, bar"
-"prime" = "apostrophe"
 "add matrix row" = "a-m, w, i"
 "(delete | remove) matrix row" = "a-m, w, d"
 "add matrix column" = "a-m, c, i"
@@ -45,6 +44,10 @@
 "blank limit" = "\\lim "
 "label above" = "\\overset "
 "label below" = "\\underset "
+"prime" = ["^\\prime ", "right"]
+"exponential" = ["\\exp ", "a-m, lparen"]
+"expectation" = ["E", "a-m, lparen"]
+"variance" = ["Var", "a-m, lparen"]
 #
 "real numbers" = ["\\mathbb R", "right"]
 "complex numbers" = ["\\mathbb C", "right"]
@@ -115,7 +118,6 @@
 "degree" = "deg"
 "determinant" = "det"
 "dimension" = "dim"
-"exponential" = "exp"
 "(natural (log | logarithm) | log natural)" = "ln"
 "logarithm" = "log"
 "maximum" = "max"
