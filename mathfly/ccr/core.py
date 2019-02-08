@@ -53,7 +53,7 @@ class core(MergeRule):
     	"<non_repeatable_key>": Key("%(non_repeatable_key)s"),
 
         CORE["dictation_prefix"] + " <text>":
-            Function(lambda text: Text(text.lower())),
+            Function(lambda text: Text(str(text).lower()).execute()),
 
         "shift click": Key("shift:down") + Mouse("left") + Key("shift:up"),
     	}
