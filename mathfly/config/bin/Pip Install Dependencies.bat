@@ -2,12 +2,13 @@
 echo Installing: dragonfly2, wxPython, pillow
 
 cd c:\python27\scripts
-pip install wxpython
-pip install pywin32
-pip install setuptools
-pip install future
-pip install dragonfly2
-pip install toml
+pip install --upgrade pip
+pip install -U wxpython
+pip install -U pywin32
+pip install -U setuptools
+pip install -U future
+pip install -U dragonfly2
+pip install -U toml
 
 echo ------------------------------------------
 echo Mathfly Dependencies Installation Complete

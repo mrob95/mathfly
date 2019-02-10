@@ -56,9 +56,9 @@ def build(startup=False):
     _NEXUS.merger.update_config()
     _NEXUS.merger.merge(MergeInf.BOOT)
     print("*- Starting mathfly -*")
-    print("Say \"enable <module name>\" to begin, or \n\"configure <module name>\" to make changes.")
     print("Modules available:")
     _NEXUS.merger.display_rules()
+    print("Say \"enable <module name>\" to begin, and \n\"configure <module name>\" to make changes.")
 
 build(True)
 
@@ -74,9 +74,9 @@ def rule_changer(enable, name):
         _NEXUS.merger.selfmod_rule_changer(name2="alias", enable=enable, save=True)
 
 class MainRule(MergeRule):
-    
+
 	mapping = {
-        "configure math fly": 
+        "configure math fly":
             Function(utilities.load_config, config_name="settings.toml"),
 
         "<enable> <name>": Function(rule_changer),

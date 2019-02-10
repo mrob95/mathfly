@@ -8,6 +8,8 @@
 # for example, "numb ten" and "ten" both do the same thing.
 "numbers_prefix" = "[numb]"
 "dictation_prefix" = "say"
+# "right wally" will produce an "end" keypress
+"extreme" = "wally"
 
 # NATO phonetic alphabet
 [letters]
@@ -137,23 +139,15 @@
 
 [directions]
 "left" = "left"
-"left wally" = "home"
 "right" = "right"
-"right wally" = "end"
 "up" = "up"
-"up wally" = "c-home"
 "down" = "down"
-"down wally" = "c-end"
 
 [directions_alt]
 "lease" = "left"
-"lease wally" = "home"
 "ross" = "right"
-"ross wally" = "end"
 "sauce" = "up"
-"sauce wally" = "c-home"
 "dunce" = "down"
-"dunce wally" = "c-end"
 
 # for example, "queue left two" executes ctrl-shift-left twice,
 # selecting two words to the left.
