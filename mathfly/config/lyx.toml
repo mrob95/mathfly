@@ -45,6 +45,7 @@
 "label above" = "\\overset "
 "label below" = "\\underset "
 "prime" = ["^\\prime ", "right"]
+"degrees" = ["^\\circ ", "right"]
 "exponential" = ["\\exp ", "a-m, lparen"]
 "expectation" = ["E", "a-m, lparen"]
 "variance" = ["Var", "a-m, lparen"]
@@ -89,7 +90,6 @@
 "integral" = "int"
 "double integral" = "iint"
 "triple integral" = "iiint"
-"degrees" = "textdegree"
 "times" = "times"
 "divide" = "div"
 "stop" = "cdot"
