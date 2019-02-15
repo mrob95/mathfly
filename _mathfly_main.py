@@ -58,7 +58,7 @@ def build(startup=False):
     print("*- Starting mathfly -*")
     print("Modules available:")
     _NEXUS.merger.display_rules()
-    print("Say \"enable <module name>\" to begin, and \n\"configure <module name>\" to make changes.")
+    print("Say \"enable <module name>\" to begin, \n\"configure <module name>\" to make changes, \nand \"help mathfly\" to open the documentation")
 
 build(True)
 
@@ -85,6 +85,7 @@ class MainRule(MergeRule):
 
         "rebuild math fly": Function(build),
 
+        "math fly help": Function(utilities.help),
 	}
 	extras=[
 		generate_ccr_choices(_NEXUS),

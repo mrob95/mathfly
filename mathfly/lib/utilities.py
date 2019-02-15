@@ -85,9 +85,13 @@ def load_config(config_name):
     parameters.append(SETTINGS["editor_path"])
     parameters.append(get_full_path("config/" + config_name))
     Popen(parameters)
-    
+
 def load_text_file(path):
     parameters = []
     parameters.append(SETTINGS["editor_path"])
     parameters.append(path)
     Popen(parameters)
+
+def help():
+    print(get_full_path("docs"))
+    Popen(['C:/Windows/explorer.exe', get_full_path("docs").replace("/", "\\")])
