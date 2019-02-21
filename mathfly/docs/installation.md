@@ -19,7 +19,7 @@ Make sure to select `Add python to path`. This can be done manually by searching
 ## 4. Setup and launch
 1. Open the start menu and search for "natlink", click the file called "Configure NatLink via GUI" and run it using python 2.7 (`C:/python27/python.exe`).
 2. Ensure that the details of your DNS setup are correct in the "info" tab.
-3. In the "configure" tab, under "NatLink" and "UserDirectory" click enable. When you are prompted for a folder, give it the location of your mathfly folder from step three (`user\Documents\NatLink\mathfly-master`).
+3. In the "configure" tab, under "NatLink" and "UserDirectory" click enable. When you are prompted for a folder, give it the location of the folder containing `_mathfly_main.py` - your mathfly folder from step three (`user\Documents\NatLink\mathfly-master` or`user\Documents\NatLink\mathfly-master\mathfly-master\`).
 4. Reboot Dragon. NatLink should load at the same time, with mathfly commands available. To test this:
     * Say "enable core" to enable the core mathfly commands (numbers, phonetic alphabet).
     * Open a fresh notepad window and try a command like "alpha bravo three hundred".
