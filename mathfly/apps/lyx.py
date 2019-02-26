@@ -37,6 +37,7 @@ class LyxRule(MergeRule):
         IntegerRef("n", 1, 10),
         Choice("environment", {
             "(in line formula | in line)": "i",
+            "(numbered formula)": "n",
             "(display formula | display)": "d",
             "(equation array environment | equation array)": "e",
             "(AMS align environment | AMS align)": "a",
