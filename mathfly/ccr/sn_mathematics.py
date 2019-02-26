@@ -6,7 +6,7 @@ Created on Sep 4, 2018
 from dragonfly import Function, Choice, Key, Text, Mouse, IntegerRef
 from dragonfly import AppContext, Grammar, Repeat
 
-from mathfly.lib import control, utilities
+from mathfly.lib import control, utilities, execution
 from mathfly.lib.merge.mergerule import MergeRule
 
 BINDINGS = utilities.load_toml_relative("config/scientific_notebook.toml")
@@ -30,7 +30,7 @@ def matrix(rows, cols):
 
 class sn_mathematicsNon(MergeRule):
     mapping = {
-        "configure " + BINDINGS["pronunciation"]: 
+        "configure " + BINDINGS["pronunciation"]:
             Function(utilities.load_config, config_name="scientific_notebook.toml"),
     }
 
@@ -48,11 +48,14 @@ class sn_mathematics(MergeRule):
         BINDINGS["accent_prefix"] + " <accent>":
             Key("%(accent)s"),
 
+        BINDINGS["unit_prefix"] + " <units>":
+            Function(lambda units: execution.alternating_command(units)),
+
         "<misc_sn_keys>":
             Key("%(misc_sn_keys)s"),
         "<misc_sn_text>":
             Text("%(misc_sn_text)s"),
-            
+
         #
         "matrix <rows> by <cols>":
             Function(matrix),
@@ -67,6 +70,7 @@ class sn_mathematics(MergeRule):
         IntegerRef("numbers", 0, CORE["numbers_max"]),
         Choice("big", {CORE["capitals_prefix"]: True}),
         Choice("greek_letter", BINDINGS["greek_letters"]),
+        Choice("units", BINDINGS["units"]),
         Choice("symbol", BINDINGS["tex_symbols"]),
         Choice("accent", BINDINGS["accents"]),
         Choice("misc_sn_keys", BINDINGS["misc_sn_keys"]),

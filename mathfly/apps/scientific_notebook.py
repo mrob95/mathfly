@@ -13,9 +13,11 @@ class SNRule(MergeRule):
     pronunciation = "scientific notebook"
 
     mapping = {
-        "new file": Key("c-n"),
+        "new file": Key("f10/5, down, enter"),
         "open file": Key("c-o"),
-        "save as": Key("cs-s"),
+        "save file": Key("f10/5, down:5, enter"),
+        "save as": Key("f10/5, down:6, enter"),
+        "export document": Key("f10/5, down:8, enter"),
 
         "toggle math": Key("c-m"),
         "toggle text": Key("c-t"),
@@ -25,7 +27,7 @@ class SNRule(MergeRule):
         }
     extras = [
         IntegerRef("n", 1, 10),
-        
+
     ]
     defaults = {
         "n": 1,
