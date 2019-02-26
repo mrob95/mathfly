@@ -14,7 +14,7 @@
 # see https://pythonhosted.org/dragonfly/actions.html
 [misc_lyx_keys]
 "math mode" = "c-m"
-"check" = "escape:10, end, enter, c-m"
+"new math line" = "escape:10, end, enter, c-m"
 "fraction" = "a-m, f"
 "over" = "cs-left, a-m, f, down"
 "(super [script] | to the power)" = "caret"

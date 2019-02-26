@@ -18,9 +18,10 @@ class LyxRule(MergeRule):
 
         "math mode": Key("c-m"),
         "display mode": Key("cs-m"),
+        "normal mode": Key("a-p, s"),
 
         "next tab [<n>]": Key("c-pgdown")*Repeat(extra="n"),
-        "prior tab [<n>]": Key("c-pgup")*Repeat(extra="n"),
+        "(prior | previous) tab [<n>]": Key("c-pgup")*Repeat(extra="n"),
         "close tab [<n>]": Key("c-w/20")*Repeat(extra="n"),
 
         "view PDF": Key("c-r"),
@@ -54,29 +55,27 @@ class LyxRule(MergeRule):
             "delimiters": "r",
             "matrix": "x",
             "macro": "o",
-            }),  
+            }),
         Choice("mode", {
-            "standard": "s",
-            "(itemize | bullets)": "b",
-            "(enumerate | numbering)": "e",
+            "[bulleted] list": "b",
+            "numbered list": "e",
             "description": "d",
-            
             "part": "0",
-            "section": "2",
-            "subsection": "3",
-            "subsubsection": "4",
+            "(section | heading)": "2",
+            "sub (section | heading)": "3",
+            "sub sub (section | heading)": "4",
             "paragraph": "5",
-            "subparagraph": "6",
+            "sub paragraph": "6",
             "title": "t",
             "author": "s-a",
             "date": "s-d",
             "abstract": "a",
             "address": "a-a",
-            "(bibliography | biblio)": "s-b",
+            "bibliography": "s-b",
             "quotation": "a-q",
             # i'm not sure what the differences between quotation and quote
             "quote": "q",
-            "verse": "v",            
+            "verse": "v",
         }),
     ]
     defaults = {

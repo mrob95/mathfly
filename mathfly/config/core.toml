@@ -113,6 +113,7 @@
 "(space | ace)" = "space"
 "(tab | tabby)" = "tab"
 "(enter | shock)" = "enter"
+"check" = "c-enter"
 "(backspace | clear)" = "backspace"
 "splat" = "c-backspace"
 "(delete | deli)" = "del"
