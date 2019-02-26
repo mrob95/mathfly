@@ -21,6 +21,9 @@ class SNRule(MergeRule):
 
         "toggle math": Key("c-m"),
         "toggle text": Key("c-t"),
+        "body math": Key("a-2, down, enter"),
+        "body text": Key("a-2, down:2, enter"),
+
 
         "evaluate": Key("c-e"),
 

@@ -60,10 +60,11 @@
 "triple integral" = "iiint"
 "times" = "times"
 "divide" = "div"
-"stop" = "cdot"
+"C dot" = "cdot"
 "plus or minus" = "pm"
 "partial" = "partial"
 "infinity" = "infty"
+"nabla" = "nabla"
 # trig
 "sine" = "sin"
 "cosine" = "cos"
