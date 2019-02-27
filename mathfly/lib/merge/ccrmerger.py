@@ -62,7 +62,6 @@ class CCRMerger(object):
         # config
         self.use_real_config = use_real_config
         self.load_config()
-        self.update_config()  # this call prepares the config to receive new modules
         self.add_filter(app_merge)
 
     '''config file stuff'''
@@ -79,33 +78,26 @@ class CCRMerger(object):
 
     def update_config(self):
         '''call this after all rules have been added'''
-        changed = False
-        '''global rules'''
-        if not CCRMerger._GLOBAL in self._config:
-            self._config[CCRMerger._GLOBAL] = {}
-        for name in self.global_rule_names():
-            if not name in self._config[CCRMerger._GLOBAL]:
-                self._config[CCRMerger._GLOBAL][name] = name in CCRMerger.CORE
-                changed = True
-        '''app rules'''
-        if not CCRMerger._APP in self._config:
-            self._config[CCRMerger._APP] = {}
-        for name in self.app_rule_names():
-            if not name in self._config[CCRMerger._APP]:
-                self._config[CCRMerger._APP][name] = True
-                changed = True
-        '''self modifying rules'''
-        if not CCRMerger._SELFMOD in self._config:
-            self._config[CCRMerger._SELFMOD] = {}
-        for name in self.selfmod_rule_names():
-            if not name in self._config[CCRMerger._SELFMOD]:
-                self._config[CCRMerger._SELFMOD][name] = True
-                changed = True
+        # Rebuild ccr.toml, rules which have not been registered will be removed,
+        # new rules will be added
+        new_config = {}
+        for tag, rules in {CCRMerger._GLOBAL: self.global_rule_names(),
+                    CCRMerger._APP: self.app_rule_names(),
+                    CCRMerger._SELFMOD: self.selfmod_rule_names()}.iteritems():
+            new_config[tag] = {}
+            if not tag in self._config:
+                self._config[tag] = {}
+            for name in rules:
+                if name in self._config[tag]:
+                    new_config[tag][name] = self._config[tag][name]
+                else:
+                    new_config[tag][name] = False
 
-        if changed: self.save_config()
+        self._config = new_config
+        self.save_config()
+
 
     '''setup: adding rules and filters'''
-
     def add_global_rule(self, rule):
         assert rule.get_context(
         ) is None, "global rules may not have contexts, " + rule.get_pronunciation(
