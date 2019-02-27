@@ -11,7 +11,8 @@ ccr_modules = ["core",
 				]
 app_modules = ["sublime",
 				"lyx",
-				"scientific_notebook"
+				"scientific_notebook",
+				"sumatrapdf"
 				]
 max_ccr_repetitions = 16
 alternative_letters = false
