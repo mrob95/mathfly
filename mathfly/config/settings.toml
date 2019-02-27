@@ -1,6 +1,6 @@
 ccr_path = "config/ccr.toml"
 dragon_path = "C:/Program Files (x86)/Nuance/NaturallySpeaking15/Program/natspeak.exe"
-editor_path = "C:/Windows/notepad.exe"
+editor_path = "C:/Program Files/Windows NT/Accessories/wordpad.exe"
 # editor_path = "C:/Program Files/Sublime Text 3/sublime_text.exe"
 ccr_modules = ["core",
 				"sn_mathematics",
