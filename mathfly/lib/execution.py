@@ -14,3 +14,13 @@ def alternating_command(command):
 
 def template(template):
 	utilities.paste_string(template)
+
+def paren_function(name, dl1="(", dl2=")"):
+	e, text = utilities.read_selected(False)
+	Text(name + dl1).execute()
+	if text:
+		utilities.paste_string(text)
+		Text(dl2).execute()
+	else:
+		Text(dl2).execute()
+		Key("left:" + str(len(dl2))).execute()

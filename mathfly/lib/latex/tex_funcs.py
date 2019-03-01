@@ -40,14 +40,19 @@ def packages(packopts):
         back_curl("usepackage" + packopts[0], packopts[1]).execute()
 
 def begin_end(environment):
+    e, text = utilities.read_selected(False)
     if type(environment) in [str, unicode]:
         env, arg = environment, ""
     elif type(environment) in [tuple, list]:
         env, arg = environment[0], environment[1]
     back_curl("begin", env).execute()
-    Text(arg + "\n\n").execute()
+    Text(arg + "\n").execute()
+    if text:
+        utilities.paste_string(text)
+    Key("enter").execute()
     back_curl("end", env).execute()
-    Key("up").execute()
+    if not text:
+        Key("up").execute()
 
 def selection_to_bib(ref_type, bib_path):
     Key("c-c/20").execute()

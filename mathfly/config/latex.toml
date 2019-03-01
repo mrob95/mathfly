@@ -11,6 +11,7 @@
 "greek_prefix" = "greek"
 "command_prefix" = "insert"
 "template_prefix" = "template"
+"accent_prefix" = "accent"
 
 [document_classes]
 "article" = "article"
@@ -95,6 +96,15 @@
 "[text] slanted" = "textsl"
 "title" = "title"
 "use theme" = "usetheme"
+# Accents
+"grave [accent]" = "`"
+"acute [accent]" = "'"
+"dot [accent]" = "."
+"breve [accent]" = "u"
+"(circumflex | hat)" = "^"
+"(umlaut | dieresis)" = "\""
+"(tilde | squiggle)" = "~"
+"(macron | bar)" = "="
 
 [commandnoarg]
 "centering" = "centering"
@@ -276,6 +286,19 @@
 "diagonal dots" = "ddots"
 "horizontal dots" = "cdots"
 "vertical dots" = "vdots"
+
+[accents]
+"bar" = "bar"
+"breve" = "breve"
+"check" = "check"
+"dot" = "dot"
+"ddot" = "ddot"
+"hat" = "hat"
+"wide hat" = "widehat"
+"tilde" = "tilde"
+"wide tilde" = "widetilde"
+"vector" = "vec"
+
 
 # These are longer and are pasted in rather than being executed
 # as keystrokes. Add as many as you like.
