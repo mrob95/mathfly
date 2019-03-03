@@ -52,7 +52,9 @@ class SumatraPDFRule(MergeRule):
 			})
 	]
 
-	defaults = {}
+	defaults = {
+		"n": 1,
+	}
 
 
 context = AppContext(executable="SumatraPDF", title="SumatraPDF")
