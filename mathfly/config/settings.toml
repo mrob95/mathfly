@@ -15,5 +15,5 @@ app_modules = ["sublime",
 				"sumatrapdf"
 				]
 max_ccr_repetitions = 16
-alternative_letters = false
-alternative_directions = false
+alternative_letters = true
+alternative_directions = true
