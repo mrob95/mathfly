@@ -10,10 +10,10 @@ Make sure to select `Add python to path`. This can be done manually by searching
 * Download and install [Natlink](https://sourceforge.net/projects/natlink/files/natlink/natlinktest4.1/). Use natlink-4.1 victor or newer.
 
 ## 3. Mathfly
-1. Download Caster from [master branch](https://github.com/synkarius/caster/archive/master.zip). 
+1. Download Mathfly from [master branch](https://github.com/mrob95/mathfly/archive/master.zip). 
 2. Open up the zip file downloaded
 3. Open the file `mathfly-master`. Copy and paste its contents into an empty folder, this can be any folder but it is common to use `user\Documents\NatLink`.
-4. Check and install Caster dependencies by clicking on `Pip Install Dependencies.bat` in `\mathfly\config\bin`
+4. Check and install Mathfly dependencies by clicking on `Pip Install Dependencies.bat` in `\mathfly\config\bin`
     * This can be done manually by pip installing dragonfly2, toml
 
 ## 4. Setup and launch
