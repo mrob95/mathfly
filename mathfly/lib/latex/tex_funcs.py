@@ -4,13 +4,12 @@ from mathfly.lib.latex import bibtexer, book_citation_generator
 import codecs
 import sys
 
-# Return \first{second}, if second is empty then end inside the brackets for user input
+# Execute \first{second}, if second is empty then end inside the brackets for user input
 def back_curl(first, second):
+    (Text("\\" + str(first)) + Key("lbrace, rbrace, left") + Text(
+            str(second))).execute()
     if str(second) != "":
-        return (Text("\\") + Text(str(first)) + Key("lbrace, rbrace, left") + Text(
-            str(second)) + Key("right"))
-    if str(second) == "":
-        return (Text("\\") + Text(str(first)) + Key("lbrace, rbrace, left"))
+        Key("right").execute()
 
 def greek_letters(big, greek_letter):
     if big:
@@ -35,9 +34,9 @@ def quote():
 
 def packages(packopts):
     if type(packopts) in [str, unicode]:
-        back_curl("usepackage", packopts).execute()
+        back_curl("usepackage", packopts)
     elif type(packopts) in [tuple, list]:
-        back_curl("usepackage" + packopts[0], packopts[1]).execute()
+        back_curl("usepackage" + packopts[0], packopts[1])
 
 def begin_end(environment):
     e, text = utilities.read_selected(False)
@@ -45,12 +44,12 @@ def begin_end(environment):
         env, arg = environment, ""
     elif type(environment) in [tuple, list]:
         env, arg = environment[0], environment[1]
-    back_curl("begin", env).execute()
+    back_curl("begin", env)
     Text(arg + "\n").execute()
     if text:
         utilities.paste_string(text)
     Key("enter").execute()
-    back_curl("end", env).execute()
+    back_curl("end", env)
     if not text:
         Key("up").execute()
 

@@ -22,6 +22,9 @@ class LaTeXNon(MergeRule):
 
         "(open | edit) bibliography":
             Function(utilities.load_text_file, path=BINDINGS["bibliography_path"]),
+
+        BINDINGS["template_prefix"] + " <template>":
+            Function(execution.template),
     }
     extras = [
         Choice("ref_type", {
@@ -29,6 +32,7 @@ class LaTeXNon(MergeRule):
                 "link": "link",
                 "paper": "paper",
                 }),
+        Choice("template", BINDINGS["templates"]),
     ]
 
 class LaTeX(MergeRule):
@@ -39,11 +43,13 @@ class LaTeX(MergeRule):
     mapping = {
         "insert comment":  Text("% "),
 
-        BINDINGS["class_prefix"] + " [<class>]":
-            tex_funcs.back_curl("documentclass", "%(class)s"),
+        BINDINGS["class_prefix"] + " [<doc_class>]":
+            Function(lambda doc_class: tex_funcs.back_curl("documentclass", doc_class)),
 
         BINDINGS["environment_prefix"] + " <environment>":
             Function(tex_funcs.begin_end),
+        "end <environment>":
+            Function(lambda environment: tex_funcs.back_curl("end", environment)),
         #
         BINDINGS["package_prefix"] + " [<packopts>]":
             Function(tex_funcs.packages),
@@ -64,19 +70,18 @@ class LaTeX(MergeRule):
             Text("\\%(commandnoarg)s "),
 
         BINDINGS["command_prefix"] + " my (bib resource | bibliography)":
-            tex_funcs.back_curl("addbibresource", BINDINGS["bibliography_path"]),
+            Function(lambda: tex_funcs.back_curl("addbibresource", BINDINGS["bibliography_path"])),
 
         BINDINGS["command_prefix"] + " quote":
             Function(tex_funcs.quote),
         #
-        BINDINGS["template_prefix"] + " <template>":
-            Function(execution.template),
+
     }
 
     extras = [
         Choice("big", {CORE["capitals_prefix"]: True}),
         Choice("packopts", BINDINGS["packages"]),
-        Choice("class", BINDINGS["document_classes"]),
+        Choice("doc_class", BINDINGS["document_classes"]),
         Choice("greek_letter", BINDINGS["greek_letters"]),
         Choice("symbol", BINDINGS["symbols"]),
         Choice("misc_symbol", BINDINGS["misc_symbols"]),
@@ -84,12 +89,11 @@ class LaTeX(MergeRule):
         Choice("commandnoarg", BINDINGS["commandnoarg"]),
         Choice("command", BINDINGS["command"]),
         Choice("environment", BINDINGS["environments"]),
-        Choice("template", BINDINGS["templates"]),
         ]
     defaults = {
         "big": False,
         "packopts": "",
-        "class": "",
+        "doc_class": "",
     }
 
 
