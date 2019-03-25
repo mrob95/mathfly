@@ -301,11 +301,13 @@ class CCRMerger(object):
             base_copy = base.copy(
             ) if base is not None else base  # make a copy b/c commands will get stripped out
             context = rule.get_context()
+            non_copy = rule.non if rule.non else None
             mp = MergePair(time, MergeInf.APP, base_copy, rule.copy(), False,
                            CCRMerger.specs_per_rulename(self._global_rules))
             self._run_filters(mp)
             rule = self._compatibility_merge(
                 mp, base_copy, mp.rule2)  # mp.rule2 because named_rule got copied
+            rule.non = non_copy
             rule.set_context(context)
             active_apps.append(rule)
         '''negation context for appless version of base rule'''
@@ -331,6 +333,8 @@ class CCRMerger(object):
             self._add_grammar(rule)
         for rule in active_apps:
             self._add_grammar(rule, True, rule.get_context())
+            if rule.non is not None:
+                self._add_grammar(rule.non(), False, rule.get_context())
         for grammar in self._grammars:
             grammar.load()
         '''save if necessary'''
