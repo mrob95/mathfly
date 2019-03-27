@@ -23,13 +23,13 @@ def matrix(rows, cols):
 
 class lyx_mathematicsNon(MergeRule):
     mapping = {
-        "configure " + BINDINGS["pronunciation"]: 
+        "configure " + BINDINGS["pronunciation"]:
             Function(utilities.load_config, config_name="lyx.toml"),
     }
 
 class lyx_mathematics(MergeRule):
     non = lyx_mathematicsNon
-
+    mwith = CORE["pronunciation"]
     pronunciation = BINDINGS["pronunciation"]
 
     mapping = {
@@ -50,7 +50,7 @@ class lyx_mathematics(MergeRule):
 
         "<misc_lyx_keys>":
             Key("%(misc_lyx_keys)s"),
-            
+
         "<command>":
             Function(execution.alternating_command),
 
@@ -63,22 +63,24 @@ class lyx_mathematics(MergeRule):
     }
 
     extras = [
-        IntegerRef("rows", 1, BINDINGS["max_matrix_size"]),
-        IntegerRef("cols", 1, BINDINGS["max_matrix_size"]),
+        IntegerRef("rows",    1, BINDINGS["max_matrix_size"]),
+        IntegerRef("cols",    1, BINDINGS["max_matrix_size"]),
         IntegerRef("numbers", 0, CORE["numbers_max"]),
-        Choice("big", {CORE["capitals_prefix"]: True}),
-        Choice("greek_letter", BINDINGS["greek_letters"]),
-        Choice("symbol1", BINDINGS["tex_symbols1"]),
-        Choice("symbol2", BINDINGS["tex_symbols2"]),
-        Choice("accent", BINDINGS["accents"]),
-        Choice("text_modes", BINDINGS["text_modes"]),
-        Choice("misc_lyx_keys", BINDINGS["misc_lyx_keys"]),
-        Choice("command", BINDINGS["misc_lyx_commands"]),
-        Choice("denominator", BINDINGS["denominators"]),
+        Choice("big",           {CORE["capitals_prefix"]: True}),
+        Choice("greek_letter",   BINDINGS["greek_letters"]),
+        Choice("symbol1",        BINDINGS["tex_symbols1"]),
+        Choice("symbol2",        BINDINGS["tex_symbols2"]),
+        Choice("accent",         BINDINGS["accents"]),
+        Choice("text_modes",     BINDINGS["text_modes"]),
+        Choice("misc_lyx_keys",  BINDINGS["misc_lyx_keys"]),
+        Choice("command",        BINDINGS["misc_lyx_commands"]),
+        Choice("denominator",    BINDINGS["denominators"]),
     ]
 
     defaults = {
         "big": False,
     }
 
-control.nexus().merger.add_global_rule(lyx_mathematics())
+# control.nexus().merger.add_global_rule(lyx_mathematics())
+context = AppContext(executable="lyx")
+control.nexus().merger.add_app_rule(lyx_mathematics(), context)
