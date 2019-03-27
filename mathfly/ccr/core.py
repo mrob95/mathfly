@@ -72,24 +72,24 @@ class core(MergeRule):
         Dictation("text"),
     	IntegerRef("n", 1, 10),
         IntegerRef("n50", 1, 50),
-        IntegerRef("numbers", 0, CORE["numbers_max"]),
-        Choice("big", {CORE["capitals_prefix"]: True}),
-    	Choice("letter", CORE[_LETTERS]),
-    	Choice("punctuation", CORE["punctuation"]),
-    	Choice("repeatable_key", CORE["repeatable_keys"]),
+        IntegerRef("numbers", 0,     CORE["numbers_max"]),
+        Choice("big",               {CORE["capitals_prefix"]: True}),
+    	Choice("letter",             CORE[_LETTERS]),
+    	Choice("punctuation",        CORE["punctuation"]),
+    	Choice("repeatable_key",     CORE["repeatable_keys"]),
     	Choice("non_repeatable_key", CORE["non_repeatable_keys"]),
-    	Choice("direction", CORE[_DIRECTIONS]),
-    	Choice("modifier", CORE["modifiers"]),
-        Choice("extreme", {CORE["extreme"]: True}),
+    	Choice("direction",          CORE[_DIRECTIONS]),
+    	Choice("modifier",           CORE["modifiers"]),
+        Choice("extreme",           {CORE["extreme"]: True}),
     ]
 
     defaults = {
-        "big": False,
-        "extreme": False,
-    	"n": 1,
-        "n50": 1,
+        "big"      : False,
+        "extreme"  : False,
+        "n"        : 1,
+        "n50"      : 1,
         "direction": "left",
-    	"modifier": "",
+        "modifier" : "",
     }
 
 

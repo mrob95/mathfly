@@ -36,7 +36,7 @@ class sn_mathematicsNon(MergeRule):
 
 class sn_mathematics(MergeRule):
     non = sn_mathematicsNon
-
+    mwith = CORE["pronunciation"]
     pronunciation = BINDINGS["pronunciation"]
 
     mapping = {
@@ -65,21 +65,23 @@ class sn_mathematics(MergeRule):
     }
 
     extras = [
-        IntegerRef("rows", 1, 6),
-        IntegerRef("cols", 1, 6),
+        IntegerRef("rows",    1, BINDINGS["max_matrix_size"]),
+        IntegerRef("cols",    1, BINDINGS["max_matrix_size"]),
         IntegerRef("numbers", 0, CORE["numbers_max"]),
-        Choice("big", {CORE["capitals_prefix"]: True}),
-        Choice("greek_letter", BINDINGS["greek_letters"]),
-        Choice("units", BINDINGS["units"]),
-        Choice("symbol", BINDINGS["tex_symbols"]),
-        Choice("accent", BINDINGS["accents"]),
-        Choice("misc_sn_keys", BINDINGS["misc_sn_keys"]),
-        Choice("misc_sn_text", BINDINGS["misc_sn_text"]),
-        Choice("denominator", BINDINGS["denominators"]),
+        Choice("big",           {CORE["capitals_prefix"]: True}),
+        Choice("greek_letter",   BINDINGS["greek_letters"]),
+        Choice("units",          BINDINGS["units"]),
+        Choice("symbol",         BINDINGS["tex_symbols"]),
+        Choice("accent",         BINDINGS["accents"]),
+        Choice("misc_sn_keys",   BINDINGS["misc_sn_keys"]),
+        Choice("misc_sn_text",   BINDINGS["misc_sn_text"]),
+        Choice("denominator",    BINDINGS["denominators"]),
     ]
 
     defaults = {
         "big": False,
     }
 
-control.nexus().merger.add_global_rule(sn_mathematics())
+# control.nexus().merger.add_global_rule(sn_mathematics())
+context = AppContext(executable="scientific notebook")
+control.nexus().merger.add_app_rule(sn_mathematics(), context)
