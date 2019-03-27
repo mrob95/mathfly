@@ -3,13 +3,13 @@ Created on Sep 4, 2018
 
 @author: Mike Roberts
 '''
-from dragonfly import Function, Choice, Key, Text, Mouse, IntegerRef
+from dragonfly import Function, Choice, Key, Text, Mouse, IntegerRef, Dictation
 from dragonfly import AppContext, Grammar, Repeat
 
 from mathfly.lib import control, utilities, execution
 from mathfly.lib.merge.mergerule import MergeRule
 
-BINDINGS = utilities.load_toml_relative("config/scientific_notebook.toml")
+BINDINGS = utilities.load_toml_relative("config/ScientificNotebook55.toml")
 CORE = utilities.load_toml_relative("config/core.toml")
 
 def texchar(symbol):
@@ -31,8 +31,21 @@ def matrix(rows, cols):
 class sn_mathematicsNon(MergeRule):
     mapping = {
         "configure " + BINDINGS["pronunciation"]:
-            Function(utilities.load_config, config_name="scientific_notebook.toml"),
+            Function(utilities.load_config, config_name="ScientificNotebook55.toml"),
+
+        "text <dict>":
+            Key("c-t") + Function(lambda dict: Text(str(dict).capitalize()).execute()),
+
+        "<control>":
+            Key("%(control)s"),
+
     }
+    extras = [
+        Dictation("dict"),
+        IntegerRef("n", 1, 10),
+        Choice("control", BINDINGS["control"]),
+    ]
+
 
 class sn_mathematics(MergeRule):
     non = sn_mathematicsNon

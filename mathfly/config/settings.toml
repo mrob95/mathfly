@@ -3,7 +3,7 @@ dragon_path = "C:/Program Files (x86)/Nuance/NaturallySpeaking15/Program/natspea
 editor_path = "C:/Program Files/Windows NT/Accessories/wordpad.exe"
 # editor_path = "C:/Program Files/Sublime Text 3/sublime_text.exe"
 ccr_modules = ["core",
-				"sn_mathematics",
+				"ScientificNotebook55",
 				"lyx_mathematics",
 				"latex",
 				"latex_maths",
@@ -11,7 +11,7 @@ ccr_modules = ["core",
 				]
 app_modules = ["sublime",
 				"lyx",
-				"scientific_notebook",
+				# "scientific_notebook",
 				"sumatrapdf"
 				]
 max_ccr_repetitions = 16

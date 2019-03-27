@@ -158,6 +158,39 @@
 "(ninth | ninths)"     = 9
 "(tenth | tenths)"     = 10
 
+[control]
+"new file"                         = "f10, f, enter"
+"open file"                        = "c-o"
+"save file"                        = "f10, f, s"
+"save as"                          = "f10, f, down:5, enter"
+"print file"                       = "c-p"
+"export document"                  = "f10, f, down:7, enter"
+"page preview"                     = "f10, f, down:17, enter"
+"toggle math"                      = "c-m"
+"toggle text"                      = "c-t"
+"body math"                        = "a-2, down, enter"
+"body text"                        = "a-2, down:2, enter"
+"(begin | insert) [bulleted] list" = "a-1, down:2, enter"
+"(begin | insert) numbered list"   = "a-1, down:4, enter"
+"end [(bulleted | numbered)] list" = "a-1, up, enter"
+"insert normal text"               = "a-3, down, enter"
+"insert big text"                  = "a-3, down:2, enter"
+"insert small text"                = "a-3, down:9, enter"
+"insert bold text"                 = "a-3, down:3, enter"
+"insert italic text"               = "a-3, down:6, enter"
+"insert bold symbols"              = "a-3, down:4, enter"
+"insert centred text"              = "a-2, down:3, enter"
+"insert left text"                 = "a-2, down:4, enter"
+"insert right text"                = "a-2, down:5, enter"
+"insert quotation"                 = "a-2, down:11, enter"
+"insert (heading | title) [one]"   = "a-2, down:6, enter"
+"insert (heading | title) two"     = "a-2, down:7, enter"
+"insert (heading | title) three"   = "a-2, down:8, enter"
+"insert (heading | title) four"    = "a-2, down:9, enter"
+"insert (heading | title) five"    = "a-2, down:10, enter"
+"evaluate"                         = "c-e"
+
+
 [units]
 # Activity
 "Becquerels"             = "uBq"
