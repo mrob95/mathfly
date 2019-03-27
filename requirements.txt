@@ -1,3 +1,4 @@
+--upgrade pip
 wxpython
 pywin32
 setuptools
