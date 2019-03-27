@@ -30,6 +30,7 @@ def build(startup=False):
             print("App modules loaded: " + ", ".join(apploaded))
     _NEXUS.merger.wipe()
     _NEXUS.merger._global_rules = {}
+    _NEXUS.merger._app_rules = {}
     _NEXUS.merger._self_modifying_rules = {}
     ccrloaded = []
     ccrrebuilt = []
