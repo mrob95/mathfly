@@ -1,9 +1,0 @@
---upgrade pip
-wxpython
-pywin32
-setuptools
-future
-dragonfly2
-toml
-beautifulsoup4
-pytest
