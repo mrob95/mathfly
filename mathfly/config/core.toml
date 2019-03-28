@@ -1,6 +1,6 @@
 # Once you have finished making changes, use the "rebuild mathfly"
 # command to enact them.
-"numbers_max"      = 500
+"numbers_max"      = 1000
 "pronunciation"    = "(Core | math fly)"
 "capitals_prefix"  = "big"
 # Square brackets mean that a word is optional:

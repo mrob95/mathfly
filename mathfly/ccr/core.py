@@ -6,6 +6,7 @@ Created on Sep 4, 2018
 from dragonfly import Function, Choice, Key, Text, Mouse, IntegerRef, Dictation, Repeat
 
 from mathfly.lib import control, utilities, navigation
+from mathfly.lib.integers import IntegerRefMF
 from mathfly.lib.merge.mergerule import MergeRule
 
 SETTINGS = utilities.load_toml_relative("config/settings.toml")
@@ -72,7 +73,7 @@ class core(MergeRule):
         Dictation("text"),
     	IntegerRef("n", 1, 10),
         IntegerRef("n50", 1, 50),
-        IntegerRef("numbers", 0,     CORE["numbers_max"]),
+        IntegerRefMF("numbers", 0,   CORE["numbers_max"]),
         Choice("big",               {CORE["capitals_prefix"]: True}),
     	Choice("letter",             CORE[_LETTERS]),
     	Choice("punctuation",        CORE["punctuation"]),
