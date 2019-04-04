@@ -48,6 +48,7 @@
 "(root | square root)"   = "c-r"
 "summation"              = "c-7"
 "prime"                  = "apostrophe"
+"function"               = "f, c-0"
 #
 "label above"            = "f10, i, down:11, enter/25, a, enter"
 "label below"            = "f10, i, down:11, enter/25, b, enter"

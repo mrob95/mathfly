@@ -4,7 +4,7 @@ Created Jan 2019
 @author: Mike Roberts, Alex Boche
 '''
 from dragonfly import Function, Choice, Mouse, IntegerRef, Key, Text
-from dragonfly import AppContext, Grammar, Repeat
+from dragonfly import AppContext, Grammar, Repeat, CompoundRule
 
 from mathfly.lib import control, utilities, execution
 from mathfly.lib.merge.mergerule import MergeRule
@@ -21,6 +21,55 @@ def matrix(rows, cols):
     Text("\\" + BINDINGS["matrix_style"] + " ").execute()
     Key("a-m, w, i, "*(rows-1) + "a-m, c, i, "*(cols-1)).execute()
 
+#---------------------------------------------------------------------------
+
+class LyXIntegralRule(CompoundRule):
+    spec = "[<normal>] integral from <sequence1> to <sequence2>"
+    def _process_recognition(self, node, extras):
+        if "normal" in extras:
+            for action in extras["normal"]: action.execute()
+        Text("\\int _").execute()
+        for action in extras["sequence1"]: action.execute()
+        Key("right, caret").execute()
+        for action in extras["sequence2"]: action.execute()
+        Key("right").execute()
+
+class LyXDiffRule(CompoundRule):
+    spec = "[<normal>] differential <sequence1> by <sequence2>"
+    def _process_recognition(self, node, extras):
+        if "normal" in extras:
+            for action in extras["normal"]: action.execute()
+        Key("a-m, f, d").execute()
+        for action in extras["sequence1"]: action.execute()
+        Key("down, d").execute()
+        for action in extras["sequence2"]: action.execute()
+        Key("right").execute()
+
+class LyXSumRule(CompoundRule):
+    spec = "[<normal>] sum from <sequence1> to <sequence2>"
+    def _process_recognition(self, node, extras):
+        if "normal" in extras:
+            for action in extras["normal"]: action.execute()
+        (Text("\\stackrelthree ") + Key("down") + Text("\\sum ") + Key("down")).execute()
+        for action in extras["sequence1"]: action.execute()
+        Key("up:2").execute()
+        for action in extras["sequence2"]: action.execute()
+        Key("right").execute()
+
+class LyXLimitRule(CompoundRule):
+    spec = "[<normal>] limit from <sequence1> to <sequence2>"
+    def _process_recognition(self, node, extras):
+        if "normal" in extras:
+            for action in extras["normal"]: action.execute()
+        Text("\\underset \\lim ").execute()
+        Key("down").execute()
+        for action in extras["sequence1"]: action.execute()
+        Text("\\rightarrow ").execute()
+        for action in extras["sequence2"]: action.execute()
+        Key("right").execute()
+
+#---------------------------------------------------------------------------
+
 class lyx_mathematicsNon(MergeRule):
     mapping = {
         "configure " + BINDINGS["pronunciation"]:
@@ -29,6 +78,7 @@ class lyx_mathematicsNon(MergeRule):
 
 class lyx_mathematics(MergeRule):
     non = lyx_mathematicsNon
+    compounds = [LyXIntegralRule, LyXDiffRule, LyXSumRule, LyXLimitRule]
     mwith = CORE["pronunciation"]
     pronunciation = BINDINGS["pronunciation"]
 
