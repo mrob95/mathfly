@@ -21,54 +21,6 @@ def matrix(rows, cols):
     Text("\\" + BINDINGS["matrix_style"] + " ").execute()
     Key("a-m, w, i, "*(rows-1) + "a-m, c, i, "*(cols-1)).execute()
 
-#---------------------------------------------------------------------------
-
-class LyXIntegralRule(CompoundRule):
-    spec = "[<normal>] integral from <sequence1> to <sequence2>"
-    def _process_recognition(self, node, extras):
-        if "normal" in extras:
-            for action in extras["normal"]: action.execute()
-        Text("\\int _").execute()
-        for action in extras["sequence1"]: action.execute()
-        Key("right, caret").execute()
-        for action in extras["sequence2"]: action.execute()
-        Key("right").execute()
-
-class LyXDiffRule(CompoundRule):
-    spec = "[<normal>] differential <sequence1> by <sequence2>"
-    def _process_recognition(self, node, extras):
-        if "normal" in extras:
-            for action in extras["normal"]: action.execute()
-        Key("a-m, f, d").execute()
-        for action in extras["sequence1"]: action.execute()
-        Key("down, d").execute()
-        for action in extras["sequence2"]: action.execute()
-        Key("right").execute()
-
-class LyXSumRule(CompoundRule):
-    spec = "[<normal>] sum from <sequence1> to <sequence2>"
-    def _process_recognition(self, node, extras):
-        if "normal" in extras:
-            for action in extras["normal"]: action.execute()
-        (Text("\\stackrelthree ") + Key("down") + Text("\\sum ") + Key("down")).execute()
-        for action in extras["sequence1"]: action.execute()
-        Key("up:2").execute()
-        for action in extras["sequence2"]: action.execute()
-        Key("right").execute()
-
-class LyXLimitRule(CompoundRule):
-    spec = "[<normal>] limit from <sequence1> to <sequence2>"
-    def _process_recognition(self, node, extras):
-        if "normal" in extras:
-            for action in extras["normal"]: action.execute()
-        Text("\\underset \\lim ").execute()
-        Key("down").execute()
-        for action in extras["sequence1"]: action.execute()
-        Text("\\rightarrow ").execute()
-        for action in extras["sequence2"]: action.execute()
-        Key("right").execute()
-
-#---------------------------------------------------------------------------
 
 class lyx_mathematicsNon(MergeRule):
     mapping = {
@@ -78,9 +30,24 @@ class lyx_mathematicsNon(MergeRule):
 
 class lyx_mathematics(MergeRule):
     non = lyx_mathematicsNon
-    compounds = [LyXIntegralRule, LyXDiffRule, LyXSumRule, LyXLimitRule]
     mwith = CORE["pronunciation"]
     pronunciation = BINDINGS["pronunciation"]
+
+    compounds = {
+        "[<before>] integral from <sequence1> to <sequence2>":
+            [Text("\\int _"), Key("right, caret"), Key("right")],
+
+        "[<before>] differential <sequence1> by <sequence2>":
+            [Key("a-m, f, d"), Key("down, d"), Key("right")],
+
+        "[<before>] sum from <sequence1> to <sequence2>":
+            [Text("\\stackrelthree ") + Key("down") + Text("\\sum ") + Key("down"),
+            Key("up:2"), Key("right")],
+
+        "[<before>] limit from <sequence1> to <sequence2>":
+            [Text("\\underset \\lim ") + Key("down"),
+            Text("\\rightarrow "), Key("right")],
+    }
 
     mapping = {
         BINDINGS["symbol1_prefix"] + " <symbol1>":

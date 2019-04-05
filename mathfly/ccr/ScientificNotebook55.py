@@ -30,59 +30,6 @@ def matrix(rows, cols):
     Key("f10/5, i/5, down:8, enter/50").execute()
     Key(str(rows) + "/50, tab, " + str(cols) + "/50, enter").execute()
 
-#---------------------------------------------------------------------------
-
-class SNIntegralRule(CompoundRule):
-    spec = "[<normal>] integral from <sequence1> to <sequence2>"
-    def _process_recognition(self, node, extras):
-        if "normal" in extras:
-            for action in extras["normal"]: action.execute()
-        Function(lambda: texchar("int")).execute()
-        Key("c-l").execute()
-        for action in extras["sequence1"]: action.execute()
-        Key("right, c-h").execute()
-        for action in extras["sequence2"]: action.execute()
-        Key("right").execute()
-
-class SNDiffRule(CompoundRule):
-    spec = "[<normal>] differential <sequence1> by <sequence2>"
-    def _process_recognition(self, node, extras):
-        if "normal" in extras:
-            for action in extras["normal"]: action.execute()
-        Key("c-f, d").execute()
-        for action in extras["sequence1"]: action.execute()
-        Key("down, d").execute()
-        for action in extras["sequence2"]: action.execute()
-        Key("right").execute()
-
-class SNSumRule(CompoundRule):
-    spec = "[<normal>] sum from <sequence1> to <sequence2>"
-    def _process_recognition(self, node, extras):
-        if "normal" in extras:
-            for action in extras["normal"]: action.execute()
-        Key("f10, i, down:11, enter/25, a, enter, f10, i, down:11, enter/25, b, enter").execute()
-        Function(lambda: texchar("sum")).execute()
-        Key("down").execute()
-        for action in extras["sequence1"]: action.execute()
-        Key("up:2").execute()
-        for action in extras["sequence2"]: action.execute()
-        Key("right").execute()
-
-class SNLimitRule(CompoundRule):
-    spec = "[<normal>] limit from <sequence1> to <sequence2>"
-    def _process_recognition(self, node, extras):
-        if "normal" in extras:
-            for action in extras["normal"]: action.execute()
-        Key("f10, i, down:11, enter/25, b, enter").execute()
-        Function(lambda: texchar("lim")).execute()
-        Key("down").execute()
-        for action in extras["sequence1"]: action.execute()
-        Function(lambda: texchar("rightarrow")).execute()
-        for action in extras["sequence2"]: action.execute()
-        Key("right").execute()
-
-#---------------------------------------------------------------------------
-
 class sn_mathematicsNon(MergeRule):
     mapping = {
         "configure " + BINDINGS["pronunciation"]:
@@ -101,10 +48,27 @@ class sn_mathematicsNon(MergeRule):
 
 class sn_mathematics(MergeRule):
     non = sn_mathematicsNon
-    compounds = [SNIntegralRule, SNDiffRule, SNSumRule, SNLimitRule]
     mwith = CORE["pronunciation"]
     mcontext = AppContext(executable="scientific notebook")
     pronunciation = BINDINGS["pronunciation"]
+
+    compounds = {
+        "[<before>] integral from <sequence1> to <sequence2>":
+            [Function(lambda: texchar("int")) + Key("c-l"),
+            Key("right, c-h"), Key("right")],
+
+        "[<before>] differential <sequence1> by <sequence2>":
+            [Key("c-f, d"), Key("down, d"), Key("right")],
+
+        "[<before>] sum from <sequence1> to <sequence2>":
+            [Key("f10, i, down:11, enter/25, a, enter, f10, i, down:11, enter/25, b, enter") + Function(lambda: texchar("sum")) + Key("down"),
+            Key("up:2"), Key("right")],
+
+        "[<before>] limit from <sequence1> to <sequence2>":
+            [Key("f10, i, down:11, enter/25, b, enter") + Function(lambda: texchar("lim")) + Key("down"),
+            Function(lambda: texchar("rightarrow")),
+            Key("right")],
+    }
 
     mapping = {
         BINDINGS["symbol_prefix"] + " <symbol>":
