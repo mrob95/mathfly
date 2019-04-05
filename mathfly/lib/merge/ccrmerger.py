@@ -419,20 +419,18 @@ class CCRMerger(object):
                     CompoundRule.__init__(self, name=name, spec=spec, extras=extras, defaults=defaults, exported=exported, context=context)
 
                 def _process_recognition(self, node, extras):
-                    before = extras["before"] if "before" in extras else None
-                    after = extras["after"] if "after" in extras else None
-                    if before is not None:
-                        for action in before: action.execute()
+                    if "before" in extras:
+                        for action in extras["before"]: action.execute()
                     self.action_list[0].execute()
                     for action in extras["sequence1"]: action.execute()
                     self.action_list[1].execute()
                     for action in extras["sequence2"]: action.execute()
                     self.action_list[2].execute()
-                    if after is not None:
-                        for action in after: action.execute()
+                    if "after" in extras:
+                        for action in extras["after"]: action.execute()
 
-            bef = Repetition(single_action, min=1, max=8, name="before")
-            aft = Repetition(single_action, min=1, max=8, name="before")
+            bef  = Repetition(single_action, min=1, max=8, name="before")
+            aft  = Repetition(single_action, min=1, max=8, name="before")
             seq1 = Repetition(single_action, min=1, max=4, name="sequence1")
             seq2 = Repetition(single_action, min=1, max=4, name="sequence2")
 
@@ -441,6 +439,5 @@ class CCRMerger(object):
                     name="ReferenceRule: " + command,
                     spec=command,
                     extras=[bef, aft, seq1, seq2]))
-
 
         return rules
