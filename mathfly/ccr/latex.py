@@ -3,8 +3,9 @@ Created on Sep 4, 2018
 
 @author: Mike Roberts
 '''
-from dragonfly import Function, Choice, Key, Text, Mouse, Repeat, Clipboard
+from dragonfly import Function, Choice, Repeat, Clipboard
 
+from mathfly.lib.actions import Text, Key, Mouse, AppContext
 from mathfly.lib import control, utilities, execution
 from mathfly.lib.merge.mergerule import MergeRule
 from mathfly.lib.latex import tex_funcs

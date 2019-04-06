@@ -3,9 +3,9 @@ Created Jan 2019
 
 @author: Mike Roberts, Alex Boche
 '''
-from dragonfly import Function, Choice, Mouse, IntegerRef, Key, Text
-from dragonfly import AppContext, Grammar, Repeat
+from dragonfly import Function, Choice, IntegerRef, Grammar, Repeat
 
+from mathfly.lib.actions import Text, Key, Mouse, AppContext
 from mathfly.lib.merge.mergerule import MergeRule
 
 class LyxRule(MergeRule):

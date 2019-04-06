@@ -1,4 +1,4 @@
-from dragonfly import Key, Text, Mouse
+from mathfly.lib.actions import Text, Key, Mouse, AppContext
 from mathfly.lib import utilities
 
 # Alternate between executing as text and executing as keys
