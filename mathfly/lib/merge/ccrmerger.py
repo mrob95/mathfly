@@ -431,8 +431,8 @@ class CCRMerger(object):
 
             bef  = Repetition(single_action, min=1, max=8, name="before")
             aft  = Repetition(single_action, min=1, max=8, name="before")
-            seq1 = Repetition(single_action, min=1, max=4, name="sequence1")
-            seq2 = Repetition(single_action, min=1, max=4, name="sequence2")
+            seq1 = Repetition(single_action, min=1, max=6, name="sequence1")
+            seq2 = Repetition(single_action, min=1, max=6, name="sequence2")
 
             for command, action_list in rule.compounds.iteritems():
                 rules.append(ReferenceRule(action_list=action_list,
