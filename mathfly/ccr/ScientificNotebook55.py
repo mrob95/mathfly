@@ -32,8 +32,6 @@ def matrix(rows, cols):
 
 class sn_mathematicsNon(MergeRule):
     mapping = {
-        "configure " + BINDINGS["pronunciation"]:
-            Function(utilities.load_config, config_name="ScientificNotebook55.toml"),
         "text <dict>":
             Key("c-t") + Function(lambda dict: Text(str(dict).capitalize()).execute()),
         "<control>":

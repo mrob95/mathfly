@@ -25,12 +25,10 @@ def matrix(rows, cols):
 
 class lyx_mathematicsNon(MergeRule):
     mapping = {
-        "configure " + BINDINGS["pronunciation"]:
-            Function(utilities.load_config, config_name="lyx.toml"),
     }
 
 class lyx_mathematics(MergeRule):
-    non = lyx_mathematicsNon
+    # non = lyx_mathematicsNon
     mwith = CORE["pronunciation"]
     pronunciation = BINDINGS["pronunciation"]
 

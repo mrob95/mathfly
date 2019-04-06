@@ -59,7 +59,7 @@ def build(startup=False):
     print("*- Starting mathfly -*")
     print("Modules available:")
     _NEXUS.merger.display_rules()
-    print("Say \"enable <module name>\" to begin, \n\"configure <module name>\" to make changes, \nand \"help mathfly\" to open the documentation")
+    print("Say \"enable <module name>\" to begin, \n\"configure <module name>\" to make changes, \nand \"mathfly help\" to open the documentation")
 
 build(True)
 

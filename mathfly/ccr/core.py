@@ -28,6 +28,10 @@ class coreNon(MergeRule):
     mapping = {
         "configure " + CORE["pronunciation"]:
             Function(utilities.load_config, config_name="core.toml"),
+        "configure scientific notebook":
+            Function(utilities.load_config, config_name="ScientificNotebook55.toml"),
+        "configure (LyX | licks)":
+            Function(utilities.load_config, config_name="lyx.toml"),
 
         "<noCCR_repeatable_key> [<n>]":
             Key("%(noCCR_repeatable_key)s")*Repeat(extra="n"),
