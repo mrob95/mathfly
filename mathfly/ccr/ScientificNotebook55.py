@@ -91,7 +91,7 @@ class sn_mathematics(MergeRule):
             Function(matrix),
 
         "<numbers> <denominator>":
-            Key("c-f, %(numbers)s, down, %(denominator)s, right"),
+            Key("c-f") + Text("%(numbers)s") + Key("down") + Text("%(denominator)s") + Key("right"),
     }
 
     extras = [

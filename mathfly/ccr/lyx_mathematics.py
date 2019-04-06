@@ -76,7 +76,7 @@ class lyx_mathematics(MergeRule):
             Function(matrix),
 
         "<numbers> <denominator>":
-            Key("a-m, f, %(numbers)s, down, %(denominator)s, right"),
+            Key("a-m, f") + Text("%(numbers)s") + Key("down") + Text("%(denominator)s") + Key("right"),
 
     }
 
