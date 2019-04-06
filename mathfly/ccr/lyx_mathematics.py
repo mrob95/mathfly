@@ -36,6 +36,10 @@ class lyx_mathematics(MergeRule):
         "[<before>] integral from <sequence1> to <sequence2>":
             [Text("\\int _"), Key("right, caret"), Key("right")],
 
+        "[<before>] definite from <sequence1> to <sequence2>":
+            [Key("a-m, lbracket, right, underscore"),
+            Key("right, caret"), Key("right, left:2")],
+
         "[<before>] differential <sequence1> by <sequence2>":
             [Key("a-m, f, d"), Key("down, d"), Key("right")],
 

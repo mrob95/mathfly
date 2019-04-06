@@ -55,6 +55,10 @@ class sn_mathematics(MergeRule):
             [Function(lambda: texchar("int")) + Key("c-l"),
             Key("right, c-h"), Key("right")],
 
+        "[<before>] definite from <sequence1> to <sequence2>":
+            [Key("c-6, right, c-l"),
+            Key("right, c-h"), Key("right, c-left, left")],
+
         "[<before>] differential <sequence1> by <sequence2>":
             [Key("c-f, d"), Key("down, d"), Key("right")],
 
