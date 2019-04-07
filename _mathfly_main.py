@@ -2,6 +2,7 @@ from dragonfly import (Function, Grammar, Text, Dictation, Choice, Pause)
 
 import os, sys
 import logging
+import natlink
 logging.basicConfig()
 
 from mathfly.lib import control, utilities
@@ -17,6 +18,11 @@ CORE = utilities.load_toml_relative("config/core.toml")
 # Seems ugly but works
 def build(startup=False):
     SETTINGS = utilities.load_toml_relative("config/settings.toml")
+    for word in SETTINGS["delete_words"]:
+        try:
+            natlink.deleteWord(word)
+        except:
+            pass
     _NEXUS.merger.wipe()
     _NEXUS.merger._global_rules = {}
     _NEXUS.merger._app_rules = {}
