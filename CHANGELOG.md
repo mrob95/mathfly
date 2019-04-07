@@ -1,7 +1,6 @@
 # Change Log
 
-## [Unreleased](https://github.com/mrob95/mathfly/tree/HEAD)
-
+## [v1.0](https://github.com/mrob95/mathfly/tree/v1.0) (2019-04-07)
 **Merged pull requests:**
 
 - Delete certain words from the active vocabulary on start-up [\#7](https://github.com/mrob95/mathfly/pull/7) ([mrob95](https://github.com/mrob95))
