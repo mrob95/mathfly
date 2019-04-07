@@ -8,6 +8,7 @@ from dragonfly import Function, Choice, IntegerRef, Dictation, Repeat
 from mathfly.lib.actions import Text, Key, Mouse, AppContext
 from mathfly.lib import control, utilities, execution
 from mathfly.lib.merge.mergerule import MergeRule
+from mathfly.lib.merge.nestedrule import NestedRule
 
 BINDINGS = utilities.load_toml_relative("config/ScientificNotebook55.toml")
 CORE = utilities.load_toml_relative("config/core.toml")
@@ -30,27 +31,8 @@ def matrix(rows, cols):
     Key("f10/5, i/5, down:8, enter/50").execute()
     Key(str(rows) + "/50, tab, " + str(cols) + "/50, enter").execute()
 
-class sn_mathematicsNon(MergeRule):
+class sn_nested(NestedRule):
     mapping = {
-        "text <dict>":
-            Key("c-t") + Function(lambda dict: Text(str(dict).capitalize()).execute()),
-        "<control>":
-            Key("%(control)s"),
-    }
-    extras = [
-        Dictation("dict"),
-        IntegerRef("n", 1, 10),
-        Choice("control", BINDINGS["control"]),
-    ]
-
-
-class sn_mathematics(MergeRule):
-    non = sn_mathematicsNon
-    mwith = CORE["pronunciation"]
-    mcontext = AppContext(executable="scientific notebook")
-    pronunciation = BINDINGS["pronunciation"]
-
-    compounds = {
         "[<before>] integral from <sequence1> to <sequence2>":
             [Function(lambda: texchar("int")) + Key("c-l"),
             Key("right, c-h"), Key("right")],
@@ -71,6 +53,28 @@ class sn_mathematics(MergeRule):
             Function(lambda: texchar("rightarrow")),
             Key("right")],
     }
+
+class sn_mathematicsNon(MergeRule):
+    mapping = {
+        "text <dict>":
+            Key("c-t") + Function(lambda dict: Text(str(dict).capitalize()).execute()),
+        "<control>":
+            Key("%(control)s"),
+    }
+    extras = [
+        Dictation("dict"),
+        IntegerRef("n", 1, 10),
+        Choice("control", BINDINGS["control"]),
+    ]
+
+
+class sn_mathematics(MergeRule):
+    non = sn_mathematicsNon
+    mwith = CORE["pronunciation"]
+    mcontext = AppContext(executable="scientific notebook")
+    pronunciation = BINDINGS["pronunciation"]
+
+    nested = sn_nested
 
     mapping = {
         BINDINGS["symbol_prefix"] + " <symbol>":

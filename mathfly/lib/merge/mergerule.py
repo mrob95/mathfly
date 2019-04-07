@@ -24,7 +24,7 @@ class MergeRule(MappingRule):
     for their respective enable/disable commands'''
     pronunciation = None
     # Allows for self referencing rules (which include arbitrary sequences of other commands from the rule) to be included
-    compounds = None
+    nested = None
     '''MergeRules which define `non` will instantiate
     their paired non-CCR MergeRule and activate it
     alongside themselves'''

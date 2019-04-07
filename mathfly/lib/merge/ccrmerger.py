@@ -303,14 +303,14 @@ class CCRMerger(object):
             # make a copy b/c commands will get stripped out
             context = rule.get_context()
             non_copy = rule.non if rule.non else None
-            compounds_copy = rule.compounds if rule.compounds else None
+            nested_copy = rule.nested if rule.nested else None
             mp = MergePair(time, MergeInf.APP, base_copy, rule.copy(), False,
                            CCRMerger.specs_per_rulename(self._global_rules))
             self._run_filters(mp)
             rule = self._compatibility_merge(
                 mp, base_copy, mp.rule2)  # mp.rule2 because named_rule got copied
             rule.non = non_copy
-            rule.compounds = compounds_copy
+            rule.nested = nested_copy
             rule.set_context(context)
             active_apps.append(rule)
         '''negation context for appless version of base rule'''
@@ -403,41 +403,14 @@ class CCRMerger(object):
         rules = []
         rules.append(RepeatRule(name="Repeater" + MergeRule.get_merge_name()))
 
-        '''
-        compounds is a dictionary in a merge rule which maps a specification to a list of three dragonfly actions.
-        The specification must include <sequence1> and <sequence2>, <before> and <after> are optional and allow for other commands to be spoken before or after the rule.
-        Example command:
-        "[<before>] integral from <sequence1> to <sequence2>":
-                    [Text("\\int _"), Key("right, caret"), Key("right")],
-
-        Any commands which come before will be executed first, then the first action in the list, then the first sequence, then the second action in the list, then the second sequence, then the final action.  At the moment sequences have a maximum length of 4 commands and before and after 8.
-        '''
-        if rule.compounds:
-            class ReferenceRule(CompoundRule):
-                def __init__(self, action_list=[], name=None, spec=None, extras=None, defaults=None, exported=None, context=None):
-                    self.action_list = action_list
-                    CompoundRule.__init__(self, name=name, spec=spec, extras=extras, defaults=defaults, exported=exported, context=context)
-
-                def _process_recognition(self, node, extras):
-                    if "before" in extras:
-                        for action in extras["before"]: action.execute()
-                    self.action_list[0].execute()
-                    for action in extras["sequence1"]: action.execute()
-                    self.action_list[1].execute()
-                    for action in extras["sequence2"]: action.execute()
-                    self.action_list[2].execute()
-                    if "after" in extras:
-                        for action in extras["after"]: action.execute()
-
+        if rule.nested is not None:
             bef  = Repetition(single_action, min=1, max=8, name="before")
             aft  = Repetition(single_action, min=1, max=8, name="before")
             seq1 = Repetition(single_action, min=1, max=6, name="sequence1")
             seq2 = Repetition(single_action, min=1, max=6, name="sequence2")
 
-            for command, action_list in rule.compounds.iteritems():
-                rules.append(ReferenceRule(action_list=action_list,
-                    name="ReferenceRule: " + command,
-                    spec=command,
-                    extras=[bef, aft, seq1, seq2]))
+            rule.nested.extras = [bef, aft, seq1, seq2]
+            nested = rule.nested()
+            rules.append(nested)
 
         return rules
