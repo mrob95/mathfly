@@ -3,14 +3,17 @@ Created on Sep 4, 2018
 
 @author: Mike Roberts
 '''
-from dragonfly import Function, Choice, Key, Text, Mouse, IntegerRef, Dictation
-from dragonfly import AppContext, Grammar, Repeat
+from dragonfly import Function, Choice, IntegerRef, Dictation, Repeat
 
+from mathfly.lib.actions import Text, Key, Mouse, AppContext
 from mathfly.lib import control, utilities, execution
 from mathfly.lib.merge.mergerule import MergeRule
+from mathfly.lib.merge.nestedrule import NestedRule
 
 BINDINGS = utilities.load_toml_relative("config/ScientificNotebook55.toml")
 CORE = utilities.load_toml_relative("config/core.toml")
+
+#---------------------------------------------------------------------------
 
 def texchar(symbol):
     keychain = "ctrl:down, "
@@ -28,17 +31,35 @@ def matrix(rows, cols):
     Key("f10/5, i/5, down:8, enter/50").execute()
     Key(str(rows) + "/50, tab, " + str(cols) + "/50, enter").execute()
 
+class sn_nested(NestedRule):
+    mapping = {
+        "[<before>] integral from <sequence1> to <sequence2>":
+            [Function(lambda: texchar("int")) + Key("c-l"),
+            Key("right, c-h"), Key("right")],
+
+        "[<before>] definite from <sequence1> to <sequence2>":
+            [Key("c-6, right, c-l"),
+            Key("right, c-h"), Key("right, c-left, left")],
+
+        "[<before>] differential <sequence1> by <sequence2>":
+            [Key("c-f, d"), Key("down, d"), Key("right")],
+
+        "[<before>] sum from <sequence1> to <sequence2>":
+            [Key("f10, i, down:11, enter/25, a, enter, f10, i, down:11, enter/25, b, enter") + Function(lambda: texchar("sum")) + Key("down"),
+            Key("up:2"), Key("right")],
+
+        "[<before>] limit from <sequence1> to <sequence2>":
+            [Key("f10, i, down:11, enter/25, b, enter") + Function(lambda: texchar("lim")) + Key("down"),
+            Function(lambda: texchar("rightarrow")),
+            Key("right")],
+    }
+
 class sn_mathematicsNon(MergeRule):
     mapping = {
-        "configure " + BINDINGS["pronunciation"]:
-            Function(utilities.load_config, config_name="ScientificNotebook55.toml"),
-
         "text <dict>":
             Key("c-t") + Function(lambda dict: Text(str(dict).capitalize()).execute()),
-
         "<control>":
             Key("%(control)s"),
-
     }
     extras = [
         Dictation("dict"),
@@ -50,7 +71,10 @@ class sn_mathematicsNon(MergeRule):
 class sn_mathematics(MergeRule):
     non = sn_mathematicsNon
     mwith = CORE["pronunciation"]
+    mcontext = AppContext(executable="scientific notebook")
     pronunciation = BINDINGS["pronunciation"]
+
+    nested = sn_nested
 
     mapping = {
         BINDINGS["symbol_prefix"] + " <symbol>":
@@ -69,12 +93,11 @@ class sn_mathematics(MergeRule):
         "<misc_sn_text>":
             Text("%(misc_sn_text)s"),
 
-        #
         "matrix <rows> by <cols>":
             Function(matrix),
 
         "<numbers> <denominator>":
-            Key("c-f, %(numbers)s, down, %(denominator)s, right"),
+            Key("c-f") + Text("%(numbers)s") + Key("down") + Text("%(denominator)s") + Key("right"),
     }
 
     extras = [
@@ -95,6 +118,4 @@ class sn_mathematics(MergeRule):
         "big": False,
     }
 
-# control.nexus().merger.add_global_rule(sn_mathematics())
-context = AppContext(executable="scientific notebook")
-control.nexus().merger.add_app_rule(sn_mathematics(), context)
+control.nexus().merger.add_app_rule(sn_mathematics())

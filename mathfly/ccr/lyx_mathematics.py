@@ -3,11 +3,13 @@ Created Jan 2019
 
 @author: Mike Roberts, Alex Boche
 '''
-from dragonfly import Function, Choice, Mouse, IntegerRef, Key, Text
-from dragonfly import AppContext, Grammar, Repeat
+from dragonfly import Function, Choice, IntegerRef
+from dragonfly import Grammar, Repeat, CompoundRule
 
+from mathfly.lib.actions import Text, Key, Mouse, AppContext
 from mathfly.lib import control, utilities, execution
 from mathfly.lib.merge.mergerule import MergeRule
+from mathfly.lib.merge.nestedrule import NestedRule
 
 BINDINGS = utilities.load_toml_relative("config/lyx.toml")
 CORE = utilities.load_toml_relative("config/core.toml")
@@ -21,15 +23,36 @@ def matrix(rows, cols):
     Text("\\" + BINDINGS["matrix_style"] + " ").execute()
     Key("a-m, w, i, "*(rows-1) + "a-m, c, i, "*(cols-1)).execute()
 
+class lyx_nested(NestedRule):
+    mapping = {
+        "[<before>] integral from <sequence1> to <sequence2>":
+            [Text("\\int _"), Key("right, caret"), Key("right")],
+
+        "[<before>] definite from <sequence1> to <sequence2>":
+            [Key("a-m, lbracket, right, underscore"),
+            Key("right, caret"), Key("right, left:2")],
+
+        "[<before>] differential <sequence1> by <sequence2>":
+            [Key("a-m, f, d"), Key("down, d"), Key("right")],
+
+        "[<before>] sum from <sequence1> to <sequence2>":
+            [Text("\\stackrelthree ") + Key("down") + Text("\\sum ") + Key("down"),
+            Key("up:2"), Key("right")],
+
+        "[<before>] limit from <sequence1> to <sequence2>":
+            [Text("\\underset \\lim ") + Key("down"),
+            Text("\\rightarrow "), Key("right")],
+    }
+
 class lyx_mathematicsNon(MergeRule):
     mapping = {
-        "configure " + BINDINGS["pronunciation"]:
-            Function(utilities.load_config, config_name="lyx.toml"),
     }
 
 class lyx_mathematics(MergeRule):
-    non = lyx_mathematicsNon
+    # non = lyx_mathematicsNon
+    nested = lyx_nested
     mwith = CORE["pronunciation"]
+    mcontext = AppContext(executable="lyx")
     pronunciation = BINDINGS["pronunciation"]
 
     mapping = {
@@ -58,7 +81,7 @@ class lyx_mathematics(MergeRule):
             Function(matrix),
 
         "<numbers> <denominator>":
-            Key("a-m, f, %(numbers)s, down, %(denominator)s, right"),
+            Key("a-m, f") + Text("%(numbers)s") + Key("down") + Text("%(denominator)s") + Key("right"),
 
     }
 
@@ -81,6 +104,4 @@ class lyx_mathematics(MergeRule):
         "big": False,
     }
 
-# control.nexus().merger.add_global_rule(lyx_mathematics())
-context = AppContext(executable="lyx")
-control.nexus().merger.add_app_rule(lyx_mathematics(), context)
+control.nexus().merger.add_app_rule(lyx_mathematics())

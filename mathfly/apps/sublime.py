@@ -1,5 +1,6 @@
-from dragonfly import (Grammar, Dictation, Choice, Repeat, Key, Text, AppContext, IntegerRef)
+from dragonfly import Grammar, Dictation, Choice, Repeat, IntegerRef
 
+from mathfly.lib.actions import Text, Key, Mouse, AppContext
 from mathfly.lib import control
 from mathfly.lib.merge.mergerule import MergeRule
 
@@ -9,7 +10,7 @@ class SublimeRule(MergeRule):
 
     mapping = {
         "new (file | pane)": Key("c-n"),
-        # {"keys": ["ctrl+alt+n"], "command": "new_window"}, 
+        # {"keys": ["ctrl+alt+n"], "command": "new_window"},
         "new window":   Key("ca-n"),
         "open file":    Key("c-o"),
         # {"keys": ["ctrl+shift+o"], "command": "prompt_add_folder"},
@@ -31,7 +32,7 @@ class SublimeRule(MergeRule):
         "(select | sell) paragraph":    Key("ca-p"),
         # SelectUntil
         "(select | sell) until":    Key("as-s"),
-    
+
         "toggle side bar": Key("c-k, c-b"),
 
         #

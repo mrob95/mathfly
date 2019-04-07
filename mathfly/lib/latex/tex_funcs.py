@@ -1,4 +1,5 @@
-from dragonfly import Function, Key, Text, Clipboard
+from dragonfly import Function, Clipboard
+from mathfly.lib.actions import Text, Key, Mouse, AppContext
 from mathfly.lib import control, utilities
 from mathfly.lib.latex import bibtexer, book_citation_generator
 import codecs

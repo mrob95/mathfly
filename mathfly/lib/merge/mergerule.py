@@ -23,11 +23,13 @@ class MergeRule(MappingRule):
     the pronunciation string rather than their class name
     for their respective enable/disable commands'''
     pronunciation = None
+    # Allows for self referencing rules (which include arbitrary sequences of other commands from the rule) to be included
+    nested = None
     '''MergeRules which define `non` will instantiate
-    their paired non-CCR MergeRule and activate it 
+    their paired non-CCR MergeRule and activate it
     alongside themselves'''
     non = None
-    '''MergeRules which define `mcontext` with a 
+    '''MergeRules which define `mcontext` with a
     Dragonfly AppContext become non-global; this
     is the same as adding a context to a Grammar'''
     mcontext = None
