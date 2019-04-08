@@ -52,6 +52,22 @@ class sn_nested(NestedRule):
             [Key("f10, i, down:11, enter/25, b, enter") + Function(lambda: texchar("lim")) + Key("down"),
             Function(lambda: texchar("rightarrow")),
             Key("right")],
+
+        "[<before>] argument that minimises <sequence1>":
+            [Key("f10, i, down:11, enter/25, b, enter") + Text("argmin") + Key("down"),
+            Key("right"), None],
+
+        "[<before>] argument that maximises <sequence1>":
+            [Key("f10, i, down:11, enter/25, b, enter") + Text("argmax") + Key("down"),
+            Key("right"), None],
+
+        "[<before>] minimum by <sequence1>":
+            [Key("f10, i, down:11, enter/25, b, enter") + Text("min") + Key("down"),
+            Key("right"), None],
+
+        "[<before>] minimum by <sequence1>":
+            [Key("f10, i, down:11, enter/25, b, enter") + Text("min") + Key("down"),
+            Key("right"), None],
     }
 
 class sn_mathematicsNon(MergeRule):
