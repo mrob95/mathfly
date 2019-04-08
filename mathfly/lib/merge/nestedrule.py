@@ -15,10 +15,12 @@ class NestedRule(MappingRule):
     def _process_recognition(self, value, extras):
         if "before" in extras:
             for action in extras["before"]: action.execute()
-        value[0].execute()
-        for action in extras["sequence1"]: action.execute()
-        value[1].execute()
-        for action in extras["sequence2"]: action.execute()
-        value[2].execute()
+        if value[0] is not None: value[0].execute()
+        if "sequence1" in extras:
+            for action in extras["sequence1"]: action.execute()
+        if value[1] is not None: value[1].execute()
+        if "sequence2" in extras:
+            for action in extras["sequence2"]: action.execute()
+        if value[2] is not None: value[2].execute()
         if "after" in extras:
             for action in extras["after"]: action.execute()
