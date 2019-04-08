@@ -17,3 +17,6 @@ complexity_report*
 *.*\#
 *.*~
 .cache/
+_*.py
+!_mathfly_main.py
+VirtualDesktopAccessor.dll
