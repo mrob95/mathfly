@@ -4,14 +4,12 @@ editor_path = "C:/Program Files/Windows NT/Accessories/wordpad.exe"
 # editor_path = "C:/Program Files/Sublime Text 3/sublime_text.exe"
 ccr_modules = ["core",
 				"ScientificNotebook55",
-				"lyx_mathematics",
+				"LyX",
 				"latex",
 				"latex_maths",
 				"alias"
 				]
 app_modules = ["sublime",
-				"lyx",
-				# "scientific_notebook",
 				"sumatrapdf"
 				]
 max_ccr_repetitions = 16
