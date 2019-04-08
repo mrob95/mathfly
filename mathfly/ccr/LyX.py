@@ -55,8 +55,8 @@ class lyx_nested(NestedRule):
             [Text("\\underset \\min ") + Key("down"),
             Key("right"), None],
 
-        "[<before>] minimum by <sequence1>":
-            [Text("\\underset \\min ") + Key("down"),
+        "[<before>] maximum by <sequence1>":
+            [Text("\\underset \\max ") + Key("down"),
             Key("right"), None],
     }
 

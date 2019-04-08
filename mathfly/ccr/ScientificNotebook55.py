@@ -65,8 +65,8 @@ class sn_nested(NestedRule):
             [Key("f10, i, down:11, enter/25, b, enter") + Text("min") + Key("down"),
             Key("right"), None],
 
-        "[<before>] minimum by <sequence1>":
-            [Key("f10, i, down:11, enter/25, b, enter") + Text("min") + Key("down"),
+        "[<before>] maximum by <sequence1>":
+            [Key("f10, i, down:11, enter/25, b, enter") + Text("max") + Key("down"),
             Key("right"), None],
     }
 
