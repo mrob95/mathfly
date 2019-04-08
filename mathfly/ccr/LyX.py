@@ -12,7 +12,7 @@ from mathfly.lib.merge.mergerule import MergeRule
 from mathfly.lib.merge.nestedrule import NestedRule
 
 BINDINGS = utilities.load_toml_relative("config/lyx.toml")
-CORE = utilities.load_toml_relative("config/core.toml")
+CORE     = utilities.load_toml_relative("config/core.toml")
 
 def greek(big, greek_letter):
     if big:
@@ -46,10 +46,22 @@ class lyx_nested(NestedRule):
 
 class lyx_mathematicsNon(MergeRule):
     mapping = {
+        "<control>":
+            Key("%(control)s"),
+        "<control_repeat> [<n>]":
+            Key("%(control_repeat)s")*Repeat(extra="n"),
+    }
+    extras = [
+        IntegerRef("n", 1, 10),
+        Choice("control",        BINDINGS["control"]),
+        Choice("control_repeat", BINDINGS["control_repeat"]),
+    ]
+    defaults = {
+        "n": 1,
     }
 
 class lyx_mathematics(MergeRule):
-    # non = lyx_mathematicsNon
+    non = lyx_mathematicsNon
     nested = lyx_nested
     mwith = CORE["pronunciation"]
     mcontext = AppContext(executable="lyx")
