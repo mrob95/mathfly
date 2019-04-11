@@ -33,10 +33,10 @@
 "omega"   = "w"
 
 [misc_sn_keys]
-"(super [script] | to the power)" = "c-h"
+"(super script | to the power)" = "c-h"
 "fraction"               = "c-f"
 "over"                   = "cs-left, c-f"
-"sub [script]"           = "c-l"
+"sub script"           = "c-l"
 "squared"                = "c-h, 2, right"
 "cubed"                  = "c-h, 3, right"
 "inverse"                = "c-h, minus, 1, right"

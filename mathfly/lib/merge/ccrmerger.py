@@ -408,8 +408,13 @@ class CCRMerger(object):
             aft  = Repetition(single_action, min=1, max=8, name="after")
             seq1 = Repetition(single_action, min=1, max=6, name="sequence1")
             seq2 = Repetition(single_action, min=1, max=6, name="sequence2")
+            sing1 = Alternative(alts, name="singleton1")
+            sing2 = Alternative(alts, name="singleton2")
 
-            rule.nested.extras = [bef, aft, seq1, seq2]
+            if rule.nested.extras is None:
+                rule.nested.extras = [bef, aft, seq1, seq2, sing1, sing2]
+            else:
+                rule.nested.extras.extend([bef, aft, seq1, seq2, sing1, sing2])
             nested = rule.nested()
             rules.append(nested)
 
