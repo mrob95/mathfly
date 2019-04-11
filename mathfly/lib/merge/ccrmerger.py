@@ -405,7 +405,7 @@ class CCRMerger(object):
 
         if rule.nested is not None:
             bef  = Repetition(single_action, min=1, max=8, name="before")
-            aft  = Repetition(single_action, min=1, max=8, name="before")
+            aft  = Repetition(single_action, min=1, max=8, name="after")
             seq1 = Repetition(single_action, min=1, max=6, name="sequence1")
             seq2 = Repetition(single_action, min=1, max=6, name="sequence2")
 
