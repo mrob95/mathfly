@@ -80,8 +80,7 @@ class sn_nested(NestedRule):
         Choice("script2", {
             "sub": "c-l",
             "super": "c-h",
-            })
-
+            }),
     ]
 
 class sn_mathematicsNon(MergeRule):
