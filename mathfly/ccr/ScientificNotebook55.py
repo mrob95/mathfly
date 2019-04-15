@@ -53,22 +53,35 @@ class sn_nested(NestedRule):
             Function(lambda: texchar("rightarrow")),
             Key("right")],
 
-        "[<before>] argument that minimises <sequence1>":
-            [Key("f10, i, down:11, enter/25, b, enter") + Text("argmin") + Key("down"),
+        "[<before>] argument that <minmax> <sequence1>":
+            [Key("f10, i, down:11, enter/25, b, enter") + Text("arg%(minmax)s") + Key("down"),
             Key("right"), None],
 
-        "[<before>] argument that maximises <sequence1>":
-            [Key("f10, i, down:11, enter/25, b, enter") + Text("argmax") + Key("down"),
+        "[<before>] <minmax> by <sequence1>":
+            [Key("f10, i, down:11, enter/25, b, enter") + Text("%(minmax)s") + Key("down"),
             Key("right"), None],
 
-        "[<before>] minimum by <sequence1>":
-            [Key("f10, i, down:11, enter/25, b, enter") + Text("min") + Key("down"),
-            Key("right"), None],
+        "[<before>] <script1> <singleton1> [<after>]":
+            [Key("%(script1)s"), Key("right"), None],
 
-        "[<before>] maximum by <sequence1>":
-            [Key("f10, i, down:11, enter/25, b, enter") + Text("max") + Key("down"),
-            Key("right"), None],
+        "[<before>] <script1> <singleton1> <script2> <singleton2> [<after>]":
+            [Key("%(script1)s"), Key("right, %(script2)s"), Key("right")],
+
     }
+    extras = [
+        Choice("minmax", {
+            "(minimum | minimises)": "min",
+            "(maximum | maximises)": "max",
+            }),
+        Choice("script1", {
+            "sub": "c-l",
+            "super": "c-h",
+            }),
+        Choice("script2", {
+            "sub": "c-l",
+            "super": "c-h",
+            }),
+    ]
 
 class sn_mathematicsNon(MergeRule):
     mapping = {

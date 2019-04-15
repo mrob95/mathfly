@@ -22,11 +22,11 @@ class Nexus:
         self.merger = CCRMerger(real_merger_config)
 
 
-_NEXUS = None
+MF_NEXUS = None
 
 
 def nexus():
-    global _NEXUS
-    if _NEXUS is None:
-        _NEXUS = Nexus()
-    return _NEXUS
+    global MF_NEXUS
+    if MF_NEXUS is None:
+        MF_NEXUS = Nexus()
+    return MF_NEXUS

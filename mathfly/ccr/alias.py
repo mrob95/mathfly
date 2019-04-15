@@ -3,7 +3,7 @@ from dragonfly import Dictation, Choice, Text, Function, IntegerRef
 from mathfly.lib import utilities, control
 from mathfly.lib.merge.selfmodrule import SelfModifyingRule
 
-_NEXUS = control.nexus()
+MF_NEXUS = control.nexus()
 
 class Alias(SelfModifyingRule):
     mapping = {"default command": ""}

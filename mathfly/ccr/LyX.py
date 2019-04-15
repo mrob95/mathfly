@@ -43,22 +43,34 @@ class lyx_nested(NestedRule):
             [Text("\\underset \\lim ") + Key("down"),
             Text("\\rightarrow "), Key("right")],
 
-        "[<before>] argument that minimises <sequence1>":
-            [Text("\\underset \\arg \\min ") + Key("down"),
+        "[<before>] argument that <minmax> <sequence1>":
+            [Text("\\underset \\arg \\%(minmax)s ") + Key("down"),
             Key("right"), None],
 
-        "[<before>] argument that maximises <sequence1>":
-            [Text("\\underset \\arg \\max ") + Key("down"),
+        "[<before>] <minmax> by <sequence1>":
+            [Text("\\underset \\%(minmax)s ") + Key("down"),
             Key("right"), None],
 
-        "[<before>] minimum by <sequence1>":
-            [Text("\\underset \\min ") + Key("down"),
-            Key("right"), None],
+        "[<before>] <script1> <singleton1> [<after>]":
+            [Key("%(script1)s"), Key("right"), None],
 
-        "[<before>] maximum by <sequence1>":
-            [Text("\\underset \\max ") + Key("down"),
-            Key("right"), None],
+        "[<before>] <script1> <singleton1> <script2> <singleton2> [<after>]":
+            [Key("%(script1)s"), Key("right, %(script2)s"), Key("right")],
     }
+    extras = [
+        Choice("minmax", {
+            "(minimum | minimises)": "min",
+            "(maximum | maximises)": "max",
+            }),
+        Choice("script1", {
+            "sub": "_",
+            "super": "^",
+            }),
+        Choice("script2", {
+            "sub": "_",
+            "super": "^",
+            }),
+    ]
 
 class lyx_mathematicsNon(MergeRule):
     mapping = {
