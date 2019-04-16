@@ -83,7 +83,7 @@ def rule_changer(enable, name):
 class MainRule(MergeRule):
 
 	mapping = {
-        "configure math fly":
+        "configure math fly [settings]":
             Function(utilities.load_config, config_name="settings.toml"),
 
         "<enable> <name>": Function(rule_changer),
