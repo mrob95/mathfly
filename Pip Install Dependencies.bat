@@ -10,6 +10,7 @@ pip install -U future
 pip install -U dragonfly2
 pip install -U toml
 pip install -U beautifulsoup4
+pip install -U six
 
 echo ------------------------------------------
 echo Mathfly Dependencies Installation Complete
