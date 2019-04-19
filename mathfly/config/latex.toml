@@ -13,6 +13,10 @@
 "template_prefix"    = "template"
 "accent_prefix"      = "accent"
 
+
+[latex_misc]
+
+
 [document_classes]
 "article"     = "article"
 "beamer"      = "beamer"
@@ -156,6 +160,7 @@
 
 
 [misc_symbols]
+"inline"                    = ["$$", "left"]
 "super [script]"            = ["^{}", "left"]
 "sub [script]"              = ["_{}", "left"]
 "squared"                   = "^{2} "

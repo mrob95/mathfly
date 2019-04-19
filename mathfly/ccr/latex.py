@@ -59,6 +59,8 @@ class LaTeX(MergeRule):
             Function(tex_funcs.symbol),
         BINDINGS["symbol_prefix"] + " <misc_symbol>":
             Function(lambda misc_symbol: execution.alternating_command(misc_symbol)),
+        "<latex_misc>":
+            Function(lambda latex_misc: execution.alternating_command(latex_misc)),
         BINDINGS["accent_prefix"] + " <accent>":
             Function(lambda accent: execution.paren_function("\\" + accent, "{", "}")),
 
@@ -86,6 +88,7 @@ class LaTeX(MergeRule):
         Choice("greek_letter", BINDINGS["greek_letters"]),
         Choice("symbol", BINDINGS["symbols"]),
         Choice("misc_symbol", BINDINGS["misc_symbols"]),
+        Choice("latex_misc", BINDINGS["latex_misc"]),
         Choice("accent", BINDINGS["accents"]),
         Choice("commandnoarg", BINDINGS["commandnoarg"]),
         Choice("command", BINDINGS["command"]),
