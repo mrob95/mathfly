@@ -13,10 +13,6 @@
 "template_prefix"    = "template"
 "accent_prefix"      = "accent"
 
-
-[latex_misc]
-
-
 [document_classes]
 "article"     = "article"
 "beamer"      = "beamer"
