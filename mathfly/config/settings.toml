@@ -10,7 +10,8 @@ ccr_modules = ["core",
 				"alias"
 				]
 app_modules = ["sublime",
-				"sumatrapdf"
+				"sumatrapdf",
+                "wordpad"
 				]
 max_ccr_repetitions = 16
 alternative_letters = false
