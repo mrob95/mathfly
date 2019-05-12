@@ -1,3 +1,6 @@
+import struct
+assert struct.calcsize("P") * 8  == 32, "Error: Natlink does not work with the 64-bit version of Python. Please install the 32-bit version instead."
+
 from dragonfly import (Function, Grammar, Text, Dictation, Choice, Pause)
 
 import os, sys
