@@ -1,0 +1,141 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{longtable}
+\title{Mathfly core commands}
+\author{Mike Roberts}
+\begin{document}
+\maketitle
+\tableofcontents
+\section{Introduction}
+These commands are enabled with the voice command "enable core" and are common across all editors. They can be modified by editing mathfly/config/core.toml in any text editor or saying "configure Core" while the module is enabled.
+
+\section{Phonetic alphabet}
+By default the NATO phonetic alphabet is used. Letters can be prefixed with "big" to get capitals.
+
+\begin{longtable}{ l l}
+\noindent
+alpha & a \\
+bravo & b \\
+charlie & c \\
+delta & d \\
+echo & e \\
+foxtrot & f \\
+golf & g \\
+hotel & h \\
+india & i \\
+juliet & j \\
+kilo & k \\
+lima & l \\
+mike & m \\
+november & n \\
+oscar & o \\
+papa & p \\
+quebec & q \\
+romeo & r \\
+sierra & s \\
+tango & t \\
+uniform & u \\
+victor & v \\
+whiskey & w \\
+x-ray & x \\
+yankee & y \\
+zulu & z \\
+\end{longtable}
+
+\section{Punctuation}
+\begin{longtable}{ l l}
+ampersand & \& \\
+apostrophe & ' \\
+(asterisk | starling) & * \\
+at sign & @ \\
+backslash & \textbackslash \\
+backtick & ` \\
+pipe symbol & | \\
+caret & \textasciicircum \\
+colon & : \\
+comma & , \\
+dollar & \$ \\
+(dot | point) & . \\
+(quote | quotes) & " \\
+equals & = \\
+exclamation & ! \\
+hashtag & \# \\
+hyphen & - \\
+minus & - \\
+percent & \% \\
+plus & + \\
+question mark & ? \\
+semicolon & ; \\
+slash & / \\
+single quote & ' \\
+tilde & \textasciitilde \\
+underscore & \textunderscore \\
+greater than & $>$ \\
+less than & $<$ \\
+brax & [~] \\
+prekris & (~) \\
+curly & \{~\} \\
+\end{longtable}
+
+\section{Repeatable keys}
+These keys may all be repeated up to 10 times by saying a number afterwards, e.g. "shock two" will press enter twice.
+
+\noindent
+\begin{longtable}{ l l}
+(space | ace) & space \\
+(tab | tabby) & tab \\
+(enter | shock) & enter \\
+check & ctrl-enter \\
+(backspace | clear) & backspace \\
+(delete | deli) & delete \\
+splat & delete words \\
+\end{longtable}
+
+\section{Other keys}
+\begin{longtable}{ l l}
+(escape | eskimo) & escape \\
+shackle & selects the current line \\
+(copy | stoosh) & copy the current selection \\
+(paste | spark) & paste from clipboard \\
+cut & cut the current selection \\
+(duple | duplicate) & duplicate the current line \\
+home & home \\
+end & end \\
+save & save the current file \\
+\end{longtable}
+
+\section{Movement and selection}
+All of these commands are repeatable by saying a number afterwards.
+
+\subsection{Directions}
+\begin{longtable}{ l l}
+left & left \\
+right & right \\
+up & up \\
+down & down \\
+\end{longtable}
+
+\subsection{Modifiers}
+Saying one of these before a direction will change the commands behaviour.
+
+\noindent
+\begin{longtable}{ l l}
+shin & select by character \\
+queue & select by word \\
+fly & move by word \\
+\end{longtable}
+
+Saying "wally" after a movement command will use the home/end keys instead of directions.
+
+\subsection{Examples}
+\begin{longtable}{ l l}
+left three & move left three \\
+left wally & go to the beginning of the line \\
+down wally & go to the bottom of the document \\
+queue right four & select four words to the right \\
+shin right wally & select until the end of the line \\
+\end{longtable}
+
+\section{Aliases}
+Aliases allow for easy on-the-fly creation of new commands. Simply highlight a piece of text or mathematics (using eg ``queue left two'') and say the command "alias" followed by a memorable command name. From now on, saying that command name will paste in the highlighted text. To delete aliases, use the command ``delete aliases''. Does not work in Scientific Notebook at the moment.
+\end{document}

@@ -1,0 +1,320 @@
+\documentclass[12pt]{article}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\title{Dictating mathematics into LyX using Mathfly}
+\author{Mike Roberts}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+\begin{itemize}
+\item \textbf{All of these bindings can be easily changed by modifying mathfly/config/lyx.toml in any text editor or saying "configure LyX" while the module is enabled.}
+\item (option a | option b) means that both commands will do the same thing.
+\item Square brackets means that the word(s) inside are optional, the command will work with or without them.
+\end{itemize}
+
+\section{Basics}
+\begin{tabularx}{\linewidth}{ l X}
+new file & Create a new file \\
+open file & Open a file \\
+save as & Save as \\
+math mode & Insert in-line mathematics \\
+display mode & Insert equation \\
+normal mode & Insert regular text \\
+next tab [<n>] & Navigate to next tab n times \\
+previous tab [<n>] & Navigate to previous tab n times \\
+close tab [<n>] & Close the current tab n times \\
+view PDF & View current document as a PDF \\
+update PDF & Refresh changes \\
+move line up [<n>] & Move the current line up \\
+move line down [<n>] & Move the current line down \\
+\hline
+insert [bulleted] list & Insert a list \\
+insert numbered list & Insert a numbered list \\
+insert description & Insert a description \\
+insert part & Create a part label \\
+insert (section | heading) & Insert a heading \\
+insert sub (section | heading) & Insert a subheading \\
+insert sub sub (section | heading) & Insert a sub subheading \\
+insert paragraph & Insert a paragraph \\
+insert sub paragraph & Insert a subparagraph \\
+insert title & Provide a title \\
+insert author & Provide an author \\
+insert date & Provide a date \\
+insert abstract & Insert an abstract \\
+insert address & Insert an address \\
+insert bibliography & Insert a bibliography \\
+insert quotation & Insert a quotation \\
+insert quote & Insert a quote \\
+insert verse & Insert verse \\
+insert delimiters & Insert more complex bracketry \\
+insert matrix & Insert a matrix (see matrix section for more options) \\
+insert macro & Create a new macro \\
+\end{tabularx}
+
+\section{Miscellaneous}
+\begin{tabularx}{\linewidth}{ l X}
+math mode & Begins a new mathematical dictation environment, necessary for all maths dictation. \\
+new math line & Begins a new mathematical dictation line. \\
+fraction & Creates a fraction. anything highlighted will form the numerator. \\
+over & Creates a fraction with the previous element as the numerator (e.g. "five over three") \\
+(super script | to the power) & Superscript \\
+sub script & Subscript \\
+squared & Superscript 2 \\
+cubed & Superscript 3 \\
+inverse & Superscript -1 \\
+(parens | parentheses) & Parentheses \\
+square brackets & Square brackets \\
+curly brackets & Curly brackets \\
+absolute & Create two bars and moves inside them \\
+summation & $\sum^{a}_{b}$ \\
+blank summation & $\sum$ \\
+(summation | sum) to N & $\sum^{n}_{?}$ \\
+product & $\prod^{a}_{b}$ \\
+blank product & $\prod$ \\
+product to N & $\prod^{n}_{?}$ \\
+limit & $\lim_{?}$ \\
+blank limit & $\lim$ \\
+prime & $\prime$ (prime symbol) \\
+degrees & $^{\circ}$ \\
+exponential & $\exp ()$ \\
+expectation & $E()$ \\
+variance & $Var()$ \\
+label above & Add a label above the selected text \\
+label below & Add a label below the selected text \\
+\end{tabularx}
+
+
+\section{Letters}
+\subsection{Greek}
+By default, all of these commands must be prefixed with "greek" for lowercase or "greek big" for uppercase. This behaviour can be changed by modifying greek\_prefix and capitals\_prefix. Where relevant I have provided pronunciation tips for best results.
+
+
+\
+
+\begin{longtable}{llll}
+alpha & $\alpha$ & & \\
+beta & $\beta$ &  & beater \\
+gamma & $\gamma$ & $\Gamma$ & \\
+delta & $\delta$ & $\Delta$ & \\
+epsilon & $\varepsilon$ & & \\
+zeta & $\zeta$ & & \\
+eta & $\eta$ & & eater \\
+theta & $\theta$ & $\Theta$ & they-tah \\
+iota & $\iota$ & & \\
+kappa & $\kappa$ & & \\
+lambda & $\lambda$ & $\Lambda$ & \\
+mu & $\mu$ & & moo \\
+nu & $\nu$ & & new \\
+xi & $\xi$ & $\Xi$ & zee \\
+pi & $\pi$ & $\Pi$ & \\
+rho & $\rho$ & & \\
+sigma & $\sigma$ & $\Sigma$ & \\
+tau & $\tau$ & & \\
+upsilon & $\upsilon$ & $\Upsilon$ & \\
+phi & $\phi$ & $\Phi$ & \\
+chi & $\chi$ & & kie \\
+psi & $\psi$ & $\Psi$ & sigh \\
+omega & $\omega$ & $\Omega$ & \\
+\end{longtable}
+
+
+\subsection{Accents}
+These commands add accents above the highlighted text, or create an empty accent if nothing is highlighted.
+
+\
+
+\noindent
+\begin{longtable}{ l l}
+accent hat & $\hat{a}$ \\
+accent tilde & $\tilde{a}$ \\
+accent dot & $\dot{a}$ \\
+accent double dot & $\ddot{a}$ \\
+accent bar & $\bar{a}$ \\
+accent vector & $\vec{a}$ \\
+\end{longtable}
+
+
+\section{Symbols}
+In order to avoid clutter and misrecognition, mathematical symbols are split up into two distinct groups: common and uncommon. By default, common symbols (e.g. integral) need no prefix, while uncommon symbols (e.g. up arrow) are prefixed with "symbol". The prefixes are defined by symbol1\_prefix and symbol2\_prefix. It is expected that you will want to move symbols which you happen to use frequently or infrequently between the two groups, or change/remove the prefixes to your liking. There is a trade-off to be made between recognition accuracy and speed of dictation.
+
+\subsection{Common symbols}
+\noindent
+\begin{longtable}{ l l}
+[generic] root & $\sqrt[n]{x}$ \\
+square root & $\sqrt{x}$ \\
+integral & $\int$ \\
+double integral & $\int \int$ \\
+triple integral & $\int \int \int$ \\
+times & $\times$ \\
+divide & $\div$ \\
+stop & $\cdot$ \\
+plus or minus & $\pm$ \\
+partial & $\partial$ \\
+nice fraction & a/b \\
+binomial & ${a \choose b}$ \\
+infinity & $\infty$ \\
+dot dot dot & $\dots$ \\
+vector nabla & $\nabla$ \\
+%relations
+greater [than] [or] equal [to] & $\geq$ \\
+less [than] [or] equal [to] & $\leq$ \\
+not equal [to] & $\neq$ \\
+approximately [equal] [to] & $\approx$ \\
+proportional [to] & $\propto$ \\
+preference less [than] & $\prec$ \\
+preference less equal & $\preceq$ \\
+preference greater [than] & $\succ$ \\
+preference greater equal & $\succeq$ \\
+% trig
+sine & $\sin$ \\
+cosine & $\cos$ \\
+tangent & $\tan$ \\
+secant & $\sec$ \\
+cosecant & $\csc$ \\
+cotangent & $\cot$ \\
+arc sine & $\arcsin$ \\
+arc cosine & $\arccos$ \\
+arc tan & $\arctan$ \\
+hyperbolic sine & $\sinh$ \\
+hyperbolic cosine & $\cosh$ \\
+hyperbolic tangent & $\tanh$ \\
+hyperbolic cotangent & $\coth$ \\
+% text
+degree & $\deg$ \\
+determinant & $\det$ \\
+dimension & $\dim$ \\
+(natural (log | logarithm) | log natural) & $\ln$ \\
+logarithm & $\log$ \\
+argument & $\arg$ \\
+maximum & $\max$ \\
+minimum & $\min$ \\
+(modulo | modulus) & $\bmod$ \\
+supremum & $\sup$ \\
+infimum & $\inf$ \\
+probability & $\Pr$ \\
+%sets
+there exists & $\exists$ \\
+member [of] & $\in$ \\
+for all & $\forall$ \\
+empty set & $\emptyset$ \\
+subset & $\subset$ \\
+superset & $\supset$ \\
+strict subset & $\subsetneq$ \\
+strict superset & $\supsetneq$ \\
+intersection & $\cap$ \\
+union & $\cup$ \\
+real numbers & $\mathbb{R}$ \\
+complex numbers & $\mathbb{C}$ \\
+integer numbers & $\mathbb{Z}$ \\
+rational numbers & $\mathbb{Q}$ \\
+natural numbers & $\mathbb{N}$ \\
+logic and & $\land$ \\
+logic or & $\lor$ \\
+logic not & $\lnot$ \\
+left arrow & $\leftarrow$ \\
+right arrow & $\rightarrow$ \\
+up arrow & $\uparrow$ \\
+down arrow & $\downarrow$ \\
+left right arrow & $\leftrightarrow$ \\
+maps to & $\mapsto$ \\
+oh plus & $\oplus$ \\
+oh times & $\otimes$ \\
+big oh plus & $\bigoplus$ \\
+big oh times & $\bigotimes$ \\
+diagonal dots & $\ddots$ \\
+horizontal dots & $\cdots$ \\
+vertical dots & $\vdots$ \\
+\end{longtable}
+
+\subsection{Less common symbols}
+Prefix with "symbol"
+
+\begin{longtable}{ll}
+GCD & $\gcd$ \\
+cat hom & $\hom$ \\
+kernel & $\ker$ \\
+% unit & $\unitone$ \\
+% unit two & $\unittwo$ \\
+% unit fraction  & $\unitfrac$ \\
+% text fraction & $\tfrac$ \\
+% display fraction & $\dfrac$ \\
+% continued fraction & $\cfrac$ \\
+% continued fraction (left) & $\cfracleft$ \\
+% continued fraction (right) & $\cfracright$ \\
+% text binomial & $\tbinom$ \\
+% display binomial & $\dbinom$ \\
+% strict subset & $\subsetneq$ \\
+% strict superset & $\supsetneq$ \\
+\end{longtable}
+
+\section{Text modes}
+These commands allow you to insert various forms of regular text into a mathematical environment. They should all be prefixed with "text".
+
+\
+
+\begin{longtable}{ l l}
+(beebee|blackboard bold | blackboard) & $\mathbb{R N Z}$ \\
+roman & $\mathrm{Sample text}$ \\
+bold & $\mathbf{Sample text}$ \\
+sans serif & $\mathsf{Sample text}$ \\
+italic & $\mathit{Sample text}$ \\
+typewriter & $\mathtt{Sample text}$ \\
+\end{longtable}
+
+\section{Fractions}
+There are a few ways of easily inserting fractions:
+
+\begin{itemize}
+\item Use the "fraction" command, and navigate through it using directions.
+\item Use the "over" command, which will build a fraction with the previous element as the numerator. e.g. "x-ray squared over five".
+\item For denominators up to 10, use their natural names, providing a number for the numerator, e.g. "five thirds".
+\end{itemize}
+
+\section{Nested commands}
+There are a few commands within Mathfly which allow for commands to be inserted within them. These are just examples, you can include any commands you want:
+\begin{itemize}
+\item ``Integral from minus infinity to infinity'' - integral symbol with superscript and subscript.
+\item ``Definite from zero to ten'' - definite integral square brackets with subscript and superscript afterwards.
+\item ``Differential x-ray squared by squared yankee'' - creates a differential friction.
+\item ``Sum from india equals one to november'' - creates a summation.
+\item ``Limit from november to infinity'' - create a limit.
+\item ``argument that maximises greek beta'' - argmax.
+\item ``minimum by greek beta'' - min.
+\item ``sub india'' - quick sub/superscripts
+\end{itemize}
+
+\section{Matrices}
+\begin{itemize}
+\item To insert a matrix of a particular size, use the matrix command, e.g. "matrix three by one".
+\item To add or remove columns and rows, Use the command "add/remove matrix column/row".
+\item Matrices can be encased in brackets as expected, E.g. "parens matrix three by three".
+\end{itemize}
+
+\section{Environments}
+These commands provide more detailed control over equation positioning and alignment.
+
+\begin{tabularx}{\linewidth}{ l X}
+insert (in line formula | in line) & In-line formula - same as "math mode" \\
+insert numbered formula & Numbered formula \\
+insert (display formula | display) & Same as "display mode" \\
+insert (equation array environment | equation array) & Insert equation array - use the "check" (ctrl-enter) command to start a new line \\
+insert (AMS align environment | AMS align) & Insert an aligned equation \\
+insert AMS align at [environment] &  \\
+insert AMS flalign [environment] &  \\
+insert (AMS gathered environment | AMS gather) &  \\
+insert (AMS multline [environment]| multiline) &  \\
+insert array [environment] &  \\
+insert (cases [environment] | piecewise) &  \\
+insert (aligned [environment] | align) &  \\
+insert aligned at [environment] &  \\
+insert gathered [environment] &  \\
+insert split [environment] &  \\
+\end{tabularx}
+
+
+\end{document}

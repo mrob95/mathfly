@@ -1,13 +1,15 @@
 # Ignore junk
 **/ccr.toml
 **/aliases.toml
-mathfly/docs/generator/
+mathfly/docs/source/*.pdf
 .idea/
 *.pyc
 *.wav
 *.class
 *.aux
-*.tex
+*.run.xml
+*.bcf
+*.html
 *.toc
 *.synctex.gz
 test.py

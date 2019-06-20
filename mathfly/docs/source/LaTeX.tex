@@ -1,0 +1,364 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{longtable}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[style=authoryear]{biblatex}
+\addbibresource{C:/Users/Mike/Documents/1 uni work/bibliography.bib}
+
+\title{Dictating \LaTeX~ using Mathfly}
+\author{Mike Roberts}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+All of these commands can be modified or added to by editing ``config/latex.toml'' or using the voice command ``configure latex''.
+
+\section{Bibliography management}
+Once you have added the location of your .bib file (using regular slashes) to your LaTeX config file, Mathfly includes a number of commands to make bibliography management easy:
+
+\begin{tabularx}{\linewidth}{ l X}
+Insert my (bib resource | bibliography) & \textbackslash addbibresource\{your\_bibliography.bib\} \\
+Add paper to bibliography & Searches google scholar for the highlighted text (paper title), appends the first resulting bibTeX citation to your bibliography file and adds the tag to the clipboard, ready to be pasted into a document. \\
+Add book to bibliography & Same as above, but searches goodreads instead. \\
+Add link to bibliography & Same as above, but constructs a citation from a url instead. \\
+(edit | open) bibliography & Opens your .bib file in your text editor, for manual alterations and searching. \\
+\end{tabularx}
+
+\section{Document classes}
+Prefixed by "document class", these commands produce for example:
+
+\begin{verbatim}
+\documentclass{article}
+\end{verbatim}
+
+\begin{longtable}{ll}
+\centering
+article & article \\
+beamer & beamer \\
+book & book \\
+letter & letter \\
+proceedings & proc \\
+report & report \\
+\end{longtable}
+
+\section{Packages}
+Prefixed by "use package", these commands produce for example:
+
+\begin{verbatim}
+\usepackage{geometry}
+\end{verbatim}
+
+The second column represents additional arguments.
+
+\begin{longtable}{lll}
+\centering
+AMS math & & AMS math \\
+bib latex & [style=authoryear] & biblatex \\
+colour & & color \\
+geometry & & geometry \\
+hyper ref & & hyperref \\
+graphic X & & graphicx \\
+math tools & & mathtools \\
+multi col & & multicol \\
+long table & & longtable \\
+tabular X & & tabularx \\
+X color & & xcolor \\
+wrap figure & & wrapfig \\
+\end{longtable}
+
+\section{Environments}
+Prefixed by "begin", these commands produce for example
+
+\begin{verbatim}
+\begin{abstract}
+\end{abstract}
+\end{verbatim}
+
+The third column represents additional arguments.
+
+\begin{longtable}{lll}
+abstract & abstract & \\
+add margin & addmargin & \\
+center & center & \\
+columns & columns & \\
+description & description & \\
+document & document & \\
+(enumerate | numbered list) & enumerate & \\
+equation & equation & \\
+figure & figure & [h!] \\
+flush left & flushleft & \\
+flush right & flushright & \\
+frame & frame & \\
+(list | itemise) & itemize & \\
+mini page & minipage & \\
+multi (cols | columns) & multicols & \{2\} \\
+quotation & quotation & \\
+quote & quote & \\
+table & table & [h!] \\
+long table & longtable & \{lll\} \\
+tabular & tabular & \{llll\} \\
+tabular X & tabular X & \{l X\} \\
+title page & titlepage & \\
+verbatim & verbatim & \\
+verse & verse & \\
+wrap figure & wrapfigure & \\
+\end{longtable}
+
+\section{Commands}
+All of these commands are prefixed with "insert".
+
+\subsection{With arguments}
+These commands finish in a set of curly brackets, ready for an argument, for example ``\textbackslash author \{\}''
+
+\begin{longtable}{ll}
+author & author \\
+{[add]} bib resource & addbibresource \\
+caption & caption \\
+chapter & chapter \\
+frame title & frametitle \\
+footnote & footnote \\
+footnote text & footnotetext[] \\
+graphics path & graphicspath \\
+{[include]} graphics & includegraphics[width=1\textbackslash textwidth] \\
+label & label \\
+new command & newcommand\{\}[] \\
+paragraph & paragraph \\
+paren cite & parencite \\
+part & part \\
+reference & ref \\
+renew command & renewcommand \\
+sub paragraph & subparagraph \\
+(section | heading) & section \\
+sub (section | heading) & subsection \\
+sub sub (section | heading) & subsubsection \\
+text cite & textcite \\
+{[text]} bold & textbf \\
+{[text]} italics & textit \\
+{[text]} slanted & textsl \\
+title & title \\
+use theme & usetheme \\
+\hline
+grave [accent] & \`{a} \\
+acute [accent] & \'{a} \\
+dot [accent] & \.{a} \\
+breve [accent] & \u{a} \\
+(circumflex | hat) & \^{a} \\
+(umlaut | dieresis) & \"{a} \\
+(tilde | squiggle) & \~{a} \\
+(macron | bar) & \={a} \\
+\end{longtable}
+
+\subsection{No arguments}
+For example ``\textbackslash linebreak''.
+
+\begin{longtable}{ll}
+centering & centering \\
+column & column\{0.5\textbackslash textwidth\} \\
+footnote mark & footnotemark[] \\
+horizontal line & hline \\
+LaTeX & \LaTeX~  \\
+line break & linebreak \\
+item & item \\
+make title & maketitle \\
+new page & newpage \\
+no indent & noindent \\
+page break & pagebreak \\
+print bibliography & printbibliography \\
+table of contents & tableofcontents \\
+TeX & \TeX~  \\
+text backslash & textbackslash \\
+text height & textheight \\
+text width & textwidth \\
+vertical line & vline \\
+\end{longtable}
+
+\section{Greek letters}
+Prefixed by ``greek''. Where relevant I have provided pronunciation tips for best results.
+
+\begin{longtable}{llll}
+alpha & $\alpha$ & & \\
+beta & $\beta$ &  & beater \\
+gamma & $\gamma$ & $\Gamma$ & \\
+delta & $\delta$ & $\Delta$ & \\
+epsilon & $\varepsilon$ & & \\
+zeta & $\zeta$ & & \\
+eta & $\eta$ & & eater \\
+theta & $\theta$ & $\Theta$ & they-tah \\
+iota & $\iota$ & & \\
+kappa & $\kappa$ & & \\
+lambda & $\lambda$ & $\Lambda$ & \\
+mu & $\mu$ & & moo \\
+nu & $\nu$ & & new \\
+xi & $\xi$ & $\Xi$ & zee \\
+pi & $\pi$ & $\Pi$ & \\
+rho & $\rho$ & & \\
+sigma & $\sigma$ & $\Sigma$ & \\
+tau & $\tau$ & & \\
+upsilon & $\upsilon$ & $\Upsilon$ & \\
+phi & $\phi$ & $\Phi$ & \\
+chi & $\chi$ & & kie \\
+psi & $\psi$ & $\Psi$ & sigh \\
+omega & $\omega$ & $\Omega$ & \\
+\end{longtable}
+
+\section{Mathematics}
+\subsection{Symbols}
+In normal \LaTeX~ mode, these must all be prefixed with ``symbol''. if you are dictating a large block of mathematics, then use ``enable latex maths'' to remove the need for prefixes before numbers and symbols, so that you can dictate more naturally.
+
+\begin{longtable}{ll}
+in-line & \$\$ \\
+super [script] & $x^{a}$ \\
+sub [script] & $x_{a}$ \\
+squared & $x^{2} $ \\
+cubed & $x^{3} $ \\
+inverse & $x^{-1} $ \\
+degrees & $x^{\circ}$ \\
+(parens | parentheses) & $\left( x \right)$ \\
+square brackets & $\left[ x \right] $ \\
+(curly brackets | braces) & $\{  \}$ \\
+square root & $\sqrt{a}$ \\
+{[generic]} root & $\sqrt[n]{a}$ \\
+integral & $\int$ \\
+double integral & $\iint$ \\
+triple integral & $\iiint$ \\
+infinity & $\infty$ \\
+times & $\times$ \\
+divide & $\div$ \\
+intersection & $\cap$ \\
+union & $\cup$ \\
+C dot & $\cdot$ \\
+summation & $\sum$ \\
+product & $\prod$ \\
+(direct sum | oh plus) & $\oplus$ \\
+(big direct sum | big oh plus) & $\bigoplus$ \\
+(direct product | oh times) & $\otimes$ \\
+(big direct product | big oh times) & $\bigotimes$ \\
+plus or minus & $\pm$ \\
+partial & $\partial$ \\
+fraction & $\frac{a}{b}$ \\
+% unit & $\unitone$ \\
+% unit two & $\unittwo$ \\
+% unit fraction  & $\unitfrac$ \\
+% text fraction & $\tfrac$ \\
+% display fraction & $\dfrac$ \\
+% continued fraction & $\cfrac$ \\
+% continued fraction (left) & $\cfracleft$ \\
+% continued fraction (right) & $\cfracright$ \\
+binomial & ${a \choose b}$ \\
+% text binomial & $\tbinom$ \\
+% display binomial & $\dbinom$ \\
+sine & $\sin$ \\
+cosine & $\cos$ \\
+tangent & $\tan$ \\
+secant & $\sec$ \\
+cosecant & $\csc$ \\
+cotangent & $\cot$ \\
+arc sine & $\arcsin$ \\
+arc cosine & $\arccos$ \\
+arc tan & $\arctan$ \\
+hyperbolic sine & $\sinh$ \\
+hyperbolic cosine & $\cosh$ \\
+hyperbolic cotangent & $\coth$ \\
+hyperbolic tangent & $\tanh$ \\
+argument & $\arg$ \\
+modulus & $\bmod$ \\
+degree & $\deg$ \\
+determinant & $\det$ \\
+dimension & $\dim$ \\
+exp & $\exp$ \\
+GCD & $\gcd$ \\
+cat hom & $\hom$ \\
+kernel & $\ker$ \\
+infimum & $\inf$ \\
+supremum & $\sup$ \\
+limit & $\lim$ \\
+liminf & $\liminf$ \\
+(natural (log | logarithm) | log natural) & $\ln$ \\
+logarithm & $\log$ \\
+max & $\max$ \\
+min & $\min$ \\
+probability & $\Pr$ \\
+{[is]} not equal [to] & $\neq$ \\
+{[is]} greater [than] [or] equal [to] & $\geq$ \\
+{[is]} less [than] [or] equal [to] & $\leq$ \\
+{[is]} approximately [equal] [to] & $\approx$ \\
+proportional [to] & $\propto$ \\
+preference less [than] & $\prec$ \\
+preference less equals & $\preceq$ \\
+preference greater [than] & $\succ$ \\
+preference greater equals & $\succeq$ \\
+subset & $\subset$ \\
+superset & $\supset$ \\
+strict subset & $\subsetneq$ \\
+strict superset & $\supsetneq$ \\
+member & $\in$ \\
+(land|logic and) & $\land$ \\
+logic or & $\lor$ \\
+primer & $\prime$ \\
+logic not & $\lnot$ \\
+for all & $\forall$ \\
+there exists & $\exists"$ \\
+% (beebee|blackboard bold) & $\mathbb$ \\
+% roman & $\mathrm$ \\
+% bold & $\mathbf$ \\
+% bold symbol & $\boldsymbol$ \\
+% sans serif & $\mathsf$ \\
+% italic & $\mathit$ \\
+% typewriter & $\matttt$ \\
+% blackboard & $\mathbb$ \\
+% fraktur & $\mathfrak$ \\
+% calligraphic & $\mathcal$ \\
+% formal script & $\mathscr$ \\
+% normal text mode & $\textrm$ \\
+real numbers & $\mathbb{R}$ \\
+complex numbers & $\mathbb{C}$ \\
+integer numbers & $\mathbb{Z}$ \\
+rational numbers & $\mathbb{Q}$ \\
+natural numbers & $\mathbb{N}$ \\
+left arrow & $\leftarrow$ \\
+right arrow & $\rightarrow$ \\
+up arrow & $\uparrow$ \\
+down arrow & $\downarrow$ \\
+left right arrow & $\leftrightarrow$ \\
+dot dot dot & $\dots$ \\
+diagonal dots & $\ddots$ \\
+horizontal dots & $\cdots$ \\
+vertical dots & $\vdots$ \\
+\end{longtable}
+
+\subsection{Accents}
+Prefixed with ``accent''.
+
+\begin{longtable}{ll}
+bar & $\bar{a}$ \\
+breve & $\breve{a}$ \\
+check & $\check{a}$ \\
+dot & $\dot{a}$ \\
+ddot & $\ddot{a}$ \\
+hat & $\hat{a}$ \\
+wide hat & $\widehat{a}$ \\
+tilde & $\tilde{a}$ \\
+wide tilde & $\widetilde{a}$ \\
+vector & $\vec{a}$ \\
+\end{longtable}
+
+\section{Templates}
+Templates provide a way to insert larger sections of text into your documents, for example you may have a particular set of packages which you always want to import at the head of your files, or a particular diagram which you need to draw over and over again. They are defined in the templates section of config/latex.toml and by default are executed using the ``template template\_name'' command. A couple are included as standard for illustrative purposes but these are designed to be edited to suit your needs. For example, the command ``template wrap figure'' will insert:
+
+\begin{verbatim}
+\begin{wrapfigure}{l}{0.5\textwidth}
+\centering
+\label{}
+\includegraphics[width=0.4\textwidth]{}
+\caption{}
+\end{wrapfigure}
+\end{verbatim}
+
+\end{document}
