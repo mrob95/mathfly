@@ -166,7 +166,6 @@
 "(parens | parentheses)"    = ["\\left(  \\right) ", "left:9"]
 "square brackets"           = ["\\left[  \\right] ", "left:9"]
 "(curly brackets | braces)" = ["\\{  \\} ", "left:4"]
-"inline" 				 = [" $$", "left"]
 
 # if included, a number as the second element in a list
 # puts that number of curly braces after the command, e.g.
