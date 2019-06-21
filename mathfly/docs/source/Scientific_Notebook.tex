@@ -1,0 +1,461 @@
+\documentclass[12pt]{article}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc}
+\title{Dictating mathematics into Scientific notebook using Mathfly}
+\author{Mike Roberts}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+\begin{itemize}
+\item All of these bindings can be easily changed by modifying modifying mathfly/config/scientific\_notebook.toml in any text editor or saying "configure Scientific Notebook" while the module is enabled.
+\item (option a | option b) means that both commands will do the same thing.
+\item Square brackets means that the word(s) inside are optional, the command will work with or without them.
+\end{itemize}
+
+\section{Basics}
+\begin{tabularx}{\linewidth}{ l X}
+new file & Create a new file \\
+open file & Open a file \\
+save file & Save a file \\
+save as & Save as \\
+print file & Print current document \\
+export document & Export current document as .rtf \\
+page preview & View a preview of the current document \\
+toggle math & Inline mathematics \\
+body math & Block mathematics \\
+toggle text & Inline text \\
+body text & Block text \\
+evaluate & Evaluate expression \\
+begin [bulleted] list & Begin a bulleted list \\
+begin numbered list & Begin a numbered list \\
+end list & End the current list \\
+insert normal text & normal text \\
+insert big text & \large{large text} \\
+insert small text & \small{small text} \\
+insert bold text & \textbf{bold text} \\
+insert italic text & \textit{bold text} \\
+insert bold symbols & $\mathbf{bold symbols}$ \\
+insert centred text & Insert centred text \\
+insert left text & Insert left justified text \\
+insert right text & Insert right justified text \\
+insert quotation & Insert a quotation \\
+insert heading [one] & Large heading \\
+insert heading two & Smaller heading \\
+insert heading three & Smaller heading \\
+insert heading four & Smaller heading \\
+insert heading five & Smaller heading \\
+\end{tabularx}
+
+\section{Miscellaneous}
+\begin{tabularx}{\linewidth}{ l X}
+fraction & Creates a fraction. anything highlighted will form the numerator. \\
+over & Creates a fraction with the previous element as the numerator (e.g. "five over three") \\
+(super script | to the power) & Superscript \\
+sub script & Subscript \\
+squared & Superscript 2 \\
+cubed & Superscript 3 \\
+inverse & Superscript -1 \\
+(parens | parentheses) & Parentheses \\
+square brackets & Square brackets \\
+curly brackets & Curly brackets \\
+absolute & Create two bars and moves inside them \\
+degrees & Insert a degree symbol \\
+summation & $\sum$ \\
+% blank summation & $\sum$ \\
+% (summation | sum) to N & $\sum^{n}_{?}$ \\
+product & $\prod$ \\
+% blank product & $\prod$ \\
+% product to N & $\sum^{n}_{?}$ \\
+limit & $\lim$ \\
+% blank limit & $\lim$ \\
+label above & Add a label above the selected text \\
+label below & Add a label below the selected text \\
+\end{tabularx}
+
+
+\section{Letters}
+\subsection{Greek}
+By default, all of these commands must be prefixed with "greek" for lowercase or "greek big" for uppercase. This behaviour can be changed by modifying greek\_prefix and capitals\_prefix. Where relevant I have provided pronunciation tips for best results.
+
+\
+
+
+\begin{longtable}{llll}
+alpha & $\alpha$ & & \\
+beta & $\beta$ &  & beater \\
+gamma & $\gamma$ & $\Gamma$ & \\
+delta & $\delta$ & $\Delta$ & \\
+epsilon & $\varepsilon$ & & \\
+zeta & $\zeta$ & & \\
+eta & $\eta$ & & eater \\
+theta & $\theta$ & $\Theta$ & they-tah \\
+iota & $\iota$ & & \\
+kappa & $\kappa$ & & \\
+lambda & $\lambda$ & $\Lambda$ & \\
+mu & $\mu$ & & moo \\
+nu & $\nu$ & & new \\
+xi & $\xi$ & $\Xi$ & zee \\
+pi & $\pi$ & $\Pi$ & \\
+rho & $\rho$ & & \\
+sigma & $\sigma$ & $\Sigma$ & \\
+tau & $\tau$ & & \\
+upsilon & $\upsilon$ & $\Upsilon$ & \\
+phi & $\phi$ & $\Phi$ & \\
+chi & $\chi$ & & kie \\
+psi & $\psi$ & $\Psi$ & sigh \\
+omega & $\omega$ & $\Omega$ & \\
+\end{longtable}
+
+
+\subsection{Accents}
+These commands add accents above the highlighted text, or create an empty accent if nothing is highlighted.
+
+\
+
+\begin{longtable}{ l l}
+accent hat & $\hat{a}$ \\
+accent tilde & $\tilde{a}$ \\
+accent dot & $\dot{a}$ \\
+accent double dot & $\ddot{a}$ \\
+accent bar & $\bar{a}$ \\
+accent arrow & $\vec{a}$ \\
+\end{longtable}
+
+
+\section{Symbols}
+
+\begin{longtable}{ l l}
+[square] root & $\sqrt[n]{x}$ \\
+integral & $\int$ \\
+double integral & $\int \int$ \\
+triple integral & $\int \int \int$ \\
+times & $\times$ \\
+divide & $\div$ \\
+C dot & $\cdot$ \\
+plus or minus & $\pm$ \\
+partial & $\partial$ \\
+infinity & $\infty$ \\
+dot dot dot & $\dots$ \\
+nabla & $\nabla$ \\
+%relations
+greater [than] [or] equal [to] & $\geq$ \\
+less [than] [or] equal [to] & $\leq$ \\
+not equal [to] & $\neq$ \\
+approximately [equal] [to] & $\approx$ \\
+proportional [to] & $\propto$ \\
+preference less [than] & $\prec$ \\
+preference less equal & $\preceq$ \\
+preference greater [than] & $\succ$ \\
+preference greater equal & $\succeq$ \\
+% trig
+sine & $\sin$ \\
+cosine & $\cos$ \\
+tangent & $\tan$ \\
+secant & $\sec$ \\
+cosecant & $\csc$ \\
+cotangent & $\cot$ \\
+arc sine & $\arcsin$ \\
+arc cosine & $\arccos$ \\
+arc tan & $\arctan$ \\
+hyperbolic sine & $\sinh$ \\
+hyperbolic cosine & $\cosh$ \\
+hyperbolic tangent & $\tanh$ \\
+hyperbolic cotangent & $\coth$ \\
+% text
+degree & $\deg$ \\
+determinant & $\det$ \\
+dimension & $\dim$ \\
+exponential & $\exp$ \\
+(natural (log | logarithm) | log natural) & $\ln$ \\
+logarithm & $\log$ \\
+argument & $\arg$ \\
+maximum & $\max$ \\
+minimum & $\min$ \\
+(modulo | modulus) & $\bmod$ \\
+supremum & $\sup$ \\
+infimum & $\inf$ \\
+probability & $\Pr$ \\
+there exists & $\exists$ \\
+member [of] & $\in$ \\
+% real numbers & $\mathbb{R}$ \\
+% complex numbers & $\mathbb{C}$ \\
+% integer numbers & $\mathbb{Z}$ \\
+% rational numbers & $\mathbb{Q}$ \\
+% natural numbers & $\mathbb{N}$ \\
+for all & $\forall$ \\
+subset & $\subset$ \\
+superset & $\supset$ \\
+strict subset & $\subsetneq$ \\
+strict superset & $\supsetneq$ \\
+intersection & $\cap$ \\
+union & $\cup$ \\
+logic and & $\land$ \\
+logic or & $\lor$ \\
+logic not & $\lnot$ \\
+left arrow & $\leftarrow$ \\
+right arrow & $\rightarrow$ \\
+up arrow & $\uparrow$ \\
+down arrow & $\downarrow$ \\
+left right arrow & $\leftrightarrow$ \\
+maps to & $\mapsto$ \\
+oh plus & $\oplus$ \\
+oh times & $\otimes$ \\
+big oh plus & $\bigoplus$ \\
+big oh times & $\bigotimes$ \\
+diagonal dots & $\ddots$ \\
+horizontal dots & $\cdots$ \\
+vertical dots & $\vdots$ \\
+\end{longtable}
+
+
+\section{Fractions}
+There are a few ways of easily inserting fractions:
+
+\begin{itemize}
+\item Use the "fraction" command, and navigate through it using directions.
+\item Use the "over" command, which will build a fraction with the previous element as the numerator. e.g. "x-ray squared over five".
+\item For denominators up to 10, use their natural names, providing a number for the numerator, e.g. "five thirds".
+\end{itemize}
+
+\section{Nested commands}
+There are a few commands within Mathfly which allow for commands to be inserted within them. These are just examples, you can include any commands you want:
+\begin{itemize}
+\item ``Integral from minus infinity to infinity'' - integral symbol with superscript and subscript.
+\item ``Definite from zero to ten'' - definite integral square brackets with subscript and superscript afterwards.
+\item ``Differential x-ray squared by squared yankee'' - creates a differential friction.
+\item ``Sum from india equals one to november'' - creates a summation.
+\item ``Limit from november to infinity'' - create a limit.
+\item ``argument that maximises greek beta'' - argmax.
+\item ``minimum by greek beta'' - min.
+\item ``sub india'' - quick sub/superscripts.
+\end{itemize}
+
+
+\section{Matrices}
+\begin{itemize}
+\item To insert a matrix of a particular size, use the matrix command, e.g. "matrix three by one".
+\item To add or remove columns and rows, Use the command "add/remove matrix column/row".
+\item Matrices can be encased in brackets as expected, E.g. "parens matrix three by three".
+\end{itemize}
+
+\section{Units}
+These commands insert common scientific units. By default, all of them must be prefixed with "unit", so for example "unit cubic feet" produces ft$^{3}$.
+\begin{itemize}
+\item \textbf{Activity}--- ~
+Becquerels,
+Curies
+
+\item \textbf{Amount}--- ~
+Attomoles,
+Examoles,
+Femtomoles,
+Gigamoles,
+Kilomoles,
+Megamoles,
+Micromoles,
+Millimoles,
+Moles,
+Nanomoles,
+Petamoles,
+Picomoles,
+Teramoles
+
+\item \textbf{Area}--- ~
+Acres,
+Hectares,
+Square feet,
+Square inches,
+Square metres
+
+\item \textbf{Current}--- ~
+Amperes,
+Kiloamperes,
+Microamperes,
+Milliamperes,
+Nanoamperes
+
+\item \textbf{Capacitance}--- ~
+Farads,
+Microfarads,
+Millifarads,
+Nanofarads,
+Picofarads
+
+\item \textbf{Charge}--- ~
+Coulombs
+
+\item \textbf{Conductance}--- ~
+Kilosiemens,
+Microsiemens,
+Millisiemens,
+Siemens
+
+\item \textbf{Potential difference}--- ~
+Kilovolts,
+Megavolts,
+Microvolts,
+Millivolts,
+Nanovolts,
+Picovolts,
+Volts
+
+\item \textbf{Resistance}--- ~
+Gigaohms,
+Kiloohms,
+Megaohms,
+Milliohms,
+Ohms
+
+\item \textbf{Energy}--- ~
+British thermal unit,
+Calories,
+Electron volts,
+Ergs,
+Gigaelectronvolts,
+Gigajoules,
+Joules,
+Kilocalories,
+Kilojoules,
+Megaelectronvolts,
+Megajoules,
+Microjoules,
+Millijoules,
+Nanojoules
+
+\item \textbf{Force}--- ~
+Dynes,
+Kilonewtons,
+Meganewtons,
+Micronewtons,
+Millinewtons,
+Newtons,
+Ounce force,
+Pound force
+
+\item \textbf{Frequency}--- ~
+Exahertz,
+Gigahertz,
+Hertz,
+Kilohertz,
+Megahertz,
+Petahertz,
+Terahertz
+
+\item \textbf{Illuminance}--- ~
+Footcandle,
+Lux,
+Phot
+
+\item \textbf{Length}--- ~
+Angstrom,
+Attometers,
+Centimeters,
+Decimeters,
+Femtometers,
+Feet,
+Inches,
+Kilometers,
+Meters,
+Micrometers,
+Miles,
+Millimeters,
+Nanometers,
+Picometers
+
+\item \textbf{Luminance}--- ~
+Candela,
+Lumens
+
+\item \textbf{Magnetic flux}--- ~
+Maxwells,
+Microwebers,
+Milliwebers,
+Nanowebers,
+Webers
+
+\item \textbf{Magnetic flux density}--- ~
+Gauss,
+Microteslas,
+Milliteslas,
+Nanoteslas,
+Picoteslas,
+Teslas,
+Henries,
+microhenries,
+millihenries
+
+\item \textbf{Mass}--- ~
+Atomic mass units,
+Centigrams,
+Decigrams,
+Grams,
+Kilograms,
+Micrograms,
+Milligrams,
+Pounds,
+Slug
+
+\item \textbf{Angle}--- ~
+degrees,
+Microradians,
+Milliradians,
+Minutes of angle,
+Seconds of angle,
+Radians,
+Steradian
+
+\item \textbf{Power}--- ~
+Gigawatts,
+Horsepowers,
+Kilowatts,
+Megawatts,
+Microwatts,
+Milliwatts,
+Nanowatts,
+Watts
+
+\item \textbf{Pressure}--- ~
+Atmospheres,
+Bar,
+Kilobar,
+Kilopascals,
+Megapascals,
+Micropascals,
+Millibar,
+Millimeters of Mercury,
+Pascals,
+Torrs
+
+\item \textbf{Temperature}--- ~
+Celsiuss,
+Fahrenheits,
+Kelvins
+
+\item \textbf{Time}--- ~
+Attoseconds,
+Days,
+Femtoseconds,
+Hours,
+Microseconds,
+Milliseconds,
+Minutes,
+Nanoseconds,
+Picoseconds,
+Seconds,
+Years
+
+\item \textbf{Volume}--- ~
+Cubic feet,
+Cubic inches,
+Cubic metres,
+Gallons,
+Liters,
+Milliliters,
+Pints,
+Quarts
+\end{itemize}
+\end{document}

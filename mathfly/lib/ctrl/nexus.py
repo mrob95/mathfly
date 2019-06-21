@@ -9,15 +9,15 @@ class Nexus:
 
         self.clip = {}
 
-        self.history = RecognitionHistory(20)
-        self.history.register()
+        # self.history = RecognitionHistory(20)
+        # self.history.register()
 
         self.preserved = None
 
-        from dragonfly.timer import _Timer
-        self.timer = _Timer(0.025)
+        # from dragonfly.timer import _Timer
+        # self.timer = _Timer(0.025)
 
-        self.macros_grammar = Grammar("recorded_macros")
+        # self.macros_grammar = Grammar("recorded_macros")
 
         self.merger = CCRMerger(real_merger_config)
 
