@@ -4,12 +4,12 @@ from mathfly.lib.actions import Text, Key, Mouse, AppContext
 from mathfly.lib.merge.mergerule import MergeRule
 from mathfly.lib import control
 
-class SumatraPDFRule(MergeRule):
-	pronunciation = "SumatraPDF"
-	mcontext = AppContext(title="SumatraPDF")
+class RuleNameRule(MergeRule):
+	pronunciation = "AppName"
+	mcontext = AppContext(title="AppName")
 
 	mapping = {
-		# https://www.sumatrapdfreader.org/manual.html
+		"new file"            : Key("c-n"),
 		"open file"           : Key("c-o"),
 		"print file"          : Key("c-p"),
 
@@ -18,26 +18,12 @@ class SumatraPDFRule(MergeRule):
 		"previous tab"        : Key("cs-tab"),
 		"<nth> tab"           : Key("a-%(nth)s"),
 
-		"go to page"          : Key("c-g"),
 		"find"                : Key("c-f"),
 		"find next"           : Key("f3"),
 		"find previous"       : Key("s-f3"),
-		"page <n>"            : Key("c-g") + Text("%(n)s") + Key("enter"),
-		"table of contents"   : Key("f12"),
 
 		"zoom in"             : Key("c-equals"),
 		"zoom out"            : Key("c-minus"),
-		"fit page"            : Key("c-0"),
-		"actual size"         : Key("c-1"),
-		"fit width"           : Key("c-2"),
-		"fit content"         : Key("c-3"),
-		"[view] single page"  : Key("c-6"),
-		"facing view"         : Key("c-7"),
-		"book view"           : Key("c-8"),
-		"rotate [right]"      : Key("c-plus"),
-		"rotate left"         : Key("c-minus"),
-		"presentation [mode]" : Key("f11"),
-		"full screen"         : Key("s-f11"),
 	}
 
 	extras = [
@@ -59,4 +45,4 @@ class SumatraPDFRule(MergeRule):
 		"n": 1,
 	}
 
-control.nexus().merger.add_non_ccr_app_rule(SumatraPDFRule())
+control.nexus().merger.add_non_ccr_app_rule(RuleNameRule())
