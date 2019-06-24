@@ -1,8 +1,4 @@
-from dragonfly import (Grammar, Pause, Choice, Function, IntegerRef, Mimic, Playback)
-
-from mathfly.lib.actions import Text, Key, Mouse, AppContext
-from mathfly.lib.merge.mergerule import MergeRule
-from mathfly.lib import control
+from mathfly.imports import *
 
 class WordPadRule(MergeRule):
 	pronunciation = "WordPad"
