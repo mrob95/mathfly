@@ -3,12 +3,7 @@ Created on Sep 4, 2018
 
 @author: Mike Roberts
 '''
-from dragonfly import Function, Choice, IntegerRef, Dictation, Repeat
-
-from mathfly.lib.actions import Text, Key, Mouse
-from mathfly.lib import control, utilities, navigation
-from mathfly.lib.integers import IntegerRefMF
-from mathfly.lib.merge.mergerule import MergeRule
+from mathfly.imports import *
 
 SETTINGS = utilities.load_toml_relative("config/settings.toml")
 CORE = utilities.load_toml_relative("config/core.toml")
