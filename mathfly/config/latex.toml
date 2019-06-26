@@ -201,7 +201,7 @@
 "continued fraction"                  = "cfrac"
 "continued fraction (left)"           = "cfracleft"
 "continued fraction (right)"          = "cfracright"
-"binomial"                            = "choose"
+"binomial"                            = ["binom", "2"]
 # "text binomial"                     = "tbinom"
 # "display binomial"                  = "dbinom"
 # trig
