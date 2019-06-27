@@ -254,6 +254,7 @@
 "strict subset"                       = "subsetneq"
 "strict superset"                     = "supsetneq"
 "member"                              = "in"
+"empty set"							  = "emptyset"
 # logic
 "(land|logic and)"                    = "land"
 "logic or"                            = "lor"
@@ -287,7 +288,7 @@
 "down arrow"                          = "downarrow"
 "left right arrow"                    = "leftrightarrow"
 #
-"dot dot dot"                         = "dots"
+"dots"                         = "dots"
 "diagonal dots"                       = "ddots"
 "horizontal dots"                     = "cdots"
 "vertical dots"                       = "vdots"
