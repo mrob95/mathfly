@@ -10,10 +10,18 @@ ccr_modules = ["core",
 				"alias"
 				]
 app_modules = ["sublime",
-				"sumatrapdf"
+				"sumatrapdf",
+                "wordpad"
 				]
 max_ccr_repetitions = 16
 alternative_letters = false
 alternative_directions = false
 use_aenea = false
+# Words to be removed from the dragon vocabulary
 delete_words = ["one-to-one"]
+# Words to be added to the dragon vocabulary
+add_words = [
+    "heteroscedasticity",
+    "homoscedasticity",
+    "leptokurtosis"
+    ]

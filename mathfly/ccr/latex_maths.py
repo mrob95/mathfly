@@ -3,10 +3,7 @@ Created on Sep 4, 2018
 
 @author: Mike Roberts
 '''
-from dragonfly import Function, Choice, Key, Text, IntegerRef
-
-from mathfly.lib import control, execution, utilities
-from mathfly.lib.merge.mergerule import MergeRule
+from mathfly.imports import *
 
 BINDINGS = utilities.load_toml_relative("config/latex.toml")
 CORE = utilities.load_toml_relative("config/core.toml")

@@ -3,13 +3,7 @@ Created Jan 2019
 
 @author: Mike Roberts, Alex Boche
 '''
-from dragonfly import Function, Choice, IntegerRef
-from dragonfly import Grammar, Repeat, CompoundRule
-
-from mathfly.lib.actions import Text, Key, Mouse, AppContext
-from mathfly.lib import control, utilities, execution
-from mathfly.lib.merge.mergerule import MergeRule
-from mathfly.lib.merge.nestedrule import NestedRule
+from mathfly.imports import *
 
 BINDINGS = utilities.load_toml_relative("config/lyx.toml")
 CORE     = utilities.load_toml_relative("config/core.toml")

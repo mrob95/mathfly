@@ -3,12 +3,7 @@ Created on Sep 4, 2018
 
 @author: Mike Roberts
 '''
-from dragonfly import Function, Choice, IntegerRef, Dictation, Repeat
-
-from mathfly.lib.actions import Text, Key, Mouse, AppContext
-from mathfly.lib import control, utilities, execution
-from mathfly.lib.merge.mergerule import MergeRule
-from mathfly.lib.merge.nestedrule import NestedRule
+from mathfly.imports import *
 
 BINDINGS = utilities.load_toml_relative("config/ScientificNotebook55.toml")
 CORE = utilities.load_toml_relative("config/core.toml")

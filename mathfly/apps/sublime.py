@@ -1,12 +1,8 @@
-from dragonfly import Grammar, Dictation, Choice, Repeat, IntegerRef
-
-from mathfly.lib.actions import Text, Key, Mouse, AppContext
-from mathfly.lib import control
-from mathfly.lib.merge.mergerule import MergeRule
-
+from mathfly.imports import *
 
 class SublimeRule(MergeRule):
     pronunciation = "sublime"
+    mcontext = AppContext(executable="sublime_text", title="Sublime Text")
 
     mapping = {
         "new (file | pane)": Key("c-n"),
@@ -131,8 +127,4 @@ class SublimeRule(MergeRule):
 
 #---------------------------------------------------------------------------
 
-context = AppContext(executable="sublime_text", title="Sublime Text")
-grammar = Grammar("Sublime", context=context)
-rule = SublimeRule(name="sublime")
-grammar.add_rule(rule)
-grammar.load()
+control.nexus().merger.add_non_ccr_app_rule(SublimeRule())
