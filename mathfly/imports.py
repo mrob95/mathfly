@@ -10,6 +10,7 @@ from mathfly.lib.integers import IntegerRefMF
 
 from mathfly.lib import control, utilities, execution, navigation
 from mathfly.lib.latex import tex_funcs
+from mathfly.lib.execution import Alternating
 
 from mathfly.lib.merge.mergerule import MergeRule
 from mathfly.lib.merge.nestedrule import NestedRule

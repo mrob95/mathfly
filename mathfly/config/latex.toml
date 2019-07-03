@@ -126,6 +126,8 @@
 "text width"         = "textwidth"
 "vertical line"      = "vline"
 
+[commandmisc]
+"end line"           = ["\\\\", "enter"]
 
 [greek_letters]
 "alpha"   = "alpha"

@@ -90,6 +90,8 @@ class Nexus:
         return Choice(ref, {rule: rule for rule in self.merger.global_rule_names()})
 
     def rule_changer(self, enable, name):
+        CORE = utilities.load_toml_relative("config/core.toml")
+
         self.merger.global_rule_changer(name=name, enable=enable, save=True)
         if name == CORE["pronunciation"]:
             self.merger.selfmod_rule_changer(name2="alias", enable=enable, save=True)

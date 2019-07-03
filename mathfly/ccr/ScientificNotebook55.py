@@ -110,7 +110,7 @@ class sn_mathematics(MergeRule):
             Key("%(accent)s"),
 
         BINDINGS["unit_prefix"] + " <units>":
-            Function(lambda units: execution.alternating_command(units)),
+            Alternating("units"),
 
         "<misc_sn_keys>":
             Key("%(misc_sn_keys)s"),

@@ -23,7 +23,7 @@ class LaTeXmath(MergeRule):
         "<numbers>": Text("%(numbers)s"),
         "<symbol>":  Function(symbol),
         "<misc_symbol>":
-            Function(lambda misc_symbol: execution.alternating_command(misc_symbol)),
+            Alternating("misc_symbol"),
     }
 
     extras = [
