@@ -127,7 +127,7 @@
 "vertical line"      = "vline"
 
 [commandmisc]
-"end line"           = ["\\\\", "enter"]
+"line end"           = ["\\\\", "enter"]
 
 [greek_letters]
 "alpha"   = "alpha"
