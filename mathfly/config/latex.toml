@@ -116,6 +116,7 @@
 "horizontal line"    = "hline"
 "(lah | lay) tech"   = "LaTeX~ "
 "line break"         = "linebreak"
+"line end"  	     = "\\\n"
 "[list] item"        = "item"
 "make title"         = "maketitle"
 "new page"           = "newpage"
@@ -128,6 +129,8 @@
 "text height"        = "textheight"
 "text width"         = "textwidth"
 "vertical line"      = "vline"
+"left invisible delimiter" = "left."
+"right invisible delimiter" = "right."
 
 
 [greek_letters]
@@ -167,8 +170,6 @@
 "(parens | parentheses)"    = ["\\left(  \\right) ", "left:9"]
 "square brackets"           = ["\\left[  \\right] ", "left:9"]
 "(curly brackets | braces)" = ["\\{  \\} ", "left:4"]
-"invisible left delimiter"  = "\\left. "
-"invisible right delimiter"  = "\\right. "
 
 # if included, a number as the second element in a list
 # puts that number of curly braces after the command, e.g.
