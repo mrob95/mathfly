@@ -57,6 +57,7 @@
 "(list | itemise)"            = "itemize"
 "mini page"                   = "minipage"
 "multi (cols | columns)"      = ["multicols", "{2}"]
+"multi line"			   = "multline"
 "quotation"                   = "quotation"
 "quote"                       = "quote"
 "table"                       = ["table", "[h!]\n\\centering"]
@@ -74,6 +75,7 @@
 "[add] bib resource"          = "addbibresource"
 "caption"                     = "caption"
 "chapter"                     = "chapter"
+"simple citation"		   = "cite"
 "frame title"                 = "frametitle"
 "footnote"                    = "footnote"
 "footnote text"               = "footnotetext[]"
@@ -94,6 +96,7 @@
 "[text] bold"                 = "textbf"
 "[text] italics"              = "textit"
 "[text] slanted"              = "textsl"
+"emphasis"				   = "emph"
 "title"                       = "title"
 "use theme"                   = "usetheme"
 # Accents
@@ -125,6 +128,8 @@
 "text height"        = "textheight"
 "text width"         = "textwidth"
 "vertical line"      = "vline"
+"left invisible delimiter" = "left."
+"right invisible delimiter" = "right."
 
 [commandmisc]
 "line end"           = ["\\\\", "enter"]
@@ -200,7 +205,7 @@
 "continued fraction"                  = "cfrac"
 "continued fraction (left)"           = "cfracleft"
 "continued fraction (right)"          = "cfracright"
-"binomial"                            = "choose"
+"binomial"                            = ["binom", "2"]
 # "text binomial"                     = "tbinom"
 # "display binomial"                  = "dbinom"
 # trig
@@ -235,6 +240,7 @@
 "logarithm"                           = "log"
 "max"                                 = "max"
 "min"                                 = "min"
+"prime"						 = "prime"
 "probability"                         = "Pr"
 # relations
 "[is] not equal [to]"                 = "neq"
@@ -252,6 +258,7 @@
 "strict subset"                       = "subsetneq"
 "strict superset"                     = "supsetneq"
 "member"                              = "in"
+"empty set"							  = "emptyset"
 # logic
 "(land|logic and)"                    = "land"
 "logic or"                            = "lor"
@@ -285,7 +292,7 @@
 "down arrow"                          = "downarrow"
 "left right arrow"                    = "leftrightarrow"
 #
-"dot dot dot"                         = "dots"
+"dots"                         = "dots"
 "diagonal dots"                       = "ddots"
 "horizontal dots"                     = "cdots"
 "vertical dots"                       = "vdots"

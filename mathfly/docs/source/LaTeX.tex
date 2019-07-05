@@ -99,6 +99,7 @@ frame & frame & \\
 (list | itemise) & itemize & \\
 mini page & minipage & \\
 multi (cols | columns) & multicols & \{2\} \\
+multi line & multline & \\
 quotation & quotation & \\
 quote & quote & \\
 table & table & [h!] \\
@@ -142,6 +143,7 @@ text cite & textcite \\
 {[text]} bold & textbf \\
 {[text]} italics & textit \\
 {[text]} slanted & textsl \\
+emphasis & emph \\
 title & title \\
 use theme & usetheme \\
 \hline
@@ -178,6 +180,15 @@ text height & textheight \\
 text width & textwidth \\
 vertical line & vline \\
 \end{longtable}
+
+\subsection{Miscellaneous Commands}
+These do not necessarily have to begin with a \textbackslash.
+
+\begin{longtable}{ll}
+line end & \textbackslash \textbackslash \\
+\end{longtable}
+
+
 
 \section{Greek letters}
 Prefixed by ``greek''. Where relevant I have provided pronunciation tips for best results.
@@ -223,6 +234,8 @@ degrees & $x^{\circ}$ \\
 (parens | parentheses) & $\left( x \right)$ \\
 square brackets & $\left[ x \right] $ \\
 (curly brackets | braces) & $\{  \}$ \\
+left invisible delimiter & \textbackslash $\text{left.}$ \\
+right invisible delimiter & \textbackslash $\text{right.}$ \\
 square root & $\sqrt{a}$ \\
 {[generic]} root & $\sqrt[n]{a}$ \\
 integral & $\int$ \\
@@ -251,7 +264,7 @@ fraction & $\frac{a}{b}$ \\
 % continued fraction & $\cfrac$ \\
 % continued fraction (left) & $\cfracleft$ \\
 % continued fraction (right) & $\cfracright$ \\
-binomial & ${a \choose b}$ \\
+binomial & $\binom{a}{b}$ \\
 % text binomial & $\tbinom$ \\
 % display binomial & $\dbinom$ \\
 sine & $\sin$ \\
@@ -299,12 +312,13 @@ superset & $\supset$ \\
 strict subset & $\subsetneq$ \\
 strict superset & $\supsetneq$ \\
 member & $\in$ \\
+empty set & $\emptyset$ \\
 (land|logic and) & $\land$ \\
 logic or & $\lor$ \\
 primer & $\prime$ \\
 logic not & $\lnot$ \\
 for all & $\forall$ \\
-there exists & $\exists"$ \\
+there exists & $\exists$ \\
 % (beebee|blackboard bold) & $\mathbb$ \\
 % roman & $\mathrm$ \\
 % bold & $\mathbf$ \\
