@@ -109,7 +109,7 @@ class lyx_mathematics(MergeRule):
             Key("%(misc_lyx_keys)s"),
 
         "<command>":
-            Function(execution.alternating_command),
+            Alternating("command"),
 
         "matrix <rows> by <cols>":
             Function(matrix),

@@ -132,6 +132,8 @@
 "left invisible delimiter" = "left."
 "right invisible delimiter" = "right."
 
+[commandmisc]
+"line end"           = ["\\\\", "enter"]
 
 [greek_letters]
 "alpha"   = "alpha"
