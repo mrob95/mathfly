@@ -116,7 +116,6 @@
 "horizontal line"    = "hline"
 "(lah | lay) tech"   = "LaTeX~ "
 "line break"         = "linebreak"
-"line end"  	     = "\\\n"
 "[list] item"        = "item"
 "make title"         = "maketitle"
 "new page"           = "newpage"
