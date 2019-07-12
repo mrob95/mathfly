@@ -46,6 +46,7 @@
 "center"                      = "center"
 "columns"                     = "columns"
 "column"                      = ["column", "{0.5\\textwidth}"]
+"cases"                       = "cases"
 "description"                 = "description"
 "document"                    = "document"
 "(enumerate | numbered list)" = "enumerate"
@@ -159,7 +160,7 @@
 
 
 [misc_symbols]
-"inline"                    = ["$$", "left"]
+"inline"                    = [" $$", "left"]
 "super [script]"            = ["^{}", "left"]
 "sub [script]"              = ["_{}", "left"]
 "squared"                   = "^{2} "
@@ -298,6 +299,8 @@
 #
 "left invisible delimiter"            = "left."
 "right invisible delimiter"           = "right."
+#
+"text"                                = ["text", "1"]
 
 
 [accents]
