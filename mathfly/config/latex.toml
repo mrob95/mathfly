@@ -290,10 +290,11 @@
 "down arrow"                          = "downarrow"
 "left right arrow"                    = "leftrightarrow"
 #
-"dots"                         = "dots"
+"dots"                                = "dots"
 "diagonal dots"                       = "ddots"
 "horizontal dots"                     = "cdots"
 "vertical dots"                       = "vdots"
+"low dots"                            = "ldots"
 #
 "left invisible delimiter"            = "left."
 "right invisible delimiter"           = "right."
