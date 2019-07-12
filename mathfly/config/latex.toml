@@ -128,8 +128,6 @@
 "text height"        = "textheight"
 "text width"         = "textwidth"
 "vertical line"      = "vline"
-"left invisible delimiter" = "left."
-"right invisible delimiter" = "right."
 
 [commandmisc]
 "line end"           = ["\\\\", "enter"]
@@ -296,6 +294,10 @@
 "diagonal dots"                       = "ddots"
 "horizontal dots"                     = "cdots"
 "vertical dots"                       = "vdots"
+#
+"left invisible delimiter"            = "left."
+"right invisible delimiter"           = "right."
+
 
 [accents]
 "bar"        = "bar"
