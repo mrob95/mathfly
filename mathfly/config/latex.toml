@@ -47,6 +47,7 @@
 "columns"                     = "columns"
 "column"                      = ["column", "{0.5\\textwidth}"]
 "cases"                       = "cases"
+"display cases"               = "dcases"
 "description"                 = "description"
 "document"                    = "document"
 "(enumerate | numbered list)" = "enumerate"
@@ -58,7 +59,7 @@
 "(list | itemise)"            = "itemize"
 "mini page"                   = "minipage"
 "multi (cols | columns)"      = ["multicols", "{2}"]
-"multi line"			   = "multline"
+"multi line"                  = "multline"
 "quotation"                   = "quotation"
 "quote"                       = "quote"
 "table"                       = ["table", "[h!]\n\\centering"]
@@ -258,6 +259,7 @@
 "strict superset"                     = "supsetneq"
 "member"                              = "in"
 "empty set"							  = "emptyset"
+"set minus"                           = "setminus"
 # logic
 "(land|logic and)"                    = "land"
 "logic or"                            = "lor"
@@ -301,6 +303,8 @@
 "right invisible delimiter"           = "right."
 #
 "text"                                = ["text", "1"]
+#
+"sub stack"                           = ["substack", "1"]
 
 
 [accents]
