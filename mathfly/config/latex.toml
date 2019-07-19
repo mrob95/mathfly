@@ -269,18 +269,18 @@
 "for all"                             = "forall"
 "there exists"                        = "exists"
 # math fonts
-"(beebee|blackboard bold)"            = "mathbb"
-"roman"                               = "mathrm"
-"bold"                                = "mathbf"
-"bold symbol"                         = "boldsymbol"
-"sans serif"                          = "mathsf"
-"italic"                              = "mathit"
-"typewriter"                          = "matttt"
-"blackboard"                          = "mathbb"
-"fraktur"                             = "mathfrak"
-"calligraphic"                        = "mathcal"
-"formal script"                       = "mathscr"
-"normal text mode"                    = "textrm"
+"(beebee|blackboard bold)"            = ["mathbb", "1"]
+"roman"                               = ["mathrm", "1"]
+"bold"                                = ["mathbf", "1"]
+"bold symbol"                         = ["boldsymbol", "1"]
+"sans serif"                          = ["mathsf", "1"]
+"italic"                              = ["mathit", "1"]
+"typewriter"                          = ["matttt", "1"]
+"blackboard"                          = ["mathbb", "1"]
+"fraktur"                             = ["mathfrak", "1"]
+"calligraphic"                        = ["mathcal", "1"]
+"formal script"                       = ["mathscr", "1"]
+"normal text mode"                    = ["textrm", "1"]
 #
 "real numbers"                        = "mathbb{R}"
 "complex numbers"                     = "mathbb{C}"
