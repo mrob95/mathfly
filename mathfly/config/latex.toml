@@ -61,6 +61,7 @@
 "mini page"                   = "minipage"
 "multi (cols | columns)"      = ["multicols", "{2}"]
 "multi line"                  = "multline"
+"proof"                       = "proof"
 "quotation"                   = "quotation"
 "quote"                       = "quote"
 "table"                       = ["table", "[h!]\n\\centering"]
