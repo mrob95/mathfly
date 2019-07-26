@@ -48,6 +48,7 @@
 "column"                      = ["column", "{0.5\\textwidth}"]
 "cases"                       = "cases"
 "display cases"               = "dcases"
+"definition"                  = "definition"
 "description"                 = "description"
 "document"                    = "document"
 "(enumerate | numbered list)" = "enumerate"
