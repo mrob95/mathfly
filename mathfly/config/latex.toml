@@ -66,6 +66,7 @@
 "long table"                  = ["longtable", "{lll}"]
 "tabular"                     = ["tabular", "{llll}"]
 "tabular X"                   = ["tabular X", "{l X}"]
+"theorem"                     = "theorem"
 "title page"                  = "titlepage"
 "verbatim"                    = "verbatim"
 "verse"                       = "verse"
