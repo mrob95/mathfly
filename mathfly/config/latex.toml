@@ -175,7 +175,9 @@
 "(parens | parentheses)"    = ["\\left(  \\right) ", "left:9"]
 "square brackets"           = ["\\left[  \\right] ", "left:9"]
 "(curly brackets | braces)" = ["\\left\\{  \\right\\} ", "left:9"]
-"cardinality bars"          = ["\\left|  \\right| ", "left:9"]
+"(cardinality bars | absolute value)" = ["\\left|  \\right| ", "left:9"]
+"floor"                     = ["\\left\\lfloor  \\right\\rfloor", "left:14"]
+"ceiling"                   = ["\\left\\lceil  \\right\\rceil", "left:13"]
 
 # if included, a number as the second element in a list
 # puts that number of curly braces after the command, e.g.
