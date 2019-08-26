@@ -326,6 +326,7 @@
 "dot"        = "dot"
 "ddot"       = "ddot"
 "hat"        = "hat"
+"over line"  = "overline"
 "wide hat"   = "widehat"
 "tilde"      = "tilde"
 "wide tilde" = "widetilde"
