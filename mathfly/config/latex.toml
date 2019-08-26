@@ -43,6 +43,7 @@
 [environments]
 "abstract"                    = "abstract"
 "add margin"                  = "addmargin"
+"align"                       = "align"
 "center"                      = "center"
 "columns"                     = "columns"
 "column"                      = ["column", "{0.5\\textwidth}"]
