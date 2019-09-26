@@ -11,7 +11,7 @@ from mathfly.imports import *
 BASE_PATH = os.path.realpath(__file__).split("\\_mathfly_main.py")[0].replace("\\", "/")
 sys.path.append(BASE_PATH)
 
-CORE = utilities.load_toml_relative("config/core.toml")
+CORE = utilities.load_config("core.toml")
 SETTINGS = utilities.load_toml_relative("config/settings.toml")
 
 

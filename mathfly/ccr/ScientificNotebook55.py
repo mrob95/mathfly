@@ -5,8 +5,8 @@ Created on Sep 4, 2018
 '''
 from mathfly.imports import *
 
-BINDINGS = utilities.load_toml_relative("config/ScientificNotebook55.toml")
-CORE = utilities.load_toml_relative("config/core.toml")
+BINDINGS = utilities.load_config("ScientificNotebook55.toml")
+CORE = utilities.load_config("core.toml")
 
 #------------------------------------------------
 
@@ -28,6 +28,7 @@ def matrix(rows, cols):
 #------------------------------------------------
 
 
+<<<<<<< HEAD
 Breathe.add_commands(
     AppContext(executable="scientific notebook"),
     {
@@ -36,6 +37,44 @@ Breathe.add_commands(
         "<control>": Key("%(control)s"),
     },
     [
+=======
+        "[<before>] <minmax> by <sequence1>":
+            [Key("f10, i, down:11, enter/25, b, enter") + Text("%(minmax)s") + Key("down"),
+            Key("right"), None],
+
+        "[<before>] <script1> <singleton1> [<after>]":
+            [Key("%(script1)s"), Key("right"), None],
+
+        "[<before>] <script1> <singleton1> <script2> <singleton2> [<after>]":
+            [Key("%(script1)s"), Key("right, %(script2)s"), Key("right")],
+
+    }
+    extras = [
+        Choice("minmax", {
+            "(minimum | minimises)": "min",
+            "(maximum | maximises)": "max",
+            }),
+        Choice("script1", {
+            "sub": "c-l",
+            "super": "c-h",
+            }),
+        Choice("script2", {
+            "sub": "c-l",
+            "super": "c-h",
+            }),
+    ]
+
+class sn_mathematicsNon(MergeRule):
+    mapping = {
+        "text <dict>":
+            Key("c-t") + Function(lambda dict: Text(str(dict).capitalize()).execute()),
+        "<control>":
+            Key("%(control)s"),
+    }
+    extras = [
+        Dictation("dict"),
+        IntegerRefMF("n", 1, 10),
+>>>>>>> Initial multilanguage support
         Choice("control", BINDINGS["control"]),
     ],
     ccr=False,
@@ -46,6 +85,7 @@ Breathe.add_commands(
     {
         BINDINGS["symbol_prefix"] + " <symbol>": TeX("%(symbol)s"),
         #
+<<<<<<< HEAD
         BINDINGS["greek_prefix"] + " [<big>] <greek_letter>": Function(greek),
         BINDINGS["accent_prefix"] + " <accent>": Key("%(accent)s"),
         BINDINGS["unit_prefix"] + " <units>": Alternating("units"),
@@ -159,3 +199,44 @@ Breathe.add_commands(
     ],
     top_level=True,
 )
+=======
+        BINDINGS["greek_prefix"] + " [<big>] <greek_letter>":
+            Function(greek),
+        BINDINGS["accent_prefix"] + " <accent>":
+            Key("%(accent)s"),
+
+        BINDINGS["unit_prefix"] + " <units>":
+            Alternating("units"),
+
+        "<misc_sn_keys>":
+            Key("%(misc_sn_keys)s"),
+        "<misc_sn_text>":
+            Text("%(misc_sn_text)s"),
+
+        "matrix <rows> by <cols>":
+            Function(matrix),
+
+        "<numbers> <denominator>":
+            Key("c-f") + Text("%(numbers)s") + Key("down") + Text("%(denominator)s") + Key("right"),
+    }
+
+    extras = [
+        IntegerRefMF("rows",    1, BINDINGS["max_matrix_size"]),
+        IntegerRefMF("cols",    1, BINDINGS["max_matrix_size"]),
+        IntegerRefMF("numbers", 0, CORE["numbers_max"]),
+        Choice("big",           {CORE["capitals_prefix"]: True}),
+        Choice("greek_letter",   BINDINGS["greek_letters"]),
+        Choice("units",          BINDINGS["units"]),
+        Choice("symbol",         BINDINGS["tex_symbols"]),
+        Choice("accent",         BINDINGS["accents"]),
+        Choice("misc_sn_keys",   BINDINGS["misc_sn_keys"]),
+        Choice("misc_sn_text",   BINDINGS["misc_sn_text"]),
+        Choice("denominator",    BINDINGS["denominators"]),
+    ]
+
+    defaults = {
+        "big": False,
+    }
+
+control.nexus().merger.add_app_rule(sn_mathematics())
+>>>>>>> Initial multilanguage support

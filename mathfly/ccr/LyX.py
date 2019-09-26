@@ -5,8 +5,8 @@ Created Jan 2019
 '''
 from mathfly.imports import *
 
-BINDINGS = utilities.load_toml_relative("config/lyx.toml")
-CORE     = utilities.load_toml_relative("config/core.toml")
+BINDINGS = utilities.load_config("lyx.toml")
+CORE     = utilities.load_config("core.toml")
 
 def greek(big, greek_letter):
     if big:

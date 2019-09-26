@@ -20,7 +20,7 @@ Breathe.add_commands(
 		"zoom out"            : Key("c-minus"),
 	},
 	extras = [
-		IntegerRef("n", 1, 1000),
+		IntegerRefMF("n", 1, 1000),
 		Choice("nth", {
 			"first"         : "1",
 			"second"        : "2",

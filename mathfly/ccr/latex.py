@@ -4,8 +4,8 @@ Created on Sep 4, 2018
 '''
 from mathfly.imports import *
 
-BINDINGS = utilities.load_toml_relative("config/latex.toml")
-CORE = utilities.load_toml_relative("config/core.toml")
+BINDINGS = utilities.load_config("latex.toml")
+CORE = utilities.load_config("core.toml")
 
 Breathe.add_commands(
     AppContext(title=BINDINGS["title_contexts"]) | CommandContext(BINDINGS["pronunciation"]),

@@ -8,7 +8,7 @@ class Text(TextBase):
 
 
 from mathfly.lib import utilities
-SETTINGS = utilities.load_toml_relative("config/settings.toml")
+SETTINGS = utilities.load_settings()
 # Override imported dragonfly actions with aenea's if the 'use_aenea' setting is set to true.
 if "use_aenea" in SETTINGS and SETTINGS["use_aenea"]:
     try:

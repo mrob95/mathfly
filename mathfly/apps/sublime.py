@@ -86,10 +86,10 @@ Breathe.add_commands(
         "zoom out [<n2>]":   Key("c-minus")*Repeat(extra="n2"),
     },
     extras = [
-        IntegerRef("n11", 1, 100),
-        IntegerRef("n12", 0, 100),
-        IntegerRef("n2", 1, 9),
-        IntegerRef("n3", 1, 21),
+        IntegerRefMF("n11", 1, 100),
+        IntegerRefMF("n12", 0, 100),
+        IntegerRefMF("n2", 1, 9),
+        IntegerRefMF("n3", 1, 21),
         Choice("nth", {
             "first": "1",
             "second": "2",

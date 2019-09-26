@@ -5,8 +5,8 @@ Created on Sep 4, 2018
 '''
 from mathfly.imports import *
 
-SETTINGS = utilities.load_toml_relative("config/settings.toml")
-CORE = utilities.load_toml_relative("config/core.toml")
+SETTINGS = utilities.load_settings()
+CORE = utilities.load_config("core.toml")
 
 _LETTERS, _DIRECTIONS = "letters", "directions"
 if SETTINGS["alternative_letters"]:
@@ -21,11 +21,13 @@ Breathe.add_commands(
     context=None,
     mapping = {
         "configure " + CORE["pronunciation"]:
-            Function(utilities.load_config, config_name="core.toml"),
+            Function(utilities.edit_config, config_name="core.toml"),
         "configure scientific notebook":
-            Function(utilities.load_config, config_name="ScientificNotebook55.toml"),
+            Function(utilities.edit_config, config_name="ScientificNotebook55.toml"),
         "configure (LyX | licks)":
-            Function(utilities.load_config, config_name="lyx.toml"),
+
+            Function(utilities.edit_config, config_name="lyx.toml"),
+
         "configure math fly [settings]":
             Function(utilities.load_config, config_name="settings.toml"),
 
