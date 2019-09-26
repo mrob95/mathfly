@@ -22,12 +22,18 @@ def delete_words(words):
         except:
             pass
 
+<<<<<<< HEAD
 def add_words(words):
     for word in words:
         try:
             natlink.addWord(word)
         except:
             pass
+=======
+	mapping = {
+        "configure math fly [settings]":
+            Function(utilities.edit_config, config_name="settings.toml"),
+>>>>>>> load to edit
 
 delete_words(SETTINGS["delete_words"])
 add_words(SETTINGS["add_words"])
