@@ -4,6 +4,7 @@ from mathfly.imports import *
 
 from dragonfly import Dictation, MappingRule, Choice, Function, ContextAction, Repetition, Compound
 from dragonfly import Repeat, Playback, Mimic, Window, Clipboard, IntegerRef, ShortIntegerRef
+from dragonfly import DictList, DictListRef
 
 from breathe import Breathe, CommandContext, CommandsRef, Exec
 

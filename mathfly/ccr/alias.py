@@ -1,36 +1,29 @@
 from mathfly.imports import *
 
-MF_NEXUS = control.nexus()
+# aliases = utilities.load_toml_relative("config/aliases.toml")
 
-class Alias(SelfModifyingRule):
-    mapping = {"default command": ""}
-    key = "aliases"
-    pronunciation = "alias"
+aliases = DictList("aliases")
 
-    def delete_all(self, key):
-        utilities.save_toml_relative({}, "config/aliases.toml")
-        self.refresh()
+def add_alias(spec):
+    _, text = utilities.read_selected(True)
+    if text and spec:
+        aliases[spec] = text
 
-    def alias(self, spec):
-        spec = str(spec)
-        e, text = utilities.read_selected(True)
-        if spec and text:
-            self.refresh(spec, str(text))
+Breathe.add_commands(
+    None,
+    {
+        "alias <text>": lambda text: add_alias(text),
+        "delete aliases": lambda: aliases.clear()
+    },
+    ccr=False
+)
 
-    def refresh(self, *args):
-        '''args: spec, text'''
-        aliases = utilities.load_toml_relative("config/aliases.toml")
-        if not Alias.key in aliases:
-            aliases[Alias.key] = {}
-        if len(args) > 0:
-            aliases[Alias.key][args[0]] = args[1]
-            utilities.save_toml_relative(aliases, "config/aliases.toml")
-        mapping = {}
-        for spec in aliases[Alias.key]:
-            mapping[spec] = Function(utilities.paste_string,
-                    content=str(aliases[Alias.key][spec]))
-        mapping["alias <s>"] = Function(lambda s: self.alias(s))
-        mapping["delete aliases"] = Function(self.delete_all, key=Alias.key)
-        self.reset(mapping)
-
-control.nexus().merger.add_selfmodrule(Alias())
+Breathe.add_commands(
+    None,
+    {
+        "<alias>": Text("%(alias)s")
+    },
+    [
+        DictListRef("alias", aliases),
+    ]
+)

@@ -46,5 +46,6 @@ Breathe.add_commands(
 			"eighth"        : "8",
 			"(last | final)": "9",
 			})
-	]
+	],
+	ccr=False
 )

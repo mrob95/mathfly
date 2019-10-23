@@ -10,4 +10,5 @@ Breathe.add_commands(
 		"page down [<n>]"     : Key("c-pagedown:%(n)s"),
 		"page up [<n>]"       : Key("c-pageup:%(n)s"),
 	},
+	ccr=False
 )
