@@ -15,11 +15,10 @@ if SETTINGS["alternative_directions"]:
 	_DIRECTIONS += "_alt"
 
 def alphabet(big, letter):
-	if big:
-		letter = letter.upper()
-	Key(letter).execute()
+	Key(letter.upper() if big else letter).execute()
 
-class coreNon(MergeRule):
+Breathe.add_commands(
+    context=None,
     mapping = {
         "configure " + CORE["pronunciation"]:
             Function(utilities.load_config, config_name="core.toml"),
@@ -32,21 +31,16 @@ class coreNon(MergeRule):
             Key("%(noCCR_repeatable_key)s")*Repeat(extra="n"),
         "<noCCR_non_repeatable_key>":
             Key("%(noCCR_non_repeatable_key)s"),
-    }
+    },
     extras = [
-        IntegerRef("n", 1, 10),
         Choice("noCCR_repeatable_key", CORE["noCCR_repeatable_keys"]),
         Choice("noCCR_non_repeatable_key", CORE["noCCR_non_repeatable_keys"]),
-    ]
-    defaults = {
-        "n": 1,
-    }
+    ],
+    ccr=False
+)
 
-class core(MergeRule):
-    non = coreNon
-
-    pronunciation = CORE["pronunciation"]
-
+Breathe.add_commands(
+    context=None,
     mapping = {
     	"[<big>] <letter>":
             Function(alphabet),
@@ -67,31 +61,17 @@ class core(MergeRule):
 
         "shift click":
             Key("shift:down") + Mouse("left") + Key("shift:up"),
-    	}
-
+    },
     extras = [
-        Dictation("text"),
-    	IntegerRef("n", 1, 10),
-        IntegerRef("n50", 1, 50),
+        IntegerRef("n50", 1, 50, 1),
         IntegerRefMF("numbers", 0,   CORE["numbers_max"]),
-        Choice("big",               {CORE["capitals_prefix"]: True}),
+        Choice("big",               {CORE["capitals_prefix"]: True}, default=False),
+        Choice("extreme",           {CORE["extreme"]: True}, default=False),
     	Choice("letter",             CORE[_LETTERS]),
     	Choice("punctuation",        CORE["punctuation"]),
     	Choice("repeatable_key",     CORE["repeatable_keys"]),
     	Choice("non_repeatable_key", CORE["non_repeatable_keys"]),
-    	Choice("direction",          CORE[_DIRECTIONS]),
-    	Choice("modifier",           CORE["modifiers"]),
-        Choice("extreme",           {CORE["extreme"]: True}),
-    ]
-
-    defaults = {
-        "big"      : False,
-        "extreme"  : False,
-        "n"        : 1,
-        "n50"      : 1,
-        "direction": "left",
-        "modifier" : "",
-    }
-
-
-control.nexus().merger.add_global_rule(core())
+    	Choice("direction",          CORE[_DIRECTIONS], default="left"),
+    	Choice("modifier",           CORE["modifiers"], default=""),
+    ],
+)
