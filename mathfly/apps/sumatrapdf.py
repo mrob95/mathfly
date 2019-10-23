@@ -1,9 +1,7 @@
 from mathfly.imports import *
 
-class SumatraPDFRule(MergeRule):
-	pronunciation = "SumatraPDF"
-	mcontext = AppContext(title="SumatraPDF")
-
+Breathe.add_commands(
+	AppContext(title="SumatraPDF"),
 	mapping = {
 		# https://www.sumatrapdfreader.org/manual.html
 		"open file"           : Key("c-o"),
@@ -18,7 +16,7 @@ class SumatraPDFRule(MergeRule):
 		"find"                : Key("c-f"),
 		"find next"           : Key("f3"),
 		"find previous"       : Key("s-f3"),
-		"page <n>"            : Key("c-g") + Text("%(n)s") + Key("enter"),
+		"page <n1000>"        : Key("c-g") + Text("%(n1000)s") + Key("enter"),
 		"table of contents"   : Key("f12"),
 
 		"zoom in"             : Key("c-equals"),
@@ -34,10 +32,9 @@ class SumatraPDFRule(MergeRule):
 		"rotate left"         : Key("c-minus"),
 		"presentation [mode]" : Key("f11"),
 		"full screen"         : Key("s-f11"),
-	}
-
+	},
 	extras = [
-		IntegerRef("n", 1, 1000),
+		IntegerRef("n1000", 1, 1000),
 		Choice("nth", {
 			"first"         : "1",
 			"second"        : "2",
@@ -50,9 +47,4 @@ class SumatraPDFRule(MergeRule):
 			"(last | final)": "9",
 			})
 	]
-
-	defaults = {
-		"n": 1,
-	}
-
-control.nexus().merger.add_non_ccr_app_rule(SumatraPDFRule())
+)

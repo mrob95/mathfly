@@ -7,7 +7,8 @@ from mathfly.imports import *
 BINDINGS = utilities.load_toml_relative("config/latex.toml")
 CORE = utilities.load_toml_relative("config/core.toml")
 
-class LaTeXNon(MergeRule):
+Breathe.add_commands(
+    AppContext(title=".tex"),
     mapping = {
         "configure " + BINDINGS["pronunciation"]:
             Function(utilities.load_config, config_name="latex.toml"),
@@ -20,7 +21,7 @@ class LaTeXNon(MergeRule):
 
         BINDINGS["template_prefix"] + " <template>":
             Function(execution.template),
-    }
+    },
     extras = [
         Choice("ref_type", {
                 "book": "book",
@@ -28,13 +29,12 @@ class LaTeXNon(MergeRule):
                 "paper": "paper",
                 }),
         Choice("template", BINDINGS["templates"]),
-    ]
+    ],
+    ccr=False
+)
 
-class LaTeX(MergeRule):
-    non = LaTeXNon
-
-    pronunciation = BINDINGS["pronunciation"]
-
+Breathe.add_commands(
+    AppContext(title=".tex"),
     mapping = {
         "insert comment":  Text("% "),
 
@@ -73,13 +73,11 @@ class LaTeX(MergeRule):
         BINDINGS["command_prefix"] + " quote":
             Function(tex_funcs.quote),
         #
-
-    }
-
+    },
     extras = [
-        Choice("big",        {CORE["capitals_prefix"]: True}),
-        Choice("packopts",    BINDINGS["packages"]),
-        Choice("doc_class",   BINDINGS["document_classes"]),
+        Choice("big",        {CORE["capitals_prefix"]: True}, default=False),
+        Choice("packopts",    BINDINGS["packages"], default=""),
+        Choice("doc_class",   BINDINGS["document_classes"], default=""),
         Choice("greek_letter",BINDINGS["greek_letters"]),
         Choice("symbol",      BINDINGS["symbols"]),
         Choice("misc_symbol", BINDINGS["misc_symbols"]),
@@ -89,12 +87,5 @@ class LaTeX(MergeRule):
         Choice("commandnoarg",BINDINGS["commandnoarg"]),
         Choice("commandmisc", BINDINGS["commandmisc"]),
         Choice("environment", BINDINGS["environments"]),
-        ]
-    defaults = {
-        "big"      : False,
-        "packopts" : "",
-        "doc_class": "",
-    }
-
-
-control.nexus().merger.add_global_rule(LaTeX())
+    ]
+)

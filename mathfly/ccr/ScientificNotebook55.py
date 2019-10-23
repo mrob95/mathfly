@@ -34,7 +34,6 @@ Breathe.add_commands(
         "text <text>": Key("c-t")
         + Function(lambda text: Text(text.capitalize()).execute()),
         "<control>": Key("%(control)s"),
-        ),
     },
     [
         Choice("control", BINDINGS["control"]),

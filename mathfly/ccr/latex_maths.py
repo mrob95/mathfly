@@ -16,23 +16,17 @@ def symbol(symbol):
         Text("{}"*int(symbol[1])).execute()
         Key("left:" + str(2*int(symbol[1])-1)).execute()
 
-class LaTeXmath(MergeRule):
-    pronunciation = BINDINGS["pronunciation"]  +  " maths"
-
+Breathe.add_commands(
+    AppContext(title=".tex") & CommandContext(BINDINGS["pronunciation"] + " maths"),
     mapping = {
         "<numbers>": Text("%(numbers)s"),
         "<symbol>":  Function(symbol),
         "<misc_symbol>":
             Alternating("misc_symbol"),
-    }
-
+    },
     extras = [
         IntegerRef("numbers", 0, CORE["numbers_max"]),
         Choice("symbol", BINDINGS["symbols"]),
         Choice("misc_symbol", BINDINGS["misc_symbols"]),
-        ]
-    defaults = {
-    }
-
-
-control.nexus().merger.add_global_rule(LaTeXmath())
+    ]
+)
