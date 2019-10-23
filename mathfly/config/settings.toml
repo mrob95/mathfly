@@ -1,4 +1,4 @@
-language = "nld" # Supported languages: eng,
+language = "nld" # Supported languages: eng, nld
 ccr_path = "config/ccr.toml"
 dragon_path = "C:/Program Files (x86)/Nuance/NaturallySpeaking15/Program/natspeak.exe"
 editor_path = "C:/Program Files/Windows NT/Accessories/wordpad.exe"

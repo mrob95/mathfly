@@ -17,7 +17,7 @@ Breathe.add_commands(
             Function(tex_funcs.selection_to_bib, bib_path=BINDINGS["bibliography_path"]),
 
         "(open | edit) bibliography":
-            Function(utilities.load_text_file, path=BINDINGS["bibliography_path"]),
+            Function(utilities.edit_text_file, path=BINDINGS["bibliography_path"]),
 
         BINDINGS["template_prefix"] + " <template>":
             Function(execution.template),

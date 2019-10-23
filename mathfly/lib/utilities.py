@@ -77,34 +77,36 @@ def paste_string(content):
 
 SETTINGS = load_toml_relative("config/settings.toml")
 
-def load_config(fname):
+def load_settings():
+    return load_toml_relative("config/settings.toml")
+
+def get_config_location(fname):
     base_directory = "config/"
     lang = SETTINGS["language"]
     lang_file_location = base_directory + lang + "/" + fname
     if lang != "eng" and os.path.exists(get_full_path(lang_file_location)):
         # E.g. lang is nld and config/nld/lyx.toml exists
         print("loading %s" % lang_file_location)
-        return load_toml_relative(lang_file_location)
+        return lang_file_location
     else:
-        return load_toml_relative(base_directory + fname)
+        return base_directory + fname
 
-def load_settings():
-    return SETTINGS
+def load_config(fname):
+    path = get_config_location(fname)
+    return load_toml_relative(path)
 
-def reboot():
-    Popen([BASE_PATH + "/config/bin/reboot.bat", SETTINGS["dragon_path"]])
-
-def edit_config(config_name):
-    parameters = []
-    parameters.append(SETTINGS["editor_path"])
-    parameters.append(get_full_path("config/" + config_name))
-    Popen(parameters)
-
-def load_text_file(path):
+def edit_text_file(path):
     parameters = []
     parameters.append(SETTINGS["editor_path"])
     parameters.append(path)
     Popen(parameters)
+
+def edit_config(fname):
+    path = get_config_location(fname)
+    edit_text_file(path)
+
+def reboot():
+    Popen([BASE_PATH + "/config/bin/reboot.bat", SETTINGS["dragon_path"]])
 
 def help():
     print(get_full_path("docs"))

@@ -21,12 +21,11 @@ Breathe.add_commands(
     context=None,
     mapping = {
         "configure " + CORE["pronunciation"]:
-            Function(utilities.edit_config, config_name="core.toml"),
+            Function(utilities.edit_config, fname="core.toml"),
         "configure scientific notebook":
-            Function(utilities.edit_config, config_name="ScientificNotebook55.toml"),
+            Function(utilities.edit_config, fname="ScientificNotebook55.toml"),
         "configure (LyX | licks)":
-
-            Function(utilities.edit_config, config_name="lyx.toml"),
+            Function(utilities.edit_config, fname="lyx.toml"),
 
         "configure math fly [settings]":
             Function(utilities.load_config, config_name="settings.toml"),

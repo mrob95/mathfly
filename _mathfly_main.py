@@ -3,7 +3,6 @@ os.environ['BREATHE_REBUILD_COMMAND'] = "rebuild mathfly"
 
 
 import logging
-import natlink
 logging.basicConfig()
 
 from mathfly.imports import *
@@ -11,6 +10,7 @@ from mathfly.imports import *
 BASE_PATH = os.path.realpath(__file__).split("\\_mathfly_main.py")[0].replace("\\", "/")
 sys.path.append(BASE_PATH)
 
+<<<<<<< HEAD
 CORE = utilities.load_config("core.toml")
 SETTINGS = utilities.load_toml_relative("config/settings.toml")
 
@@ -22,18 +22,12 @@ def delete_words(words):
         except:
             pass
 
-<<<<<<< HEAD
 def add_words(words):
     for word in words:
         try:
             natlink.addWord(word)
         except:
             pass
-=======
-	mapping = {
-        "configure math fly [settings]":
-            Function(utilities.edit_config, config_name="settings.toml"),
->>>>>>> load to edit
 
 delete_words(SETTINGS["delete_words"])
 add_words(SETTINGS["add_words"])
