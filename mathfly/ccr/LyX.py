@@ -49,7 +49,7 @@ Breathe.add_commands(
     [
         IntegerRef("rows", 1, BINDINGS["max_matrix_size"]),
         IntegerRef("cols", 1, BINDINGS["max_matrix_size"]),
-        IntegerRef("numbers", 0, CORE["numbers_max"]),
+        IntegerRefMF("numbers", 0, CORE["numbers_max"]),
         Choice("big", {CORE["capitals_prefix"]: True}, default=False),
         Choice("greek_letter", BINDINGS["greek_letters"]),
         Choice("symbol1", BINDINGS["tex_symbols1"]),

@@ -1,3 +1,7 @@
+import os
+os.environ['BREATHE_REBUILD_COMMAND'] = "rebuild mathfly"
+
+
 import logging
 import natlink
 logging.basicConfig()
@@ -10,9 +14,28 @@ sys.path.append(BASE_PATH)
 CORE = utilities.load_toml_relative("config/core.toml")
 SETTINGS = utilities.load_toml_relative("config/settings.toml")
 
-Breathe.add_global_extras(
-    Dictation("text", default=""),
-    IntegerRef("n", 1, 20, 1)
+
+def delete_words(words):
+    for word in words:
+        try:
+            natlink.deleteWord(word)
+        except:
+            pass
+
+def add_words(words):
+    for word in words:
+        try:
+            natlink.addWord(word)
+        except:
+            pass
+
+delete_words(SETTINGS["delete_words"])
+add_words(SETTINGS["add_words"])
+
+Breathe.load_modules(
+    {
+        "mathfly.ccr": "global_extras"
+    }
 )
 
 Breathe.load_modules(
@@ -21,15 +44,4 @@ Breathe.load_modules(
     }
 )
 
-Breathe.add_commands(
-    None,
-	mapping = {
-        "configure math fly [settings]":
-            Function(utilities.load_config, config_name="settings.toml"),
-
-        "reboot dragon": Function(utilities.reboot),
-
-        "math fly help": Function(utilities.help),
-	},
-    ccr=False
-)
+print("*- Starting Mathfly -*")

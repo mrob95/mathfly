@@ -2,7 +2,6 @@ ccr_path = "config/ccr.toml"
 dragon_path = "C:/Program Files (x86)/Nuance/NaturallySpeaking15/Program/natspeak.exe"
 editor_path = "C:/Program Files/Windows NT/Accessories/wordpad.exe"
 # editor_path = "C:/Program Files/Sublime Text 3/sublime_text.exe"
-
 alternative_letters = false
 alternative_directions = false
 use_aenea = false

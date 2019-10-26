@@ -25,7 +25,7 @@ Breathe.add_commands(
             Alternating("misc_symbol"),
     },
     extras = [
-        IntegerRef("numbers", 0, CORE["numbers_max"]),
+        IntegerRefMF("numbers", 0, CORE["numbers_max"]),
         Choice("symbol", BINDINGS["symbols"]),
         Choice("misc_symbol", BINDINGS["misc_symbols"]),
     ]

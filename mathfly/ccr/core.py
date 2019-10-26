@@ -26,6 +26,12 @@ Breathe.add_commands(
             Function(utilities.load_config, config_name="ScientificNotebook55.toml"),
         "configure (LyX | licks)":
             Function(utilities.load_config, config_name="lyx.toml"),
+        "configure math fly [settings]":
+            Function(utilities.load_config, config_name="settings.toml"),
+
+        "reboot dragon": Function(utilities.reboot),
+
+        "math fly help": Function(utilities.help),
 
         "<noCCR_repeatable_key> [<n>]":
             Key("%(noCCR_repeatable_key)s")*Repeat(extra="n"),
