@@ -24,15 +24,14 @@ Breathe.add_commands(
     {
         "alias <text>": lambda text: add_alias(text),
         "delete all aliases": delete_aliases,
-        "delete alias <alias>": delete_alias,
     },
-    [DictListRef("alias", aliases),],
     ccr=False
 )
 
 Breathe.add_commands(
     None,
     {
+        "delete alias <alias>": delete_alias,
         "<alias>": Text("%(alias)s")
     },
     [

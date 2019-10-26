@@ -45,3 +45,5 @@ Breathe.load_modules(
 )
 
 print("*- Starting Mathfly -*")
+
+del os.environ['BREATHE_REBUILD_COMMAND']
