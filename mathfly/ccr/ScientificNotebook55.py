@@ -78,71 +78,41 @@ Breathe.add_commands(
 Breathe.add_commands(
     AppContext(executable="scientific notebook"),
     {
-        "[<before>] integral from <sequence1> to <sequence2>": Exec("before")
-        + TeX("int")
-        + Key("c-l")
-        + Exec("sequence1")
-        + Key("right, c-h")
-        + Exec("sequence2")
-        + Key("right"),
-        "[<before>] definite from <sequence1> to <sequence2>": Exec("before")
-        + Key("c-6, right, c-l")
-        + Exec("sequence1")
-        + Key("right, c-h")
-        + Exec("sequence2")
-        + Key("right, c-left, left"),
-        "[<before>] differential <sequence1> by <sequence2>": Exec("before")
-        + Key("c-f")
-        + TeX("partial")
-        + Exec("sequence1")
-        + Key("down")
-        + TeX("partial")
-        + Exec("sequence2")
-        + Key("right"),
-        "[<before>] sum from <sequence1> to <sequence2>": Exec("before")
-        + Key(
-            "f10, i, down:11, enter/25, a, enter, f10, i, down:11, enter/25, b, enter"
-        )
-        + TeX("sum")
-        + Key("down")
-        + Exec("sequence1")
-        + Key("up:2")
-        + Exec("sequence2")
-        + Key("right"),
-        "[<before>] limit from <sequence1> to <sequence2>": Exec("before")
-        + Key("f10, i, down:11, enter/25, b, enter")
-        + TeX("lim")
-        + Key("down")
-        + Exec("sequence1")
-        + TeX("rightarrow")
-        + Exec("sequence2")
-        + Key("right"),
-        "[<before>] argument that <minmax> <sequence1>": Exec("before")
-        + Key("f10, i, down:11, enter/25, b, enter")
-        + Text("arg%(minmax)s")
-        + Key("down")
-        + Exec("sequence1")
-        + Key("right"),
-        "[<before>] <minmax> by <sequence1>": Exec("before")
-        + Key("f10, i, down:11, enter/25, b, enter")
-        + Text("%(minmax)s")
-        + Key("down")
-        + Exec("sequence1")
-        + Key("right"),
-        "[<before>] <script1> <singleton1> [<after>]": Exec("before")
-        + Key("%(script1)s")
-        + Exec("singleton1")
-        + Key("right")
-        + Exec("after"),
-        "[<before>] <script1> <singleton1> <script2> <singleton2> [<after>]": Exec(
-            "before"
-        )
-        + Key("%(script1)s")
-        + Exec("singleton1")
-        + Key("right, %(script2)s")
-        + Exec("singleton2")
-        + Key("right")
-        + Exec("after"),
+        "[<before>] integral from <sequence1> to <sequence2>":
+            Exec("before") + TeX("int") + Key("c-l") + Exec("sequence1")
+            + Key("right, c-h") + Exec("sequence2") + Key("right"),
+
+        "[<before>] definite from <sequence1> to <sequence2>":
+            Exec("before") + Key("c-6, right, c-l") + Exec("sequence1")
+            + Key("right, c-h") + Exec("sequence2") + Key("right, c-left, left"),
+
+        "[<before>] differential <sequence1> by <sequence2>":
+            Exec("before") + Key("c-f") + TeX("partial") + Exec("sequence1")
+            + Key("down") + TeX("partial") + Exec("sequence2") + Key("right"),
+
+        "[<before>] sum from <sequence1> to <sequence2>":
+            Exec("before") + Key("f10, i, down:11, enter/25, a, enter, f10, i, down:11, enter/25, b, enter")
+            + TeX("sum") + Key("down") + Exec("sequence1") + Key("up:2") + Exec("sequence2") + Key("right"),
+
+        "[<before>] limit from <sequence1> to <sequence2>":
+            Exec("before") + Key("f10, i, down:11, enter/25, b, enter")
+            + TeX("lim") + Key("down") + Exec("sequence1") + TeX("rightarrow")
+            + Exec("sequence2") + Key("right"),
+
+        "[<before>] argument that <minmax> <sequence1>":
+            Exec("before") + Key("f10, i, down:11, enter/25, b, enter")
+            + Text("arg%(minmax)s") + Key("down") + Exec("sequence1") + Key("right"),
+
+        "[<before>] <minmax> by <sequence1>":
+            Exec("before") + Key("f10, i, down:11, enter/25, b, enter")
+            + Text("%(minmax)s") + Key("down") + Exec("sequence1") + Key("right"),
+
+        "[<before>] <script1> <singleton1> [<after>]":
+            Exec("before") + Key("%(script1)s") + Exec("singleton1") + Key("right") + Exec("after"),
+
+        "[<before>] <script1> <singleton1> <script2> <singleton2> [<after>]":
+            Exec("before") + Key("%(script1)s") + Exec("singleton1")
+            + Key("right, %(script2)s") + Exec("singleton2") + Key("right") + Exec("after"),
     },
     [
         Choice(

@@ -66,64 +66,41 @@ Breathe.add_commands(
 Breathe.add_commands(
     AppContext(executable="lyx.exe"),
     {
-        "[<before>] integral from <sequence1> to <sequence2>": Exec("before")
-        + Text("\\int _")
-        + Exec("sequence1")
-        + Key("right, caret")
-        + Exec("sequence2")
-        + Key("right"),
-        "[<before>] definite from <sequence1> to <sequence2>": Exec("before")
-        + Key("a-m, lbracket, right, underscore")
-        + Exec("sequence1")
-        + Key("right, caret")
-        + Exec("sequence2")
-        + Key("right, left:2"),
-        "[<before>] differential <sequence1> by <sequence2>": Exec("before")
-        + Key("a-m, f, d")
-        + Exec("sequence1")
-        + Key("down, d")
-        + Exec("sequence2")
-        + Key("right"),
-        "[<before>] sum from <sequence1> to <sequence2>": Exec("before")
-        + Text("\\stackrelthree ")
-        + Key("down")
-        + Text("\\sum ")
-        + Key("down")
-        + Exec("sequence1")
-        + Key("up:2")
-        + Exec("sequence2")
-        + Key("right"),
-        "[<before>] limit from <sequence1> to <sequence2>": Exec("before")
-        + Text("\\underset \\lim ")
-        + Key("down")
-        + Exec("sequence1")
-        + Text("\\rightarrow ")
-        + Exec("sequence2")
-        + Key("right"),
-        "[<before>] argument that <minmax> <sequence1>": Exec("before")
-        + Text("\\underset \\arg \\%(minmax)s ")
-        + Key("down")
-        + Exec("sequence1")
-        + Key("right"),
-        "[<before>] <minmax> by <sequence1>": Exec("before")
-        + Text("\\underset \\%(minmax)s ")
-        + Key("down")
-        + Exec("sequence1")
-        + Key("right"),
-        "[<before>] <script1> <singleton1> [<after>]": Exec("before")
-        + Key("%(script1)s")
-        + Exec("singleton1")
-        + Key("right")
-        + Exec("after"),
-        "[<before>] <script1> <singleton1> <script2> <singleton2> [<after>]": Exec(
-            "before"
-        )
-        + Key("%(script1)s")
-        + Exec("singleton1")
-        + Key("right, %(script2)s")
-        + Exec("singleton2")
-        + Key("right")
-        + Exec("after"),
+        "[<before>] integral from <sequence1> to <sequence2>":
+            Exec("before") + Text("\\int _") + Exec("sequence1")
+            + Key("right, caret") + Exec("sequence2") + Key("right"),
+
+        "[<before>] definite from <sequence1> to <sequence2>":
+            Exec("before") + Key("a-m, lbracket, right, underscore")
+            + Exec("sequence1") + Key("right, caret") + Exec("sequence2") + Key("right, left:2"),
+
+        "[<before>] differential <sequence1> by <sequence2>":
+            Exec("before") + Key("a-m, f, d") + Exec("sequence1")
+            + Key("down, d") + Exec("sequence2") + Key("right"),
+
+        "[<before>] sum from <sequence1> to <sequence2>":
+            Exec("before") + Text("\\stackrelthree ") + Key("down")
+            + Text("\\sum ") + Key("down") + Exec("sequence1") + Key("up:2")
+            + Exec("sequence2") + Key("right"),
+
+        "[<before>] limit from <sequence1> to <sequence2>":
+            Exec("before") + Text("\\underset \\lim ") + Key("down")
+            + Exec("sequence1") + Text("\\rightarrow ") + Exec("sequence2") + Key("right"),
+
+        "[<before>] argument that <minmax> <sequence1>":
+            Exec("before") + Text("\\underset \\arg \\%(minmax)s ")
+            + Key("down") + Exec("sequence1") + Key("right"),
+
+        "[<before>] <minmax> by <sequence1>":
+            Exec("before") + Text("\\underset \\%(minmax)s ")
+            + Key("down") + Exec("sequence1") + Key("right"),
+
+        "[<before>] <script1> <singleton1> [<after>]":
+            Exec("before") + Key("%(script1)s") + Exec("singleton1") + Key("right") + Exec("after"),
+
+        "[<before>] <script1> <singleton1> <script2> <singleton2> [<after>]":
+            Exec("before") + Key("%(script1)s") + Exec("singleton1")
+            + Key("right, %(script2)s") + Exec("singleton2") + Key("right") + Exec("after"),
     },
     extras=[
         Choice(
