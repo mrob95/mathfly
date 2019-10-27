@@ -17,7 +17,8 @@ def symbol(symbol):
         Key("left:" + str(2*int(symbol[1])-1)).execute()
 
 Breathe.add_commands(
-    AppContext(title=".tex") & CommandContext(BINDINGS["pronunciation"] + " maths"),
+    (AppContext(title=BINDINGS["title_contexts"]) | CommandContext(BINDINGS["pronunciation"]))
+    & CommandContext(BINDINGS["pronunciation"] + " maths"),
     mapping = {
         "<numbers>": Text("%(numbers)s"),
         "<symbol>":  Function(symbol),

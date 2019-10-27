@@ -8,7 +8,7 @@ BINDINGS = utilities.load_toml_relative("config/latex.toml")
 CORE = utilities.load_toml_relative("config/core.toml")
 
 Breathe.add_commands(
-    AppContext(title=".tex"),
+    AppContext(title=BINDINGS["title_contexts"]) | CommandContext(BINDINGS["pronunciation"]),
     mapping = {
         "configure " + BINDINGS["pronunciation"]:
             Function(utilities.load_config, config_name="latex.toml"),
@@ -34,7 +34,7 @@ Breathe.add_commands(
 )
 
 Breathe.add_commands(
-    AppContext(title=".tex"),
+    AppContext(title=BINDINGS["title_contexts"]) | CommandContext(BINDINGS["pronunciation"]),
     mapping = {
         "insert comment":  Text("% "),
 

@@ -1,6 +1,7 @@
 # Once you have finished making changes, use the "rebuild mathfly"
 # command to enact them.
 "pronunciation"      = "LaTeX"
+"title_contexts"     = [".tex"]
 # Insert your own .bib file here, e.g.
 # "bibliography_path" = "C:/Users/Mike/Documents/bibliography.bib"
 "bibliography_path"  = ""
