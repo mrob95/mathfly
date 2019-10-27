@@ -1,9 +1,7 @@
 from mathfly.imports import *
 
-class SublimeRule(MergeRule):
-    pronunciation = "sublime"
-    mcontext = AppContext(executable="sublime_text", title="Sublime Text")
-
+Breathe.add_commands(
+    context = AppContext(executable="sublime_text", title="Sublime Text"),
     mapping = {
         "new (file | pane)": Key("c-n"),
         # {"keys": ["ctrl+alt+n"], "command": "new_window"},
@@ -86,8 +84,7 @@ class SublimeRule(MergeRule):
 
         "zoom in [<n2>]":   Key("c-equal")*Repeat(extra="n2"),
         "zoom out [<n2>]":   Key("c-minus")*Repeat(extra="n2"),
-
-    }
+    },
     extras = [
         IntegerRef("n11", 1, 100),
         IntegerRef("n12", 0, 100),
@@ -117,14 +114,11 @@ class SublimeRule(MergeRule):
             "two": "2",
             "right": "2",
             }),
-    ]
+    ],
     defaults = {
         "n12": "",
         "n2": 1,
         "n3": 1,
-    }
-
-
-#---------------------------------------------------------------------------
-
-control.nexus().merger.add_non_ccr_app_rule(SublimeRule())
+    },
+    ccr=False
+)

@@ -24,7 +24,7 @@ ccr = [
 	"alias"
 	]
 apps = [
-	# "sublime",
+	"sublime",
 	"sumatrapdf",
 	"wordpad"
 	]

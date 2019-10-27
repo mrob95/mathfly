@@ -1,9 +1,7 @@
 from mathfly.imports import *
 
-class RuleNameRule(MergeRule):
-	pronunciation = "AppName"
-	mcontext = AppContext(title="AppName")
-
+Breathe.add_commands(
+	context = AppContext(title="AppName"),
 	mapping = {
 		"new file"            : Key("c-n"),
 		"open file"           : Key("c-o"),
@@ -20,8 +18,7 @@ class RuleNameRule(MergeRule):
 
 		"zoom in"             : Key("c-equals"),
 		"zoom out"            : Key("c-minus"),
-	}
-
+	},
 	extras = [
 		IntegerRef("n", 1, 1000),
 		Choice("nth", {
@@ -35,10 +32,9 @@ class RuleNameRule(MergeRule):
 			"eighth"        : "8",
 			"(last | final)": "9",
 			})
-	]
-
+	],
 	defaults = {
 		"n": 1,
-	}
-
-control.nexus().merger.add_non_ccr_app_rule(RuleNameRule())
+	},
+	ccr=False
+)
