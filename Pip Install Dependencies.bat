@@ -11,6 +11,7 @@ pip install -U dragonfly2
 pip install -U toml
 pip install -U beautifulsoup4
 pip install -U six
+pip install -U dfly-breathe
 
 echo ------------------------------------------
 echo Mathfly Dependencies Installation Complete
