@@ -14,11 +14,13 @@ if SETTINGS["alternative_letters"]:
 if SETTINGS["alternative_directions"]:
 	_DIRECTIONS += "_alt"
 
+core_context = CommandContext("mathfly", True)
+
 def alphabet(big, letter):
 	Key(letter.upper() if big else letter).execute()
 
 Breathe.add_commands(
-    context=None,
+    context=core_context,
     mapping = {
         "configure " + CORE["pronunciation"]:
             Function(utilities.load_config, config_name="core.toml"),
@@ -46,7 +48,7 @@ Breathe.add_commands(
 )
 
 Breathe.add_commands(
-    context=None,
+    context=core_context,
     mapping = {
     	"[<big>] <letter>":
             Function(alphabet),
