@@ -1,0 +1,9 @@
+wxpython
+pywin32
+setuptools
+future
+dragonfly2
+toml
+beautifulsoup4
+six
+dfly-breathe
