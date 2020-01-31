@@ -166,7 +166,7 @@
 
 
 [misc_symbols]
-"inline"                    = [" $$", "left"]
+"inline"                    = [" \\(\\)", "left:2"]
 "super [script]"            = ["^{}", "left"]
 "sub [script]"              = ["_{}", "left"]
 "squared"                   = "^{2} "
